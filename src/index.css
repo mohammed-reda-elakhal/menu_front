@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.swiper-pagination-bullet {
+    background-color: #3768e5 !important;
+    opacity: 0.5 !important;
+  }
+  
+  .swiper-pagination-bullet-active {
+    opacity: 1 !important;
+  }

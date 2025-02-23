@@ -1,0 +1,177 @@
+{
+        "_id": "6797b4ed52afc1917ea3c4fa",
+        "code_menu":"menu-",
+        "title": "Updated Menu",
+        "description": "Updated description",
+        "publier": true,
+        "business": {
+            "logo": {
+                "url": "https://example.com/sunrise-cafe-logo.png",
+                "publicId": "sunrise-cafe-logo"
+            },
+            "_id": "67917f53c35bef16b220b589",
+            "nom": "Sunrise Cafe",
+            "description": "A small, cozy coffee shop with a relaxed atmosphere",
+            "type": "679164d3bc8e32690e3b4696",
+            "customType": null,
+            "ville": "Casablanca",
+            "adress": "123 Coffee Street",
+            "tele": "0661234567",
+            "person": "67915dd939e14c57414e65a6",
+            "createdAt": "2025-01-22T23:29:23.109Z",
+            "updatedAt": "2025-01-22T23:29:23.109Z",
+            "__v": 0
+        },
+        "socialMediaVisible": false,
+        "active": false,
+        "createdAt": "2025-01-27T16:31:41.185Z",
+        "updatedAt": "2025-01-27T16:46:05.834Z",
+        "__v": 0,
+        "template": {
+            "_id": "6796e4b9018c9b2c42151148",
+            "nom": "Template Example",
+            "description": "This is a sample template.",
+            "publier": true,
+            "prix": 0,
+            "createdAt": "2025-01-27T01:43:21.539Z",
+            "updatedAt": "2025-01-27T01:43:21.539Z",
+            "__v": 0
+        },
+        "categories": [
+            {
+                "_id": "6797ba78b59a48738ce68831",
+                "nom": "Category 1",
+                "description": "Description for category 1",
+                "menu": "6797b4ed52afc1917ea3c4fa",
+                "createdAt": "2025-01-27T16:55:20.911Z",
+                "updatedAt": "2025-01-27T16:55:20.911Z",
+                "__v": 0,
+                "produits": [
+                    {
+                        "image": {
+                            "url": "http://example.com/image.jpg",
+                            "publicId": "image123"
+                        },
+                        "_id": "6797bf8e8bd63d28d8fcf5c4",
+                        "nom": "Produit 1",
+                        "description": "This is a sample produit.",
+                        "prix": 100,
+                        "promo_prix": 80,
+                        "composant": [
+                            "composant1",
+                            "composant2"
+                        ],
+                        "visible": false,
+                        "review": 0,
+                        "categorie": "6797ba78b59a48738ce68831",
+                        "createdAt": "2025-01-27T17:17:02.305Z",
+                        "updatedAt": "2025-01-27T17:23:34.617Z",
+                        "__v": 0
+                    },
+                    {
+                        "image": {
+                            "url": "http://example.com/image.jpg",
+                            "publicId": "image123"
+                        },
+                        "_id": "6797bf968bd63d28d8fcf5c6",
+                        "nom": "Produit 2",
+                        "description": "This is a sample produit.2",
+                        "prix": 100,
+                        "promo_prix": 80,
+                        "composant": [
+                            "composant1",
+                            "composant2"
+                        ],
+                        "visible": true,
+                        "review": 0,
+                        "categorie": "6797ba78b59a48738ce68831",
+                        "createdAt": "2025-01-27T17:17:10.939Z",
+                        "updatedAt": "2025-01-27T17:17:10.939Z",
+                        "__v": 0
+                    },
+                    {
+                        "image": {
+                            "url": "http://example.com/image.jpg",
+                            "publicId": "image123"
+                        },
+                        "_id": "6797bfa38bd63d28d8fcf5c8",
+                        "nom": "Produit 3",
+                        "description": "This is a sample produit.3",
+                        "prix": 100,
+                        "promo_prix": 80,
+                        "composant": [
+                            "composant1",
+                            "composant2"
+                        ],
+                        "visible": true,
+                        "review": 0,
+                        "categorie": "6797ba78b59a48738ce68831",
+                        "createdAt": "2025-01-27T17:17:23.323Z",
+                        "updatedAt": "2025-01-27T17:17:23.323Z",
+                        "__v": 0
+                    }
+                ]
+            },
+            {
+                "_id": "6797ba81b59a48738ce68833",
+                "nom": "Category 2",
+                "description": "Description for category 2",
+                "menu": "6797b4ed52afc1917ea3c4fa",
+                "createdAt": "2025-01-27T16:55:29.739Z",
+                "updatedAt": "2025-01-27T16:55:29.739Z",
+                "__v": 0,
+                "produits": [
+                    {
+                        "image": {
+                            "url": "http://example.com/image.jpg",
+                            "publicId": "image123"
+                        },
+                        "_id": "6797bfd98bd63d28d8fcf5ca",
+                        "nom": "Produit 1",
+                        "description": "This is a sample produit.",
+                        "prix": 60,
+                        "composant": [
+                            "composant1",
+                            "composant2"
+                        ],
+                        "visible": true,
+                        "review": 0,
+                        "categorie": "6797ba81b59a48738ce68833",
+                        "createdAt": "2025-01-27T17:18:17.877Z",
+                        "updatedAt": "2025-01-27T17:18:17.877Z",
+                        "__v": 0
+                    },
+                    {
+                        "image": {
+                            "url": "http://example.com/image.jpg",
+                            "publicId": "image123"
+                        },
+                        "_id": "6797bfdf8bd63d28d8fcf5cc",
+                        "nom": "Produit 2",
+                        "description": "This is a sample produit.",
+                        "prix": 60,
+                        "composant": [
+                            "composant1",
+                            "composant2"
+                        ],
+                        "visible": true,
+                        "review": 0,
+                        "categorie": "6797ba81b59a48738ce68833",
+                        "createdAt": "2025-01-27T17:18:23.097Z",
+                        "updatedAt": "2025-01-27T17:18:23.097Z",
+                        "__v": 0
+                    }
+                ]
+            },
+            {
+                "_id": "6797ba8bb59a48738ce68835",
+                "nom": "Category 3",
+                "description": "Description for category 3",
+                "menu": "6797b4ed52afc1917ea3c4fa",
+                "createdAt": "2025-01-27T16:55:39.452Z",
+                "updatedAt": "2025-01-27T16:55:39.452Z",
+                "__v": 0,
+                "produits": []
+            }
+        ]
+    }
