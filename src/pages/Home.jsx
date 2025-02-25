@@ -1,26 +1,31 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
-import About from '../components/About'
-import Features from '../components/Features'
-import Pricing from '../components/Pricing'
-import FAQ from '../components/FAQ'
-import Testimonials from '../components/Testimonials'
-import Contact from '../components/Contact'
-import Footer from '../components/Footer'
+import LoadingSpinner from '../components/LoadingSpinner'
+
+// Lazy load less important sections
+const About = React.lazy(() => import('../components/About'))
+const Features = React.lazy(() => import('../components/Features'))
+const Pricing = React.lazy(() => import('../components/Pricing'))
+const FAQ = React.lazy(() => import('../components/FAQ'))
+const Testimonials = React.lazy(() => import('../components/Testimonials'))
+const Contact = React.lazy(() => import('../components/Contact'))
+const Footer = React.lazy(() => import('../components/Footer'))
 
 function Home() {
   return (
     <div className="bg-secondary1">
-        <Header/>  
-        <Hero/> 
-        <About/>
-        <Features/>
-        <Pricing/>
-        <FAQ/>
-        <Testimonials/>
-        <Contact/>
-        <Footer/>
+      <Header />
+      <Hero />
+      <Suspense fallback={<LoadingSpinner />}>
+        <About />
+        <Features />
+        <Pricing />
+        <FAQ />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </Suspense>
     </div>
   )
 }

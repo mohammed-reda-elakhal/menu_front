@@ -1,22 +1,25 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Signup from "./pages/Singup";
-import { Suspense } from 'react';
-import './i18n';
+import React, { Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LoadingSpinner from './components/LoadingSpinner'
+import './i18n'
 
+// Lazy load pages
+const Home = React.lazy(() => import('./pages/Home'))
+const Login = React.lazy(() => import('./pages/Login'))
+const SignUp = React.lazy(() => import('./pages/Singup'))
 
-export default function App() {
+function App() {
   return (
-      <BrowserRouter>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login/>}/>
-        <Route path="signup" element={<Signup/>}/>
-        
-        
-      </Routes>
+    <BrowserRouter>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }
+
+export default App
