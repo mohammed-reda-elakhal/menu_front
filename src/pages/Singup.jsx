@@ -51,7 +51,7 @@ function Signup() {
 
   // Replace your existing form inputs with this
   const renderInputs = () => (
-    <div className="space-y-4">
+    <div className="space-y-2 sm:space-y-3 md:space-y-4">
       {inputFields.map((field, index) => (
         <motion.div
           key={field.id}
@@ -66,15 +66,15 @@ function Signup() {
             duration: 0.2
           }}
         >
-          <label className="text-gray_bg text-sm block mb-2">{field.label}</label>
+          <label className="text-gray_bg text-xs sm:text-sm block mb-1 sm:mb-1.5 md:mb-2">{field.label}</label>
           <div className="relative">
-            <field.icon className={`absolute left-3 top-1/2 -translate-y-1/2 transition-colors duration-300
-              ${focusedInput === field.id ? 'text-primary' : 'text-primary/50'}`} 
+            <field.icon className={`absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 transition-colors duration-300
+              text-base sm:text-lg md:text-xl ${focusedInput === field.id ? 'text-primary' : 'text-primary/50'}`} 
             />
             <input
               type={field.type}
-              className={`w-full bg-secondary1 border-2 rounded-xl px-10 py-3 
-                text-white transition-all duration-300
+              className={`w-full bg-secondary1 border-2 rounded-lg sm:rounded-xl px-8 sm:px-9 md:px-10 py-2 sm:py-2.5 md:py-3 
+                text-sm sm:text-base text-white transition-all duration-300
                 ${focusedInput === field.id 
                   ? 'border-primary shadow-lg shadow-primary/10' 
                   : 'border-primary/20'}`}
@@ -89,7 +89,7 @@ function Signup() {
                 className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors duration-300
                   ${focusedInput === 'password' ? 'text-primary' : 'text-primary/50'}`}
               >
-                {showPassword ? <FiEyeOff /> : <FiEye />}
+                {showPassword ? <FiEyeOff className="text-lg sm:text-xl" /> : <FiEye className="text-lg sm:text-xl" />}
               </button>
             )}
           </div>
@@ -100,18 +100,18 @@ function Signup() {
 
   return (
     <div className="min-h-screen bg-secondary1 flex relative">
-      {/* Language Selector - Fixed Position */}
-      <div className="fixed top-4 right-4 z-50">
+      {/* Language Selector */}
+      <div className="fixed top-2 right-2 z-50 sm:top-4 sm:right-4 md:top-6 md:right-6">
         <div className="relative">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowLangMenu(!showLangMenu)}
-            className="flex items-center space-x-2 bg-secondary1/80 backdrop-blur-sm px-4 py-2 rounded-lg 
+            className="flex items-center space-x-2 bg-secondary1/80 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg 
               border-2 border-primary/20 text-white hover:border-primary/40 transition-all"
           >
-            <span>{languages.find(lang => lang.code === i18n.language)?.flag}</span>
-            <FiGlobe className="w-5 h-5" />
+            <span className="text-sm sm:text-base">{languages.find(lang => lang.code === i18n.language)?.flag}</span>
+            <FiGlobe className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.button>
 
           <AnimatePresence>
@@ -142,9 +142,9 @@ function Signup() {
       </div>
 
       {/* Background Effects */}
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-primary/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+        <div className="absolute top-0 -left-4 w-24 h-24 sm:w-48 sm:h-48 md:w-72 md:h-72 bg-primary/10 rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px]" />
+        <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px]" />
       </div>
 
       {/* Decorative Section */}
@@ -152,7 +152,7 @@ function Signup() {
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="hidden lg:block lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-secondary1 via-secondary1/95 to-secondary1"
+        className="hidden lg:block lg:w-[45%] xl:w-1/2 relative overflow-hidden bg-gradient-to-br from-secondary1 via-secondary1/95 to-secondary1"
       >
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
@@ -275,12 +275,12 @@ function Signup() {
       </motion.div>
 
       {/* Form Section */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
+      <div className="w-full lg:w-[55%] xl:w-1/2 flex items-center justify-center px-3 py-4 sm:px-6 sm:py-6 md:px-8 md:py-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-md"
+          className="w-full max-w-[300px] xs:max-w-[340px] sm:max-w-[400px] md:max-w-[440px]"
         >
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary2/30 
@@ -290,35 +290,35 @@ function Signup() {
               initial={{ rotateX: -30 }}
               animate={{ rotateX: 0 }}
               transition={{ duration: 0.8, type: "spring" }}
-              className="relative bg-secondary1 p-8 rounded-2xl border border-primary/20 backdrop-blur-xl"
+              className="relative bg-secondary1 p-4 sm:p-6 md:p-8 rounded-2xl border border-primary/20 backdrop-blur-xl"
             >
               {/* Form Header */}
-              <div className="text-center mb-8">
+              <div className="text-center mb-4 sm:mb-6 md:mb-8">
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="flex justify-center mb-4"
+                  className="flex justify-center mb-2 sm:mb-3 md:mb-4"
                 >
                   <Link to="/" className="hover:opacity-80 transition-opacity">
                     <img 
                       src={logo} 
                       alt="Menuso Logo" 
-                      className="h-12 w-auto"
+                      className="h-8 sm:h-10 md:h-12 w-auto"
                     />
                   </Link>
                 </motion.div>
-                <h2 className="text-2xl font-bold text-white mb-2">{t('signup.title')}</h2>
-                <p className="text-gray_bg">{t('signup.subtitle')}</p>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2">{t('signup.title')}</h2>
+                <p className="text-xs sm:text-sm md:text-base text-gray_bg">{t('signup.subtitle')}</p>
               </div>
 
               {/* Signup Form */}
-              <form className="space-y-6">
+              <form className="space-y-5 sm:space-y-6">
                 {renderInputs()}
 
-                <div className="flex items-center">
-                  <input type="checkbox" className="mr-2 accent-primary" />
-                  <label className="text-sm text-gray_bg">
+                <div className="flex items-start sm:items-center">
+                  <input type="checkbox" className="mt-1 sm:mt-0 mr-2 accent-primary" />
+                  <label className="text-xs sm:text-sm text-gray_bg">
                     {t('signup.form.terms.text')}{' '}
                     <a href="#" className="text-primary hover:text-primary/80">
                       {t('signup.form.terms.termsLink')}
@@ -333,13 +333,13 @@ function Signup() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-primary hover:bg-secondary2 text-white rounded-xl py-3 
-                    font-semibold transition-all duration-300 shadow-lg hover:shadow-primary/25"
+                  className="w-full bg-primary hover:bg-secondary2 text-white rounded-lg sm:rounded-xl py-2 sm:py-2.5 md:py-3 
+                    text-sm sm:text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-primary/25"
                 >
                   {t('signup.form.submit')}
                 </motion.button>
 
-                <p className="text-center text-gray_bg text-sm">
+                <p className="text-center text-gray_bg text-xs sm:text-sm mt-3 sm:mt-4">
                   {t('signup.form.login.text')}{' '}
                   <Link to="/login" className="text-primary hover:text-primary/80 transition-colors font-semibold">
                     {t('signup.form.login.link')}

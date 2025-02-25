@@ -28,7 +28,7 @@ function Hero() {
   }
 
   return (
-    <div className="relative overflow-hidden bg-secondary1 pt-16 md:pt-20">
+    <div className="relative overflow-hidden bg-secondary1 pt-12 md:pt-16">
       {/* Optimized background elements */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-0 -left-4 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
@@ -60,16 +60,16 @@ function Hero() {
       </div>
 
       {/* Main content */}
-      <div className="relative min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-8 lg:py-12 max-w-6xl mx-auto">
+      <div className="relative min-h-[80vh] sm:min-h-[90vh] flex flex-col lg:flex-row items-center justify-between px-3 sm:px-6 lg:px-8 py-6 lg:py-12 max-w-6xl mx-auto">
         {/* Text content with optimized animations */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="lg:w-1/2 space-y-6 text-center lg:text-left z-10"
+          className="lg:w-1/2 space-y-4 sm:space-y-6 text-center lg:text-left z-10"
         >
           <motion.h1 
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -79,7 +79,7 @@ function Hero() {
           </motion.h1>
           
           <motion.p 
-            className="text-lg sm:text-xl text-gray_bg max-w-xl mx-auto lg:mx-0"
+            className="text-base sm:text-lg text-gray_bg max-w-xl mx-auto lg:mx-0 px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -90,7 +90,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start px-4 sm:px-0"
           >
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -118,7 +118,7 @@ function Hero() {
           transition={{ duration: 0.5 }}
           className="lg:w-1/2 mt-8 lg:mt-0 relative z-10"
         >
-          <div className="relative w-full max-w-[260px] sm:max-w-[300px] mx-auto">
+          <div className="relative w-full max-w-[220px] sm:max-w-[300px] mx-auto">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-secondary2/20 
               rounded-[2rem] blur-xl opacity-50" />
             

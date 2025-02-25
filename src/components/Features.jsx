@@ -35,18 +35,18 @@ function Features() {
   const { t } = useTranslation()
 
   return (
-    <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
+    <div className="bg-secondary1 py-12 sm:py-24 px-3 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             {t('features.title.powerful')} <span className="text-primary">{t('features.title.features')}</span>
           </h2>
-          <p className="text-gray_bg text-lg max-w-2xl mx-auto">
+          <p className="text-gray_bg text-base sm:text-lg max-w-2xl mx-auto px-2">
             {t('features.subtitle')}
           </p>
         </motion.div>
@@ -55,7 +55,7 @@ function Features() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
         >
           {features.map((feature, index) => (
             <motion.div
