@@ -16,16 +16,18 @@ function Home() {
   return (
     <div className="bg-secondary1">
       <Header />
-      <Hero />
-      <Suspense fallback={<LoadingSpinner />}>
-        <About />
-        <Features />
-        <Pricing />
-        <FAQ />
-        <Testimonials />
-        <Contact />
-        <Footer />
-      </Suspense>
+      <div className="pt-20"> {/* Added padding-top */}
+        <Hero />
+        <Suspense fallback={<LoadingSpinner />}>
+          <About />
+          <Features />
+          <Pricing />
+          <FAQ />
+          <Testimonials />
+          <Contact />
+          <Footer />
+        </Suspense>
+      </div>
     </div>
   )
 }

@@ -7,29 +7,29 @@ function Contact() {
   const { t } = useTranslation()
 
   return (
-    <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
+    <div className="bg-secondary1 py-12 sm:py-24 px-3 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             {t('contact.title.part1')} <span className="text-primary">{t('contact.title.part2')}</span>
           </h2>
-          <p className="text-gray_bg text-lg max-w-2xl mx-auto">
+          <p className="text-gray_bg text-base sm:text-lg max-w-2xl mx-auto px-2">
             {t('contact.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="space-y-4 sm:space-y-6"
           >
             <div>
               <label htmlFor="name" className="block text-gray_bg mb-2">
@@ -82,7 +82,7 @@ function Contact() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div className="flex items-start gap-4">
               <div className="p-3 rounded-lg bg-primary/10">
