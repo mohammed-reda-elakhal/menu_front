@@ -1,41 +1,22 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FaCheck } from 'react-icons/fa'
-
-const plans = [
-  {
-    name: 'Free',
-    price: '0',
-    description: 'Perfect for getting started',
-    features: [
-      'Single menu management',
-      'Basic QR code generation',
-      'Mobile responsive design',
-      'Basic analytics',
-      'Social media sharing'
-    ],
-    buttonText: 'Get Started',
-    popular: false
-  },
-  {
-    name: 'Premium',
-    price: '100',
-    description: 'Best for growing restaurants',
-    features: [
-      'Multiple menu management',
-      'Custom QR code design',
-      'Advanced analytics dashboard',
-      'Priority support',
-      'Multi-language support',
-      'Real-time menu updates',
-      'Custom branding'
-    ],
-    buttonText: 'Start Premium',
-    popular: true
-  }
-]
+import { useTranslation } from 'react-i18next'
 
 function Pricing() {
+  const { t } = useTranslation()
+
+  const plans = [
+    {
+      key: 'free',
+      popular: false
+    },
+    {
+      key: 'premium',
+      popular: true
+    }
+  ]
+
   return (
     <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -46,10 +27,10 @@ function Pricing() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Simple, <span className="text-primary">Transparent</span> Pricing
+            {t('pricing.title.simple')} <span className="text-primary">{t('pricing.title.transparent')}</span>
           </h2>
           <p className="text-gray_bg text-lg max-w-2xl mx-auto">
-            Choose the perfect plan for your restaurant's needs
+            {t('pricing.subtitle')}
           </p>
         </motion.div>
 
@@ -68,22 +49,26 @@ function Pricing() {
               {plan.popular && (
                 <div className="absolute -top-4 right-4">
                   <span className="bg-primary text-white text-sm px-3 py-1 rounded-full">
-                    Most Popular
+                    {t(`pricing.plans.${plan.key}.popular`)}
                   </span>
                 </div>
               )}
 
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {t(`pricing.plans.${plan.key}.name`)}
+                </h3>
                 <div className="flex items-baseline mb-2">
-                  <span className="text-4xl font-bold text-primary">{plan.price}</span>
-                  <span className="text-gray_bg ml-2">DH/month</span>
+                  <span className="text-4xl font-bold text-primary">
+                    {t(`pricing.plans.${plan.key}.price`)}
+                  </span>
+                  <span className="text-gray_bg ml-2">{t('pricing.currency')}</span>
                 </div>
-                <p className="text-gray_bg">{plan.description}</p>
+                <p className="text-gray_bg">{t(`pricing.plans.${plan.key}.description`)}</p>
               </div>
 
               <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, idx) => (
+                {t(`pricing.plans.${plan.key}.features`, { returnObjects: true }).map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-gray_bg">
                     <FaCheck className="text-primary flex-shrink-0" />
                     <span>{feature}</span>
@@ -99,7 +84,7 @@ function Pricing() {
                     ? 'bg-primary hover:bg-secondary2 text-white' 
                     : 'bg-primary/10 hover:bg-primary/20 text-white'}`}
               >
-                {plan.buttonText}
+                {t(`pricing.plans.${plan.key}.buttonText`)}
               </motion.button>
             </motion.div>
           ))}

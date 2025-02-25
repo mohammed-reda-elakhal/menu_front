@@ -1,9 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FiGithub, FiTwitter, FiInstagram, FiLinkedin } from 'react-icons/fi'
+import { useTranslation } from 'react-i18next'
 import logo from '../assets/menu.png'
 
 function Footer() {
+  const { t } = useTranslation()
+
   return (
     <footer className="bg-secondary1 border-t border-primary/20">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -13,7 +16,7 @@ function Footer() {
           <div className="space-y-4">
             <img src={logo} alt="Menuso Logo" className="h-8 w-auto" />
             <p className="text-gray_bg text-sm max-w-xs">
-              Transform your restaurant's menu into an interactive digital experience with Menuso.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               {[FiTwitter, FiInstagram, FiGithub, FiLinkedin].map((Icon, index) => (
@@ -32,9 +35,9 @@ function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.quickLinks.title')}</h3>
             <ul className="space-y-2">
-              {['Home', 'About', 'Features', 'Pricing', 'Contact'].map((item, index) => (
+              {t('footer.quickLinks.items', { returnObjects: true }).map((item, index) => (
                 <li key={index}>
                   <a href="#" className="text-gray_bg hover:text-primary transition-colors duration-300">
                     {item}
@@ -46,9 +49,9 @@ function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.legal.title')}</h3>
             <ul className="space-y-2">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'GDPR'].map((item, index) => (
+              {t('footer.legal.items', { returnObjects: true }).map((item, index) => (
                 <li key={index}>
                   <a href="#" className="text-gray_bg hover:text-primary transition-colors duration-300">
                     {item}
@@ -60,14 +63,14 @@ function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Stay Updated</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.newsletter.title')}</h3>
             <p className="text-gray_bg text-sm mb-4">
-              Subscribe to our newsletter for updates and tips.
+              {t('footer.newsletter.description')}
             </p>
             <form className="space-y-2">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('footer.newsletter.placeholder')}
                 className="w-full px-4 py-2 rounded-lg bg-secondary1 border-2 border-primary/20 
                   focus:border-primary/60 focus:outline-none text-white text-sm"
               />
@@ -77,7 +80,7 @@ function Footer() {
                 className="w-full py-2 px-4 bg-primary hover:bg-secondary2 
                   text-white rounded-lg transition-colors duration-300 text-sm"
               >
-                Subscribe
+                {t('footer.newsletter.button')}
               </motion.button>
             </form>
           </div>
@@ -91,13 +94,13 @@ function Footer() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray_bg hover:text-primary text-sm transition-colors duration-300">
-                Privacy
+                {t('footer.bottom.privacy')}
               </a>
               <a href="#" className="text-gray_bg hover:text-primary text-sm transition-colors duration-300">
-                Terms
+                {t('footer.bottom.terms')}
               </a>
               <a href="#" className="text-gray_bg hover:text-primary text-sm transition-colors duration-300">
-                Contact
+                {t('footer.bottom.contact')}
               </a>
             </div>
           </div>

@@ -1,8 +1,11 @@
 import React from 'react'
 import HeroImage from '../assets/hero1.jpeg'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function Hero() {
+  const { t } = useTranslation()
+
   return (
     <div className="relative overflow-hidden bg-secondary1 pt-20 md:pt-24"> {/* Added padding top */}
       {/* Background decorative elements */}
@@ -25,8 +28,8 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Elevate Your <br/>
-            <span className="text-primary">Menu Experience</span>
+            {t('hero.title.part1')} <br className="mb-4"/>
+            <span className="text-primary block mt-6">{t('hero.title.part2')}</span>
           </motion.h1>
           <motion.p 
             className="text-lg sm:text-xl text-gray_bg max-w-xl mx-auto lg:mx-0"
@@ -34,8 +37,7 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            Transform your restaurant's menu into an interactive digital experience. 
-            Create, manage, and share your menu instantly with QR codes.
+            {t('hero.description')}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +51,7 @@ function Hero() {
               className="px-8 py-4 bg-primary hover:bg-secondary2 text-white rounded-xl 
                 font-semibold transition-all duration-300 shadow-lg hover:shadow-primary/25"
             >
-              Get Started Free
+              {t('hero.buttons.getStarted')}
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -57,7 +59,7 @@ function Hero() {
               className="px-8 py-4 border-2 border-primary/20 hover:border-primary/40 
                 text-white rounded-xl font-semibold transition-all duration-300"
             >
-              View Demo
+              {t('hero.buttons.viewDemo')}
             </motion.button>
           </motion.div>
         </motion.div>
@@ -101,7 +103,7 @@ function Hero() {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 rounded-full bg-primary animate-pulse"/>
-                  <p className="text-white text-sm font-medium">Live Updates</p>
+                  <p className="text-white text-sm font-medium">{t('hero.liveUpdates')}</p>
                 </div>
               </motion.div>
             </motion.div>

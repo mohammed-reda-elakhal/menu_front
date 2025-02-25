@@ -1,0 +1,267 @@
+{
+    "header": {
+      "navigation": {
+        "home": "Accueil",
+        "eatNow": "Manger",
+        "marketplace": "Marché",
+        "company": "Entreprise"
+      },
+      "auth": {
+        "login": "Connexion",
+        "signup": "S'inscrire"
+      }
+    },
+    "hero": {
+      "title": {
+        "part1": "Améliorez Votre",
+        "part2": "Expérience Menu"
+      },
+      "description": "Transformez le menu de votre restaurant en une expérience numérique interactive. Créez, gérez et partagez votre menu instantanément avec des codes QR.",
+      "buttons": {
+        "getStarted": "Commencer Gratuitement",
+        "viewDemo": "Voir la Démo"
+      },
+      "liveUpdates": "Mises à jour en direct"
+    },
+    "about": {
+      "title": {
+        "transform": "Transformez Votre",
+        "experience": "Expérience Menu"
+      },
+      "subtitle": "Améliorez la présence de votre restaurant avec notre solution de menu numérique innovante",
+      "description": {
+        "company": "Menuso",
+        "text": "est votre plateforme tout-en-un de gestion de menus numériques, conçue spécifiquement pour les restaurants et cafés modernes. Nous combinons un design élégant avec des fonctionnalités puissantes, vous permettant de créer, mettre à jour et partager vos menus numériques sans effort. Avec l'intégration de codes QR et les mises à jour en temps réel, votre menu reste dynamique et accessible à vos clients à tout moment."
+      },
+      "features": {
+        "realtime": {
+          "title": "Mises à jour en temps réel",
+          "description": "Mettez à jour votre menu instantanément via une interface de gestion intuitive"
+        },
+        "interactive": {
+          "title": "Design Interactif",
+          "description": "Mises en page élégantes et réactives qui fonctionnent parfaitement sur tous les appareils"
+        },
+        "sharing": {
+          "title": "Partage Facile",
+          "description": "Partagez votre menu instantanément via des codes QR et l'intégration aux réseaux sociaux"
+        }
+      }
+    },
+    
+      "features": {
+        "title": {
+          "powerful": "Fonctionnalités",
+          "features": "Puissantes"
+        },
+        "subtitle": "Tout ce dont vous avez besoin pour créer et gérer votre expérience de menu numérique",
+        "items": {
+          "design": {
+            "title": "Design Personnalisable",
+            "description": "Personnalisez l'apparence de votre menu avec des thèmes et des mises en page personnalisés"
+          },
+          "qr": {
+            "title": "Intégration QR Code",
+            "description": "Générez des codes QR uniques pour un accès facile au menu"
+          },
+          "mobile": {
+            "title": "Adaptatif Mobile",
+            "description": "Expérience de visualisation parfaite sur tous les appareils"
+          },
+          "analytics": {
+            "title": "Tableau de Bord Analytique",
+            "description": "Suivez les vues du menu et l'engagement des clients"
+          },
+          "language": {
+            "title": "Support Multilingue",
+            "description": "Atteignez plus de clients avec des options multilingues"
+          },
+          "updates": {
+            "title": "Mises à jour en temps réel",
+            "description": "Mettez à jour instantanément les prix, les articles et les promotions"
+          }
+        }
+      },
+    "pricing": {
+      "title": {
+        "simple": "Simple,",
+        "transparent": "Transparent"
+      },
+      "subtitle": "Choisissez le forfait parfait pour les besoins de votre restaurant",
+      "plans": {
+        "free": {
+          "name": "Essai Gratuit",
+          "price": "0",
+          "description": "Parfait pour commencer",
+          "buttonText": "Commencer",
+          "features": [
+            "Compte professionnel unique",
+            "Gestion d'un seul menu",
+            "Génération de code QR basique",
+            "Design adaptatif mobile",
+            "Partage sur réseaux sociaux"
+          ]
+        },
+        "premium": {
+          "name": "Premium",
+          "price": "100",
+          "description": "Idéal pour les restaurants en croissance",
+          "buttonText": "Démarrer Premium",
+          "popular": "Plus Populaire",
+          "features": [
+            "1 à 5 comptes professionnels",
+            "Gestion de menus multiples",
+            "Design QR code personnalisé",
+            "Tableau de bord analytique avancé",
+            "Support prioritaire",
+            "Support multilingue",
+            "Mises à jour en temps réel",
+            "Image de marque personnalisée"
+          ]
+        }
+      },
+      "currency": "DH/mois"
+    },
+    "faq": {
+      "title": {
+        "part1": "Questions",
+        "part2": "Fréquentes"
+      },
+      "subtitle": "Tout ce que vous devez savoir sur Menuso et son fonctionnement",
+      "questions": [
+        {
+          "question": "Comment créer mon menu numérique ?",
+          "answer": "La création de votre menu numérique est simple. Après l'inscription, vous pouvez facilement ajouter des catégories, des articles, des prix et des descriptions via notre tableau de bord intuitif. Téléchargez des images, personnalisez les mises en page, et votre menu sera prêt à être partagé en quelques minutes."
+        },
+        {
+          "question": "Puis-je mettre à jour mon menu en temps réel ?",
+          "answer": "Oui ! Vous pouvez mettre à jour votre menu à tout moment via notre tableau de bord. Les modifications sont reflétées instantanément sur toutes les plateformes où votre menu est partagé, y compris les codes QR et les liens de médias sociaux."
+        },
+        {
+          "question": "Comment fonctionne le système de code QR ?",
+          "answer": "Chaque menu reçoit un code QR unique que vous pouvez imprimer et afficher dans votre restaurant. Lorsque les clients scannent le code avec leur smartphone, ils voient instantanément votre dernier menu dans leur navigateur - aucun téléchargement d'application requis."
+        },
+        {
+          "question": "La plateforme est-elle adaptée aux mobiles ?",
+          "answer": "Absolument ! Nos menus sont entièrement responsifs et optimisés pour tous les appareils - smartphones, tablettes et ordinateurs de bureau. Vos clients profiteront d'une expérience fluide quel que soit leur appareil."
+        },
+        {
+          "question": "Quels modes de paiement acceptez-vous ?",
+          "answer": "Nous acceptons les principales cartes de crédit, cartes de débit et méthodes de paiement numériques. Tous les paiements sont traités de manière sécurisée via nos partenaires de passerelle de paiement de confiance."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": {
+        "part1": "Ce que disent",
+        "part2": "nos clients",
+        "part3": ""
+      },
+      "subtitle": "Découvrez pourquoi les restaurateurs à travers le Maroc font confiance à Menuso"
+    },
+    "contact": {
+      "title": {
+        "part1": "Contactez",
+        "part2": "Nous"
+      },
+      "subtitle": "Vous avez des questions ? Nous aimerions avoir de vos nouvelles. Envoyez-nous un message et nous vous répondrons dès que possible.",
+      "form": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Votre nom"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "votre@email.com"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Votre message..."
+        },
+        "button": "Envoyer le message"
+      },
+      "info": {
+        "email": {
+          "title": "Envoyez-nous un email"
+        },
+        "phone": {
+          "title": "Appelez-nous"
+        }
+      }
+    },
+    "footer": {
+      "description": "Transformez le menu de votre restaurant en une expérience numérique interactive avec Menuso.",
+      "quickLinks": {
+        "title": "Liens Rapides",
+        "items": ["Accueil", "À propos", "Fonctionnalités", "Tarification", "Contact"]
+      },
+      "legal": {
+        "title": "Légal",
+        "items": ["Politique de Confidentialité", "Conditions d'Utilisation", "Politique des Cookies", "RGPD"]
+      },
+      "newsletter": {
+        "title": "Restez Informé",
+        "description": "Abonnez-vous à notre newsletter pour recevoir nos actualités et conseils.",
+        "placeholder": "Votre email",
+        "button": "S'abonner"
+      },
+      "bottom": {
+        "copyright": "© {{year}} Menuso. Tous droits réservés.",
+        "links": ["Confidentialité", "Conditions", "Contact"]
+      }
+    },
+    "login": {
+      "title": "Bon Retour",
+      "subtitle": "Connectez-vous pour gérer votre menu numérique",
+      "form": {
+        "email": {
+          "label": "Adresse Email",
+          "placeholder": "votre@email.com"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "••••••••"
+        },
+        "rememberMe": "Se souvenir de moi",
+        "forgotPassword": "Mot de passe oublié?",
+        "submit": "Se Connecter"
+      },
+      "noAccount": "Vous n'avez pas de compte?",
+      "signupLink": "S'inscrire"
+    },
+    "signup": {
+      "title": "Créer un Compte",
+      "subtitle": "Commencez avec votre menu numérique",
+      "features": {
+        "menu": "Créez et gérez votre menu numérique",
+        "updates": "Mises à jour et notifications instantanées",
+        "security": "Plateforme sécurisée et fiable"
+      },
+      "quote": "Rejoignez des milliers de restaurants qui transforment déjà leur expérience menu avec Menuso",
+      "form": {
+        "restaurant": {
+          "label": "Nom du Restaurant",
+          "placeholder": "Nom de votre Restaurant"
+        },
+        "email": {
+          "label": "Adresse Email",
+          "placeholder": "votre@email.com"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "••••••••"
+        },
+        "terms": {
+          "text": "J'accepte les",
+          "termsLink": "Conditions d'Utilisation",
+          "and": "et la",
+          "privacyLink": "Politique de Confidentialité"
+        },
+        "submit": "Créer un Compte",
+        "login": {
+          "text": "Vous avez déjà un compte?",
+          "link": "Se connecter"
+        }
+      }
+    }
+  }

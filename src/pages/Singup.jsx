@@ -1,36 +1,50 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { FiMail, FiLock, FiUser, FiEye, FiEyeOff } from 'react-icons/fi'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiMail, FiLock, FiUser, FiEye, FiEyeOff, FiGlobe } from 'react-icons/fi'
 import { RiRestaurant2Line } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import restaurantImage from '../assets/menu_cover1.jpg' // Add your image
 import logo from '../assets/menu.png'
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false)
   const [focusedInput, setFocusedInput] = useState(null)
+  const [showLangMenu, setShowLangMenu] = useState(false)
+  const { t, i18n } = useTranslation()
 
-  // Input fields configuration
+  const languages = [
+    { code: 'en', label: 'English', flag: '🇬🇧' },
+    { code: 'fr', label: 'Français', flag: '🇫🇷' },
+    { code: 'ar', label: 'العربية', flag: '🇸🇦' }
+  ]
+
+  const changeLang = (code) => {
+    i18n.changeLanguage(code)
+    setShowLangMenu(false)
+  }
+
+  // Updated input fields with translations
   const inputFields = [
     {
       id: 'restaurant',
-      label: 'Restaurant Name',
+      label: t('signup.form.restaurant.label'),
       type: 'text',
-      placeholder: 'Your Restaurant Name',
+      placeholder: t('signup.form.restaurant.placeholder'),
       icon: FiUser,
     },
     {
       id: 'email',
-      label: 'Email Address',
+      label: t('signup.form.email.label'),
       type: 'email',
-      placeholder: 'your@email.com',
+      placeholder: t('signup.form.email.placeholder'),
       icon: FiMail,
     },
     {
       id: 'password',
-      label: 'Password',
+      label: t('signup.form.password.label'),
       type: showPassword ? 'text' : 'password',
-      placeholder: '••••••••',
+      placeholder: t('signup.form.password.placeholder'),
       icon: FiLock,
     },
   ]
@@ -85,7 +99,48 @@ function Signup() {
   )
 
   return (
-    <div className="min-h-screen bg-secondary1 flex">
+    <div className="min-h-screen bg-secondary1 flex relative">
+      {/* Language Selector - Fixed Position */}
+      <div className="fixed top-4 right-4 z-50">
+        <div className="relative">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setShowLangMenu(!showLangMenu)}
+            className="flex items-center space-x-2 bg-secondary1/80 backdrop-blur-sm px-4 py-2 rounded-lg 
+              border-2 border-primary/20 text-white hover:border-primary/40 transition-all"
+          >
+            <span>{languages.find(lang => lang.code === i18n.language)?.flag}</span>
+            <FiGlobe className="w-5 h-5" />
+          </motion.button>
+
+          <AnimatePresence>
+            {showLangMenu && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="absolute top-full right-0 mt-2 bg-secondary1 border-2 border-primary/20 
+                  rounded-lg shadow-xl overflow-hidden min-w-[160px]"
+              >
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => changeLang(lang.code)}
+                    className={`flex items-center space-x-2 w-full px-4 py-2 text-left text-white 
+                      hover:bg-primary/10 transition-colors
+                      ${i18n.language === lang.code ? 'bg-primary/20' : ''}`}
+                  >
+                    <span>{lang.flag}</span>
+                    <span>{lang.label}</span>
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
       {/* Background Effects */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-primary/10 rounded-full blur-[100px]" />
@@ -179,7 +234,7 @@ function Signup() {
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <FiUser className="text-primary text-xl" />
                 </div>
-                <p className="text-gray_bg">Create and manage your digital menu</p>
+                <p className="text-gray_bg">{t('signup.features.menu')}</p>
               </motion.div>
 
               <motion.div
@@ -191,7 +246,7 @@ function Signup() {
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <FiMail className="text-primary text-xl" />
                 </div>
-                <p className="text-gray_bg">Instant updates and notifications</p>
+                <p className="text-gray_bg">{t('signup.features.updates')}</p>
               </motion.div>
 
               <motion.div
@@ -203,7 +258,7 @@ function Signup() {
                 <div className="p-2 bg-primary/10 rounded-lg">
                   <FiLock className="text-primary text-xl" />
                 </div>
-                <p className="text-gray_bg">Secure and reliable platform</p>
+                <p className="text-gray_bg">{t('signup.features.security')}</p>
               </motion.div>
             </div>
 
@@ -213,9 +268,7 @@ function Signup() {
               transition={{ delay: 1.3 }}
               className="bg-primary/5 p-6 rounded-xl border border-primary/10"
             >
-              <p className="text-gray_bg italic">
-                "Join thousands of restaurants already transforming their menu experience with Menuso"
-              </p>
+              <p className="text-gray_bg italic">{t('signup.quote')}</p>
             </motion.div>
           </div>
         </div>
@@ -255,8 +308,8 @@ function Signup() {
                     />
                   </Link>
                 </motion.div>
-                <h2 className="text-2xl font-bold text-white mb-2">Create Account</h2>
-                <p className="text-gray_bg">Get started with your restaurant's digital menu</p>
+                <h2 className="text-2xl font-bold text-white mb-2">{t('signup.title')}</h2>
+                <p className="text-gray_bg">{t('signup.subtitle')}</p>
               </div>
 
               {/* Signup Form */}
@@ -266,10 +319,14 @@ function Signup() {
                 <div className="flex items-center">
                   <input type="checkbox" className="mr-2 accent-primary" />
                   <label className="text-sm text-gray_bg">
-                    I agree to the{' '}
-                    <a href="#" className="text-primary hover:text-primary/80">Terms of Service</a>
-                    {' '}and{' '}
-                    <a href="#" className="text-primary hover:text-primary/80">Privacy Policy</a>
+                    {t('signup.form.terms.text')}{' '}
+                    <a href="#" className="text-primary hover:text-primary/80">
+                      {t('signup.form.terms.termsLink')}
+                    </a>
+                    {' '}{t('signup.form.terms.and')}{' '}
+                    <a href="#" className="text-primary hover:text-primary/80">
+                      {t('signup.form.terms.privacyLink')}
+                    </a>
                   </label>
                 </div>
 
@@ -279,14 +336,14 @@ function Signup() {
                   className="w-full bg-primary hover:bg-secondary2 text-white rounded-xl py-3 
                     font-semibold transition-all duration-300 shadow-lg hover:shadow-primary/25"
                 >
-                  Create Account
+                  {t('signup.form.submit')}
                 </motion.button>
 
                 <p className="text-center text-gray_bg text-sm">
-                  Already have an account?{' '}
-                  <a href="/login" className="text-primary hover:text-primary/80 transition-colors font-semibold">
-                    Sign in
-                  </a>
+                  {t('signup.form.login.text')}{' '}
+                  <Link to="/login" className="text-primary hover:text-primary/80 transition-colors font-semibold">
+                    {t('signup.form.login.link')}
+                  </Link>
                 </p>
               </form>
             </motion.div>

@@ -1,32 +1,11 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiPlus, FiMinus } from 'react-icons/fi'
-
-const faqs = [
-  {
-    question: "How do I create my digital menu?",
-    answer: "Creating your digital menu is simple. After signing up, you can easily add categories, items, prices, and descriptions through our intuitive dashboard. Upload images, customize layouts, and your menu will be ready to share in minutes."
-  },
-  {
-    question: "Can I update my menu in real-time?",
-    answer: "Yes! You can update your menu anytime through our dashboard. Changes are reflected instantly across all platforms where your menu is shared, including QR codes and social media links."
-  },
-  {
-    question: "How does the QR code system work?",
-    answer: "Each menu gets a unique QR code that you can print and display in your restaurant. When customers scan the code with their smartphone, they'll see your latest menu instantly in their browser - no app download required."
-  },
-  {
-    question: "Is the platform mobile-friendly?",
-    answer: "Absolutely! Our menus are fully responsive and optimized for all devices - smartphones, tablets, and desktop computers. Your customers will enjoy a seamless experience regardless of their device."
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer: "We accept major credit cards, debit cards, and digital payment methods. All payments are processed securely through our trusted payment gateway partners."
-  }
-]
+import { useTranslation } from 'react-i18next'
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null)
+  const { t } = useTranslation()
 
   return (
     <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
@@ -38,15 +17,15 @@ function FAQ() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Frequently Asked <span className="text-primary">Questions</span>
+            {t('faq.title.part1')} <span className="text-primary">{t('faq.title.part2')}</span>
           </h2>
           <p className="text-gray_bg text-lg max-w-2xl mx-auto">
-            Everything you need to know about Menuso and how it works
+            {t('faq.subtitle')}
           </p>
         </motion.div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {t('faq.questions', { returnObjects: true }).map((faq, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

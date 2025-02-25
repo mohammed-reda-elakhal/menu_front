@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { FaQuoteLeft, FaStar } from 'react-icons/fa'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
+import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -58,6 +59,8 @@ const testimonials = [
 ]
 
 function Testimonials() {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -68,10 +71,12 @@ function Testimonials() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            What Our <span className="text-primary">Clients</span> Say
+            {t('testimonials.title.part1')}{' '}
+            <span className="text-primary">{t('testimonials.title.part2')}</span>{' '}
+            {t('testimonials.title.part3')}
           </h2>
           <p className="text-gray_bg text-lg max-w-2xl mx-auto">
-            Discover why restaurant owners across Morocco trust Menuso
+            {t('testimonials.subtitle')}
           </p>
         </motion.div>
 
