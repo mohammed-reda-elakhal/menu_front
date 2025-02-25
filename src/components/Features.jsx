@@ -2,41 +2,38 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { FaPalette, FaQrcode, FaMobileAlt, FaChartLine } from 'react-icons/fa'
 import { MdLanguage, MdNotifications } from 'react-icons/md'
+import { useTranslation } from 'react-i18next'
 
 const features = [
   {
     icon: <FaPalette />,
-    title: "Customizable Design",
-    description: "Personalize your menu's look and feel with custom themes and layouts"
+    key: 'design'
   },
   {
     icon: <FaQrcode />,
-    title: "QR Code Integration",
-    description: "Generate unique QR codes for seamless menu access"
+    key: 'qr'
   },
   {
     icon: <FaMobileAlt />,
-    title: "Mobile Responsive",
-    description: "Perfect viewing experience across all devices"
+    key: 'mobile'
   },
   {
     icon: <FaChartLine />,
-    title: "Analytics Dashboard",
-    description: "Track menu views and customer engagement"
+    key: 'analytics'
   },
   {
     icon: <MdLanguage />,
-    title: "Multi-language Support",
-    description: "Reach more customers with multiple language options"
+    key: 'language'
   },
   {
     icon: <MdNotifications />,
-    title: "Real-time Updates",
-    description: "Instantly update prices, items, and specials"
+    key: 'updates'
   }
 ]
 
 function Features() {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -47,10 +44,10 @@ function Features() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Powerful <span className="text-primary">Features</span>
+            {t('features.title.powerful')} <span className="text-primary">{t('features.title.features')}</span>
           </h2>
           <p className="text-gray_bg text-lg max-w-2xl mx-auto">
-            Everything you need to create and manage your digital menu experience
+            {t('features.subtitle')}
           </p>
         </motion.div>
 
@@ -91,12 +88,12 @@ function Features() {
                   </div>
                   <h3 className="text-xl font-semibold text-white 
                     group-hover:text-primary transition-colors duration-300">
-                    {feature.title}
+                    {t(`features.items.${feature.key}.title`)}
                   </h3>
                 </div>
                 <p className="text-gray_bg pl-2 border-l-2 border-primary/20 
                   group-hover:border-primary/40 transition-all duration-300">
-                  {feature.description}
+                  {t(`features.items.${feature.key}.description`)}
                 </p>
               </motion.div>
             </motion.div>

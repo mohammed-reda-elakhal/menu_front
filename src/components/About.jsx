@@ -1,11 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import logo from '../assets/menu.png'
 import { MdUpdate } from 'react-icons/md'
 import { BiDevices } from 'react-icons/bi'
 import { IoShareSocialSharp } from 'react-icons/io5'
 
 function About() {
+  const { t } = useTranslation()
+
   return (
     <div className="bg-secondary1 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       {/* Logo Section */}
@@ -27,13 +30,13 @@ function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Transform Your <span className="text-primary">Menu Experience</span>
+            {t('about.title.transform')} <span className="text-primary">{t('about.title.experience')}</span>
           </h2>
           <p className="text-gray_bg text-lg max-w-2xl mx-auto mb-8">
-            Elevate your restaurant's presence with our innovative digital menu solution
+            {t('about.subtitle')}
           </p>
           
-          {/* New description section */}
+          {/* Description section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,10 +44,8 @@ function About() {
             className="max-w-3xl mx-auto bg-primary/5 p-6 rounded-xl border border-primary/10"
           >
             <p className="text-gray_bg text-md leading-relaxed">
-              <span className="text-primary font-semibold">Menuso</span> is your all-in-one digital menu management platform, 
-              designed specifically for modern restaurants and cafes. We combine elegant design with powerful functionality, 
-              allowing you to create, update, and share your digital menus effortlessly. With QR code integration and 
-              real-time updates, your menu stays dynamic and accessible to your customers at all times.
+              <span className="text-primary font-semibold">{t('about.description.company')}</span>{' '}
+              {t('about.description.text')}
             </p>
           </motion.div>
         </motion.div>
@@ -62,9 +63,9 @@ function About() {
           >
             <div className="flex items-center gap-3 mb-3">
               <MdUpdate className="text-primary text-3xl" />
-              <h3 className="text-xl font-semibold text-primary">Real-time Updates</h3>
+              <h3 className="text-xl font-semibold text-primary">{t('about.features.realtime.title')}</h3>
             </div>
-            <p className="text-gray_bg">Update your menu instantly through an intuitive management interface</p>
+            <p className="text-gray_bg">{t('about.features.realtime.description')}</p>
           </motion.div>
 
           {/* Feature 2 */}
@@ -74,9 +75,9 @@ function About() {
           >
             <div className="flex items-center gap-3 mb-3">
               <BiDevices className="text-primary text-3xl" />
-              <h3 className="text-xl font-semibold text-primary">Interactive Design</h3>
+              <h3 className="text-xl font-semibold text-primary">{t('about.features.interactive.title')}</h3>
             </div>
-            <p className="text-gray_bg">Beautiful, responsive layouts that work seamlessly across all devices</p>
+            <p className="text-gray_bg">{t('about.features.interactive.description')}</p>
           </motion.div>
 
           {/* Feature 3 */}
@@ -86,9 +87,9 @@ function About() {
           >
             <div className="flex items-center gap-3 mb-3">
               <IoShareSocialSharp className="text-primary text-3xl" />
-              <h3 className="text-xl font-semibold text-primary">Easy Sharing</h3>
+              <h3 className="text-xl font-semibold text-primary">{t('about.features.sharing.title')}</h3>
             </div>
-            <p className="text-gray_bg">Share your menu instantly via QR codes and social media integration</p>
+            <p className="text-gray_bg">{t('about.features.sharing.description')}</p>
           </motion.div>
         </motion.div>
       </div>

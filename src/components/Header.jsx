@@ -1,42 +1,61 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import logo from '../assets/menu.png'
 import { Link } from 'react-router-dom'
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Eat Now', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export default function Header() {
+
+
+  const languages = [
+    {
+      code: 'en',
+      label: 'English',
+      flag: '🇬🇧',
+    },
+    {
+      code: 'fr',
+      label: 'Français',
+      flag: '🇫🇷',
+    },
+    {
+      code: 'ar',
+      label: 'العربية',
+      flag: '🇸🇦',
+    },
+  ]
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { t, i18n } = useTranslation()
+
+  const navigation = [
+    { name: t('header.navigation.home'), href: '/' },
+    { name: t('header.navigation.eatNow'), href: '#' },
+    { name: t('header.navigation.marketplace'), href: '#' },
+    { name: t('header.navigation.company'), href: '#' },
+  ]
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng)
+    // For RTL support
+    document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr'
+  }
 
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-[#01021b]"
-    >
+    <div className="bg-[#01021b]">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8 bg-[#01021b]/80 backdrop-blur-md">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex lg:flex-1"
-          >
+          <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img alt="" src={logo} className="h-10 w-auto" />
             </a>
-          </motion.div>
+          </div>
           
           <div className="flex lg:hidden">
             <button
@@ -51,45 +70,81 @@ export default function Header() {
 
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item, index) => (
-              <motion.a
+              <a
                 key={item.name}
                 href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
                 className="text-sm font-semibold text-[#e7e7e7] hover:text-[#3768e5] transition-colors duration-300"
               >
                 {item.name}
-              </motion.a>
+              </a>
             ))}
           </div>
 
+          
+
           <div className="hidden lg:flex lg:flex-1 lg:justify-center items-center space-x-4">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 }}
+            <Link
+              to="/login"
+              className="text-sm font-semibold text-[#e7e7e7] hover:text-[#3768e5] transition-colors duration-300 px-4 py-2"
             >
-              <Link
-                to="/login"
-                className="text-sm font-semibold text-[#e7e7e7] hover:text-[#3768e5] transition-colors duration-300 px-4 py-2"
-              >
-                Log in
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
+              {t('header.auth.login')}
+            </Link>
+            <Link
+              to="/signup"
+              className="text-sm font-semibold px-6 py-2 bg-[#3768e5] text-white rounded-lg hover:bg-[#757de8] transition-colors duration-300"
             >
-              <Link
-                to="/signup"
-                className="text-sm font-semibold px-6 py-2 bg-[#3768e5] text-white rounded-lg hover:bg-[#757de8] transition-colors duration-300"
-              >
-                Sign up
-              </Link>
-            </motion.div>
+              {t('header.auth.signup')}
+            </Link>
           </div>
+
+          <div className="hidden lg:flex lg:items-center lg:gap-x-4 mx-4">
+            <Menu as="div" className="relative inline-block text-left">
+              <div>
+                <Menu.Button className="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-[#1a1b35] px-3 py-2 text-sm text-[#e7e7e7] shadow-sm hover:bg-[#2a2b45] transition-all duration-200">
+                  {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
+                  <span className="ml-2">{languages.find(lang => lang.code === i18n.language)?.label || 'Language'}</span>
+                  <ChevronDownIcon className="-mr-1 h-5 w-5" aria-hidden="true" />
+                </Menu.Button>
+              </div>
+
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-[#1a1b35] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div className="py-1">
+                    {languages.map((language) => (
+                      <Menu.Item key={language.code}>
+                        {({ active }) => (
+                          <button
+                            onClick={() => changeLanguage(language.code)}
+                            className={`${
+                              active ? 'bg-[#2a2b45] text-[#3768e5]' : 'text-[#e7e7e7]'
+                            } ${
+                              i18n.language === language.code ? 'bg-[#2a2b45]' : ''
+                            } group flex w-full items-center px-4 py-2 text-sm`}
+                          >
+                            <span className="mr-2">{language.flag}</span>
+                            {language.label}
+                            {i18n.language === language.code && (
+                              <span className="ml-auto text-[#3768e5]">✓</span>
+                            )}
+                          </button>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu>
+          </div>
+
+
         </nav>
 
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -122,18 +177,37 @@ export default function Header() {
                     </a>
                   ))}
                 </div>
+                <div className="flex flex-col gap-2 py-4">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => changeLanguage(language.code)}
+                      className={`flex items-center px-4 py-2 rounded-md text-sm ${
+                        i18n.language === language.code
+                          ? 'bg-[#2a2b45] text-[#3768e5]'
+                          : 'text-[#e7e7e7] hover:bg-[#2a2b45] hover:text-[#3768e5]'
+                      } transition-all duration-200`}
+                    >
+                      <span className="mr-2">{language.flag}</span>
+                      {language.label}
+                      {i18n.language === language.code && (
+                        <span className="ml-auto">✓</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
                 <div className="py-6 space-y-2">
                   <Link
                     to="/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-[#e7e7e7] hover:bg-[#3768e5]/10 hover:text-[#3768e5] transition-colors duration-300"
                   >
-                    Log in
+                    {t('header.auth.login')}
                   </Link>
                   <Link
                     to="/signup"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold bg-[#3768e5] text-white text-center hover:bg-[#757de8] transition-colors duration-300"
                   >
-                    Sign up
+                    {t('header.auth.signup')}
                   </Link>
                 </div>
               </div>
@@ -141,6 +215,6 @@ export default function Header() {
           </DialogPanel>
         </Dialog>
       </header>
-    </motion.div>
+    </div>
   )
 }

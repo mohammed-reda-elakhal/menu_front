@@ -8,7 +8,6 @@ import FAQ from '../components/FAQ'
 import Testimonials from '../components/Testimonials'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import Statistics from '../components/Statistics'
 
 function Home() {
   return (

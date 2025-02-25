@@ -1,0 +1,266 @@
+{
+    "header": {
+      "navigation": {
+        "home": "Home",
+        "eatNow": "Eat Now",
+        "marketplace": "Marketplace",
+        "company": "Company"
+      },
+      "auth": {
+        "login": "Log in",
+        "signup": "Sign up"
+      }
+    },
+    "hero": {
+      "title": {
+        "part1": "Elevate Your",
+        "part2": "Menu Experience"
+      },
+      "description": "Transform your restaurant's menu into an interactive digital experience. Create, manage, and share your menu instantly with QR codes.",
+      "buttons": {
+        "getStarted": "Get Started Free",
+        "viewDemo": "View Demo"
+      },
+      "liveUpdates": "Live Updates"
+    },
+    "about": {
+      "title": {
+        "transform": "Transform Your",
+        "experience": "Menu Experience"
+      },
+      "subtitle": "Elevate your restaurant's presence with our innovative digital menu solution",
+      "description": {
+        "company": "Menuso",
+        "text": "is your all-in-one digital menu management platform, designed specifically for modern restaurants and cafes. We combine elegant design with powerful functionality, allowing you to create, update, and share your digital menus effortlessly. With QR code integration and real-time updates, your menu stays dynamic and accessible to your customers at all times."
+      },
+      "features": {
+        "realtime": {
+          "title": "Real-time Updates",
+          "description": "Update your menu instantly through an intuitive management interface"
+        },
+        "interactive": {
+          "title": "Interactive Design",
+          "description": "Beautiful, responsive layouts that work seamlessly across all devices"
+        },
+        "sharing": {
+          "title": "Easy Sharing",
+          "description": "Share your menu instantly via QR codes and social media integration"
+        }
+      }
+    },
+    "features": {
+      "title": {
+        "powerful": "Powerful",
+        "features": "Features"
+      },
+      "subtitle": "Everything you need to create and manage your digital menu experience",
+      "items": {
+        "design": {
+          "title": "Customizable Design",
+          "description": "Personalize your menu's look and feel with custom themes and layouts"
+        },
+        "qr": {
+          "title": "QR Code Integration",
+          "description": "Generate unique QR codes for seamless menu access"
+        },
+        "mobile": {
+          "title": "Mobile Responsive",
+          "description": "Perfect viewing experience across all devices"
+        },
+        "analytics": {
+          "title": "Analytics Dashboard",
+          "description": "Track menu views and customer engagement"
+        },
+        "language": {
+          "title": "Multi-language Support",
+          "description": "Reach more customers with multiple language options"
+        },
+        "updates": {
+          "title": "Real-time Updates",
+          "description": "Instantly update prices, items, and specials"
+        }
+      }
+    },
+    "pricing": {
+      "title": {
+        "simple": "Simple,",
+        "transparent": "Transparent"
+      },
+      "subtitle": "Choose the perfect plan for your restaurant's needs",
+      "plans": {
+        "free": {
+          "name": "Free Trial",
+          "price": "0",
+          "description": "Perfect for getting started",
+          "buttonText": "Get Started",
+          "features": [
+            "Single Business accounts",
+            "Single menu management",
+            "Basic QR code generation",
+            "Mobile responsive design",
+            "Social media sharing"
+          ]
+        },
+        "premium": {
+          "name": "Premium",
+          "price": "100",
+          "description": "Best for growing restaurants",
+          "buttonText": "Start Premium",
+          "popular": "Most Popular",
+          "features": [
+            "1 - 5 Business accounts",
+            "Multiple menu management",
+            "Custom QR code design",
+            "Advanced analytics dashboard",
+            "Priority support",
+            "Multi-language support",
+            "Real-time menu updates",
+            "Custom branding"
+          ]
+        }
+      },
+      "currency": "DH/month"
+    },
+    "faq": {
+      "title": {
+        "part1": "Frequently Asked",
+        "part2": "Questions"
+      },
+      "subtitle": "Everything you need to know about Menuso and how it works",
+      "questions": [
+        {
+          "question": "How do I create my digital menu?",
+          "answer": "Creating your digital menu is simple. After signing up, you can easily add categories, items, prices, and descriptions through our intuitive dashboard. Upload images, customize layouts, and your menu will be ready to share in minutes."
+        },
+        {
+          "question": "Can I update my menu in real-time?",
+          "answer": "Yes! You can update your menu anytime through our dashboard. Changes are reflected instantly across all platforms where your menu is shared, including QR codes and social media links."
+        },
+        {
+          "question": "How does the QR code system work?",
+          "answer": "Each menu gets a unique QR code that you can print and display in your restaurant. When customers scan the code with their smartphone, they'll see your latest menu instantly in their browser - no app download required."
+        },
+        {
+          "question": "Is the platform mobile-friendly?",
+          "answer": "Absolutely! Our menus are fully responsive and optimized for all devices - smartphones, tablets, and desktop computers. Your customers will enjoy a seamless experience regardless of their device."
+        },
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept major credit cards, debit cards, and digital payment methods. All payments are processed securely through our trusted payment gateway partners."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": {
+        "part1": "What Our",
+        "part2": "Clients",
+        "part3": "Say"
+      },
+      "subtitle": "Discover why restaurant owners across Morocco trust Menuso"
+    },
+    "contact": {
+      "title": {
+        "part1": "Get in",
+        "part2": "Touch"
+      },
+      "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Your message..."
+        },
+        "button": "Send Message"
+      },
+      "info": {
+        "email": {
+          "title": "Email Us"
+        },
+        "phone": {
+          "title": "Call Us"
+        }
+      }
+    },
+    "footer": {
+      "description": "Transform your restaurant's menu into an interactive digital experience with Menuso.",
+      "quickLinks": {
+        "title": "Quick Links",
+        "items": ["Home", "About", "Features", "Pricing", "Contact"]
+      },
+      "legal": {
+        "title": "Legal",
+        "items": ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"]
+      },
+      "newsletter": {
+        "title": "Stay Updated",
+        "description": "Subscribe to our newsletter for updates and tips.",
+        "placeholder": "Enter your email",
+        "button": "Subscribe"
+      },
+      "bottom": {
+        "copyright": "© {{year}} Menuso. All rights reserved.",
+        "links": ["Privacy", "Terms", "Contact"]
+      }
+    },
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to manage your digital menu",
+      "form": {
+        "email": {
+          "label": "Email Address",
+          "placeholder": "your@email.com"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "••••••••"
+        },
+        "rememberMe": "Remember me",
+        "forgotPassword": "Forgot Password?",
+        "submit": "Sign In"
+      },
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up"
+    },
+    "signup": {
+      "title": "Create Account",
+      "subtitle": "Get started with your restaurant's digital menu",
+      "features": {
+        "menu": "Create and manage your digital menu",
+        "updates": "Instant updates and notifications",
+        "security": "Secure and reliable platform"
+      },
+      "quote": "Join thousands of restaurants already transforming their menu experience with Menuso",
+      "form": {
+        "restaurant": {
+          "label": "Restaurant Name",
+          "placeholder": "Your Restaurant Name"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "your@email.com"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "••••••••"
+        },
+        "terms": {
+          "text": "I agree to the",
+          "termsLink": "Terms of Service",
+          "and": "and",
+          "privacyLink": "Privacy Policy"
+        },
+        "submit": "Create Account",
+        "login": {
+          "text": "Already have an account?",
+          "link": "Sign in"
+        }
+      }
+    }
+  }
