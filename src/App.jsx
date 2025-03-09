@@ -49,13 +49,7 @@ function App() {
               element={<CoffeeTemplate1 menuData={menuData} />} 
             />
             {/* Add the templates route */}
-            <Route 
-              path="/templates" 
-              element={<TemplateManager menuData={menuData} onSelect={(template) => {
-                console.log('Selected template:', template);
-                // Handle template selection here
-              }} />} 
-            />
+            
           </Routes>
         </Suspense>
       </Router>
