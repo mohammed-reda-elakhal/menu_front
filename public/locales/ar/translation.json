@@ -262,5 +262,155 @@
           "link": "تسجيل الدخول"
         }
       }
+    },
+    "dashboard": {
+      "navbar": {
+        "profile": "الملف الشخصي",
+        "settings": "الإعدادات",
+        "logout": "تسجيل الخروج",
+        "notifications": "الإشعارات",
+        "language": "اللغة",
+        "darkMode": "الوضع الداكن",
+        "noNotifications": "لا توجد إشعارات جديدة"
+      },
+      "sidebar": {
+        "overview": "نظرة عامة",
+        "analytics": "التحليلات",
+        "menus": "القوائم",
+        "menuList": "قائمتي",
+        "createMenu": "إنشاء قائمة",
+        "menuSettings" : "إعدادات القائمة",
+        "customers": "العملاء",
+        "settings": "الإعدادات",
+        "help": "المساعدة والدعم",
+        "products": "منتجاتنا",
+        "categories": "الفئات",
+        "productsList": "المنتجات",
+        "supplements": "الإضافات"
+      },
+      "overview": {
+        "stats": {
+          "totalCategories": "إجمالي الفئات",
+          "totalProducts": "إجمالي المنتجات",
+          "todayViews": "مشاهدات اليوم",
+          "growthRate": "معدل النمو",
+          "thisWeek": "هذا الأسبوع"
+        },
+        "charts": {
+          "menuViews": "المشاهدات اليومية للقائمة",
+          "bestProducts": "أفضل المنتجات",
+          "viewAll": "عرض كل المنتجات",
+          "noProducts": "لا توجد منتجات للعرض"
+        }
+      },
+      "menuSettings": {
+        "title": "إعدادات القائمة",
+        "menuTitle": "عنوان القائمة",
+        "menuDescription": "وصف القائمة",
+        "publishMenu": "نشر القائمة",
+        "chooseTemplate": "اختر القالب",
+        "saveChanges": "حفظ التغييرات"
+      },
+      "products": {
+        "categories": {
+          "title": "إدارة الفئات",
+          "add": "إضافة فئة",
+          "items": "عناصر",
+          "list": "قائمة الفئات"
+        },
+        "products": {
+          "title": "إدارة المنتجات",
+          "add": "منتج جديد",
+          "edit": "تعديل المنتج",
+          "deleteConfirmTitle": "تأكيد الحذف",
+          "deleteConfirmMessage": "هل أنت متأكد من حذف {{name}}؟"
+        },
+        "supplements": {
+          "title": "إدارة الإضافات"
+        }
+      },
+      "forms": {
+        "category": {
+          "name": "اسم الفئة",
+          "description": "الوصف",
+          "addImage": "إضافة صورة",
+          "changeImage": "تغيير الصورة",
+          "image": "صورة الفئة",
+          "imageRequirements": "متطلبات تحميل الصورة",
+          "acceptedFormats": "الصيغ المقبولة",
+          "maxSize": "الحجم الأقصى",
+          "recommendedSize": "الأبعاد المُوصى بها",
+          "imageTypeError": "نوع الملف غير صالح. يرجى تحميل صورة بصيغة JPG أو PNG أو WebP",
+          "imageSizeError": "حجم الملف كبير جداً. الحد الأقصى هو 5 ميجابايت"
+        },
+        "product": {
+          "name": "اسم المنتج",
+          "description": "الوصف",
+          "price": "السعر",
+          "category": "الفئة",
+          "ingredients": "المكونات",
+          "allergens": "مسببات الحساسية",
+          "nutritionalInfo": "المعلومات الغذائية",
+          "addImage": "إضافة صورة",
+          "changeImage": "تغيير الصورة",
+          "imageTypeError": "نوع الملف غير صالح. يرجى تحميل صورة بصيغة JPG أو PNG أو WebP",
+          "imageSizeError": "حجم الملف كبير جداً. الحد الأقصى هو 5 ميجابايت",
+          "imageRequirements": {
+            "format": "الصيغ المقبولة: JPG, PNG, WEBP",
+            "size": "الحجم الأقصى: 5MB",
+            "recommended": "الأبعاد المقترحة: 350x350px"
+          }
+        },
+        "create": "إنشاء فئة",
+        "update": "تعديل الفئة"
+      },
+      "tables": {
+        "category": {
+          "name": "الاسم",
+          "description": "الوصف",
+          "image": "الصورة"
+        },
+        "product": {
+          "name": "الاسم",
+          "description": "الوصف",
+          "category": "الفئة",
+          "price": "السعر",
+          "image": "الصورة"
+        },
+        "actions": "الإجراءات",
+        "edit": "تعديل",
+        "delete": "حذف",
+        "currency":{
+          "format": "درهم"
+        }
+      }
+    },
+    "business": {
+
+      "title": "اختر مؤسستك التجارية",
+      "description": "اختر مؤسسة لإدارتها أو أنشئ واحدة جديدة. كل مؤسسة مزودة بأدوات قوية لتعزيز تواجدك الرقمي وتبسيط العمليات",
+      "addNew": "إضافة مؤسسة جديدة",
+      "features": {
+        "growth": {
+          "title": "نمو مؤسستك",
+          "description": "حول قائمتك إلى تحفة رقمية وشاهد مؤسستك تزدهر"
+        },
+        "experience": {
+          "title": "تجربة متميزة",
+          "description": "قدم تجربة طعام استثنائية مع منصتنا المتطورة"
+        },
+        "analytics": {
+          "title": "تتبع النجاح",
+          "description": "احصل على رؤى قيمة وتحليلات لاتخاذ قرارات مبنية على البيانات"
+        }
+      },
+      "logout": "تسجيل الخروج"
+    },
+    "common": {
+      "cancel": "إلغاء",
+      "delete": "حذف",
+      "save": "حفظ",
+      "create": "إنشاء",
+      "update": "تحديث"
     }
   }

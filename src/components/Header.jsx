@@ -4,6 +4,7 @@ import { useState, Fragment } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next'
+import { motion, AnimatePresence } from 'framer-motion' // Add this import
 import logo from '../assets/menu.png'
 import { Link } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
@@ -36,7 +37,7 @@ export default function Header() {
   const navigation = [
     { name: t('header.navigation.home'), href: '/' },
     { name: t('header.navigation.eatNow'), href: '#' },
-    { name: t('header.navigation.marketplace'), href: '#' },
+    { name: t('header.navigation.marketplace'), href: '/marketplace' },
     { name: t('header.navigation.company'), href: '#' },
   ]
 
@@ -44,6 +45,14 @@ export default function Header() {
     i18n.changeLanguage(lng)
     // For RTL support
     document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr'
+  }
+
+  // Add click handler for mobile menu items
+  const handleMobileItemClick = (action) => {
+    // Execute the action (navigation, language change, etc)
+    action()
+    // Close the mobile menu
+    setMobileMenuOpen(false)
   }
 
   return (
@@ -147,73 +156,115 @@ export default function Header() {
 
         </nav>
 
-        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-          <div className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#01021b] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img alt="" src={logo} className="h-8 w-auto" />
-              </a>
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(false)}
-                className="-m-2.5 rounded-md p-2.5 text-[#e7e7e7]"
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <Dialog 
+              static 
+              open={mobileMenuOpen} 
+              onClose={setMobileMenuOpen} 
+              className="lg:hidden"
+            >
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm"
+              />
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#01021b] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
               >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-[#e7e7e7] hover:bg-[#3768e5]/10 hover:text-[#3768e5] transition-colors duration-300"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                <div className="flex flex-col gap-2 py-4">
-                  {languages.map((language) => (
-                    <button
-                      key={language.code}
-                      onClick={() => changeLanguage(language.code)}
-                      className={`flex items-center px-4 py-2 rounded-md text-sm ${
-                        i18n.language === language.code
-                          ? 'bg-[#2a2b45] text-[#3768e5]'
-                          : 'text-[#e7e7e7] hover:bg-[#2a2b45] hover:text-[#3768e5]'
-                      } transition-all duration-200`}
-                    >
-                      <span className="mr-2">{language.flag}</span>
-                      {language.label}
-                      {i18n.language === language.code && (
-                        <span className="ml-auto">✓</span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-                <div className="py-6 space-y-2">
-                  <Link
-                    to="/login"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-[#e7e7e7] hover:bg-[#3768e5]/10 hover:text-[#3768e5] transition-colors duration-300"
+                <div className="flex items-center justify-between">
+                  <a href="#" className="-m-1.5 p-1.5">
+                    <span className="sr-only">Your Company</span>
+                    <img alt="" src={logo} className="h-8 w-auto" />
+                  </a>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="-m-2.5 rounded-md p-2.5 text-[#e7e7e7]"
                   >
-                    {t('header.auth.login')}
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold bg-[#3768e5] text-white text-center hover:bg-[#757de8] transition-colors duration-300"
-                  >
-                    {t('header.auth.signup')}
-                  </Link>
+                    <span className="sr-only">Close menu</span>
+                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  </motion.button>
                 </div>
-              </div>
-            </div>
-          </DialogPanel>
-        </Dialog>
+                <div className="mt-6 flow-root">
+                  <div className="-my-6 divide-y divide-gray-500/10">
+                    <div className="space-y-2 py-6">
+                      {navigation.map((item) => (
+                        <motion.a
+                          key={item.name}
+                          href={item.href}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => handleMobileItemClick(() => {})}
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-[#e7e7e7] 
+                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] transition-colors duration-300"
+                        >
+                          {item.name}
+                        </motion.a>
+                      ))}
+                    </div>
+                    <div className="flex flex-col gap-2 py-4">
+                      {languages.map((language) => (
+                        <motion.button
+                          key={language.code}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => handleMobileItemClick(() => changeLanguage(language.code))}
+                          className={`flex items-center px-4 py-2 rounded-md text-sm ${
+                            i18n.language === language.code
+                              ? 'bg-[#2a2b45] text-[#3768e5]'
+                              : 'text-[#e7e7e7] hover:bg-[#2a2b45] hover:text-[#3768e5]'
+                          } transition-all duration-200`}
+                        >
+                          <span className="mr-2">{language.flag}</span>
+                          {language.label}
+                          {i18n.language === language.code && (
+                            <span className="ml-auto">✓</span>
+                          )}
+                        </motion.button>
+                      ))}
+                    </div>
+                    <div className="py-6 space-y-2">
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Link
+                          to="/login"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-[#e7e7e7] 
+                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] transition-colors duration-300"
+                        >
+                          {t('header.auth.login')}
+                        </Link>
+                      </motion.div>
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <Link
+                          to="/signup"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold bg-[#3768e5] 
+                            text-white text-center hover:bg-[#757de8] transition-colors duration-300"
+                        >
+                          {t('header.auth.signup')}
+                        </Link>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </Dialog>
+          )}
+        </AnimatePresence>
       </header>
     </div>
   )

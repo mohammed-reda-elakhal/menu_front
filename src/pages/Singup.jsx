@@ -101,7 +101,7 @@ function Signup() {
   return (
     <div className="min-h-screen bg-secondary1 flex relative">
       {/* Language Selector */}
-      <div className="fixed top-2 right-2 z-50 sm:top-4 sm:right-4 md:top-6 md:right-6">
+      <div className="fixed top-2 right-2 z-50 sm:top-6 sm:right-6">
         <div className="relative">
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -143,8 +143,8 @@ function Signup() {
 
       {/* Background Effects */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute top-0 -left-4 w-24 h-24 sm:w-48 sm:h-48 md:w-72 md:h-72 bg-primary/10 rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px]" />
-        <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px]" />
+        <div className="absolute top-0 -left-4 w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 bg-primary/10 rounded-full blur-[60px]" />
+        <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-96 md:h-96 bg-primary/10 rounded-full blur-[60px]" />
       </div>
 
       {/* Decorative Section */}
@@ -275,12 +275,12 @@ function Signup() {
       </motion.div>
 
       {/* Form Section */}
-      <div className="w-full lg:w-[55%] xl:w-1/2 flex items-center justify-center px-3 py-4 sm:px-6 sm:py-6 md:px-8 md:py-8 lg:px-12">
+      <div className="w-full lg:w-[55%] xl:w-1/2 flex items-center justify-center p-4 sm:p-6 md:p-8 lg:p-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-[300px] xs:max-w-[340px] sm:max-w-[400px] md:max-w-[440px]"
+          className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[440px]"
         >
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary2/30 

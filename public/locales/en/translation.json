@@ -262,5 +262,158 @@
           "link": "Sign in"
         }
       }
+    },
+    "dashboard": {
+      "navbar": {
+        "profile": "Profile",
+        "settings": "Settings",
+        "logout": "Sign out",
+        "notifications": "Notifications",
+        "language": "Language",
+        "darkMode": "Dark Mode",
+        "noNotifications": "No new notifications"
+      },
+      "sidebar": {
+        "overview": "Overview",
+        "analytics": "Analytics",
+        "menus": "Menus",
+        "menuList": "My Menus",
+        "menuSettings": "Menu Settings",
+        "createMenu": "Create Menu",
+        "customers": "Customers",
+        "settings": "Settings",
+        "help": "Help & Support",
+        "products": "Our Products",
+        "categories": "Categories",
+        "productsList": "Products",
+        "supplements": "Supplements"
+      },
+      "overview": {
+        "stats": {
+          "totalCategories": "Total Categories",
+          "totalProducts": "Total Products",
+          "todayViews": "Today's Views",
+          "growthRate": "Growth Rate",
+          "thisWeek": "this week"
+        },
+        "charts": {
+          "menuViews": "Daily Menu Views",
+          "bestProducts": "Best Products",
+          "viewAll": "View All Products",
+          "noProducts": "No products to display"
+        }
+      },
+      "menuSettings": {
+        "title": "Menu Settings",
+        "menuTitle": "Menu Title",
+        "menuDescription": "Menu Description",
+        "publishMenu": "Publish Menu",
+        "chooseTemplate": "Choose Template",
+        "saveChanges": "Save Changes"
+      },
+      "products": {
+        "categories": {
+          "title": "Categories Management",
+          "add": "New Category",
+          "edit": "Edit Category",
+          "list": "Categories List",
+          "items": "items"
+        },
+        "products": {
+          "title": "Products Management",
+          "add": "New Product",
+          "edit": "Edit Product",
+          "deleteConfirmTitle": "Confirm Delete",
+          "deleteConfirmMessage": "Are you sure you want to delete {{name}}?"
+        },
+        "supplements": {
+          "title": "Supplements Management"
+        }
+      },
+      "forms": {
+        "category": {
+          "name": "Category Name",
+          "description": "Description",
+          "addImage": "Add Category Image",
+          "changeImage": "Change Image",
+          "image": "Category Image",
+          "imageRequirements": "Image Upload Requirements",
+          "acceptedFormats": "Accepted formats",
+          "maxSize": "Maximum file size",
+          "recommendedSize": "Recommended dimensions",
+          "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+          "imageSizeError": "File is too large. Maximum size is 5MB"
+        },
+        "product": {
+          "name": "Product Name",
+          "description": "Description",
+          "price": "Price",
+          "promo_price": "Promotional Price",
+          "category": "Category",
+          "components": "Components",
+          "visible": "Visible",
+          "review": "Review Score",
+          "allergens": "Allergens",
+          "nutritionalInfo": "Nutritional Information",
+          "addImage": "Add Product Image",
+          "changeImage": "Change Image",
+          "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+          "imageSizeError": "File is too large. Maximum size is 5MB",
+          "imageRequirements": {
+            "format": "Accepted formats: JPG, PNG, WEBP",
+            "size": "Maximum size: 5MB",
+            "recommended": "Recommended: 350x350px"
+          }
+        }
+      },
+      "tables": {
+        "category": {
+          "name": "Name",
+          "description": "Description",
+          "image": "Image"
+        },
+        "product": {
+          "name": "Name",
+          "description": "Description",
+          "category": "Category",
+          "price": "Price",
+          "promo_price": "Promo Price",
+          "visible": "Status",
+          "image": "Image",
+          "currency":{
+            "format": "DH"
+          }
+        },
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete"
+      }
+    },
+    "business": {
+      "title": "Select Your Business Empire",
+      "description": "Choose a business to manage or create a new one. Each business comes with powerful tools to enhance your digital presence and streamline operations.",
+      "addNew": "Add New Business",
+      "features": {
+        "growth": {
+          "title": "Grow Your Business",
+          "description": "Transform your menu into a digital masterpiece and watch your business thrive"
+        },
+        "experience": {
+          "title": "Premium Experience",
+          "description": "Deliver an exceptional dining experience with our cutting-edge platform"
+        },
+        "analytics": {
+          "title": "Track Success",
+          "description": "Get valuable insights and analytics to make data-driven decisions"
+        }
+      },
+      "logout": "Logout"
+    },
+    "common": {
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "save": "Save",
+      "create": "Create",
+      "update": "Update"
     }
   }

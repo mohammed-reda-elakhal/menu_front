@@ -263,5 +263,154 @@
           "link": "Se connecter"
         }
       }
+    },
+    "dashboard": {
+      "navbar": {
+        "profile": "Profil",
+        "settings": "Paramètres",
+        "logout": "Déconnexion",
+        "notifications": "Notifications",
+        "language": "Langue",
+        "darkMode": "Mode Sombre",
+        "noNotifications": "Aucune notification"
+      },
+      "sidebar": {
+        "overview": "Aperçu",
+        "analytics": "Analytiques",
+        "menus": "Menus",
+        "menuList": "Liste des Menus",
+        "menuSettings": "Paramètres du Menu",
+        "createMenu": "Créer un Menu",
+        "customers": "Clients",
+        "settings": "Paramètres",
+        "help": "Aide & Support",
+        "products": "Nos Produits",
+        "categories": "Catégories",
+        "productsList": "Produits",
+        "supplements": "Suppléments"
+      },
+      "overview": {
+        "stats": {
+          "totalCategories": "Total des Catégories",
+          "totalProducts": "Total des Produits",
+          "todayViews": "Vues Aujourd'hui",
+          "growthRate": "Taux de Croissance",
+          "thisWeek": "cette semaine"
+        },
+        "charts": {
+          "menuViews": "Vues Quotidiennes du Menu",
+          "bestProducts": "Meilleurs Produits",
+          "viewAll": "Voir Tous les Produits",
+          "noProducts": "Aucun produit à afficher"
+        }
+      },
+      "menuSettings": {
+        "title": "Paramètres du Menu",
+        "menuTitle": "Titre du Menu",
+        "menuDescription": "Description du Menu",
+        "publishMenu": "Publier le Menu",
+        "chooseTemplate": "Choisir un Modèle",
+        "saveChanges": "Enregistrer les Modifications"
+      },
+      "products": {
+        "categories": {
+          "title": "Gestion des Catégories",
+          "add": "Nouvelle catégorie",
+          "items": "éléments",
+          "list": "Liste des Catégories"
+        },
+        "products": {
+          "title": "Gestion des Produits",
+          "add": "Nouveau Produit",
+          "edit": "Modifier le Produit",
+          "deleteConfirmTitle": "Confirmer la Suppression",
+          "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer {{name}}?"
+        },
+        "supplements": {
+          "title": "Gestion des Suppléments"
+        }
+      },
+      "forms": {
+        "category": {
+          "name": "Nom de la catégorie",
+          "description": "Description",
+          "addImage": "Ajouter une Image",
+          "changeImage": "Changer l'Image",
+          "image": "Image de la Catégorie",
+          "imageRequirements": "Exigences pour l'image",
+          "acceptedFormats": "Formats acceptés",
+          "maxSize": "Taille maximale",
+          "recommendedSize": "Dimensions recommandées",
+          "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
+          "imageSizeError": "Fichier trop volumineux. La taille maximale est de 5MB"
+        },
+        "create": "Créer une catégorie",
+        "update": "Modifier la catégorie",
+        "product": {
+          "name": "Nom du Produit",
+          "description": "Description",
+          "price": "Prix",
+          "category": "Catégorie",
+          "ingredients": "Ingrédients",
+          "allergens": "Allergènes",
+          "nutritionalInfo": "Information Nutritionnelle",
+          "addImage": "Ajouter une Image",
+          "changeImage": "Changer l'Image",
+          "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
+          "imageSizeError": "Fichier trop volumineux. La taille maximale est de 5MB",
+          "imageRequirements": {
+            "format": "Formats acceptés: JPG, PNG, WEBP",
+            "size": "Taille maximale: 5MB",
+            "recommended": "Dimensions recommandées: 350x350px"
+          }
+        }
+      },
+      "tables": {
+        "category": {
+          "name": "Nom",
+          "description": "Description",
+          "image": "Image"
+        },
+        "product": {
+          "name": "Nom",
+          "description": "Description",
+          "category": "Catégorie",
+          "price": "Prix",
+          "image": "Image",
+          "currency":{
+            "format": "DH"
+          }
+        },
+        "actions": "Actions",
+        "edit": "Modifier",
+        "delete": "Supprimer"
+      }
+    },
+    "business": {
+      "title": "Sélectionnez Votre Empire Commercial",
+      "description": "Choisissez une entreprise à gérer ou créez-en une nouvelle. Chaque entreprise dispose d'outils puissants pour améliorer votre présence numérique.",
+      "addNew": "Ajouter une Entreprise",
+      "features": {
+        "growth": {
+          "title": "Développez Votre Entreprise",
+          "description": "Transformez votre menu en chef-d'œuvre numérique et regardez votre entreprise prospérer"
+        },
+        "experience": {
+          "title": "Expérience Premium",
+          "description": "Offrez une expérience culinaire exceptionnelle avec notre plateforme de pointe"
+        },
+        "analytics": {
+          "title": "Suivez Votre Succès",
+          "description": "Obtenez des informations précieuses pour prendre des décisions éclairées"
+        }
+      },
+      "logout": "Déconnexion"
+    },
+    "common": {
+      "cancel": "Annuler",
+      "delete": "Supprimer",
+      "save": "Enregistrer",
+      "create": "Créer",
+      "update": "Modifier"
     }
   }
