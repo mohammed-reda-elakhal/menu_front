@@ -7,14 +7,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#3768e5',   // Your primary color
-        secondary1: '#01021b', // Your secondary color
-        secondary2: '#757de8', // Your secondary color
-        white: '#ffffff',     // White (default but explicitly declared)
-        gray_bg: '#e7e7e7',      // Gray color for your design
-        gray_text: '#333333',      // Gray color for your design
-
+        primary: '#3768e5',
+        secondary1: '#01021b',
+        secondary2: '#757de8',
+        gray_bg: '#e7e7e7',
+        gray_text: '#333333',
       },
+      keyframes: {
+        gradient: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        }
+      },
+      animation: {
+        gradient: 'gradient 8s ease infinite'
+      },
+      transformStyle: {
+        'preserve-3d': 'preserve-3d'
+      },
+      perspective: {
+        '1000': '1000px'
+      }
     },
   },
   plugins: [],

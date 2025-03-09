@@ -19,4 +19,9 @@ i18n
     }
   });
 
+i18n.on('languageChanged', (lng) => {
+  const direction = lng === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.dir = direction;
+});
+
 export default i18n;
