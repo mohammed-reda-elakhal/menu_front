@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import PreviewIcon from '@mui/icons-material/Preview';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiSearch, FiGrid, FiLayout } from 'react-icons/fi';
+import Header from '../components/Header';
 
 // Wrap Card with motion
 const MotionCard = motion(Card);
@@ -41,8 +42,10 @@ const Marketplace: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-secondary1">
-      {/* Background Effects */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+      <Header />
+     <div className="pt-20">
+       {/* Background Effects */}
+       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-primary/10 rounded-full blur-[60px]" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[60px]" />
       </div>
@@ -198,6 +201,7 @@ const Marketplace: React.FC = () => {
           ))}
         </Grid>
       </Container>
+     </div>
     </div>
   );
 };

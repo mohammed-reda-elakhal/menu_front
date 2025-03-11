@@ -1,7 +1,4 @@
 import { lazy } from 'react';
-import MinimalistCoffee from '../templates/coffee/MinimalistCoffee';
-import ModernCoffee from '../templates/coffee/ModernCoffee';
-import VintageCoffee from '../templates/coffee/VintageCoffee';
 
 // Import the JSON data
 import templateData from '../data/templates.json';
@@ -20,17 +17,17 @@ export interface TemplateConfig {
   demoPath: string;
 }
 
-// Map component names to actual components
+// Map component names to lazy-loaded components
 const componentMap = {
-  MinimalistCoffee: MinimalistCoffee,
-  ModernCoffee: ModernCoffee,
-  VintageCoffee: VintageCoffee,
+  MinimalistCoffee: lazy(() => import('../templates/coffee/MinimalistCoffee')),
+  ModernCoffee: lazy(() => import('../templates/coffee/ModernCoffee')),
+  VintageCoffee: lazy(() => import('../templates/coffee/VintageCoffee')),
 };
 
 // Transform JSON data into TemplateConfig array
 const templates: TemplateConfig[] = templateData.map((template) => ({
   ...template,
-  component: componentMap[template.componentName], // Map componentName to actual component
+  component: componentMap[template.componentName], // Map componentName to lazy-loaded component
 }));
 
 export default templates;
