@@ -1,0 +1,41 @@
+[
+    {
+      "id": "minimalist-coffee",
+      "name": "Minimalist Coffee Menu",
+      "componentName": "MinimalistCoffee",
+      "category": "coffee",
+      "description": "Clean and simple coffee menu design with elegant typography",
+      "style": {
+        "theme": "minimalist"
+      },
+      "previewImage": "/images/minimalist.png",
+      "features": ["Responsive", "Animations", "Clean Layout", "Dark Mode"],
+      "demoPath": "/templates/minimalist-coffee"
+    },
+    {
+      "id": "modern-coffee",
+      "name": "Modern Coffee Experience",
+      "componentName": "ModernCoffee",
+      "category": "coffee",
+      "description": "Contemporary design with bold typography and image cards",
+      "style": {
+        "theme": "modern"
+      },
+      "previewImage": "/images/modern.png",
+      "features": ["Grid Layout", "Image Cards", "Order Button", "Custom Fonts"],
+      "demoPath": "/templates/modern-coffee"
+    },
+    {
+      "id": "vintage-coffee",
+      "name": "Vintage Coffee House",
+      "componentName": "VintageCoffee",
+      "category": "coffee",
+      "description": "Classic vintage style with decorative elements",
+      "style": {
+        "theme": "vintage"
+      },
+      "previewImage": "/images/vintage.png",
+      "features": ["Retro Style", "Circular Images", "Decorative Elements", "Custom Colors"],
+      "demoPath": "/templates/vintage-coffee"
+    }
+  ]

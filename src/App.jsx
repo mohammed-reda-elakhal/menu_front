@@ -8,6 +8,7 @@ import CoffeeTemplate1 from './templates/CoffeeTemplate1';
 import menuData from './assets/menu.json';
 import TemplateManager from './components/TemplateManager';
 import Marketplace from './pages/Marketplace';
+import templates from './config/templates';
 
 // Lazy load pages
 const Home = React.lazy(() => import('./pages/Home'))
@@ -44,12 +45,14 @@ function App() {
               path="/marketplace" 
               element={<Marketplace />} 
             />
-            <Route 
-              path="/coffee-template" 
-              element={<CoffeeTemplate1 menuData={menuData} />} 
-            />
-            {/* Add the templates route */}
-            
+            {/* Add dynamic template demo routes */}
+            {templates.map(template => (
+              <Route
+                key={template.id}
+                path={template.demoPath}
+                element={<template.component menuData={menuData} />}
+              />
+            ))}
           </Routes>
         </Suspense>
       </Router>

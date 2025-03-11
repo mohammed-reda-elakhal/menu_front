@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useScrollToTop } from '../../hooks/useScrollToTop';
 
 const MinimalistCoffee: React.FC<{ menuData: any }> = ({ menuData }) => {
+  useScrollToTop();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Minimal Header */}
