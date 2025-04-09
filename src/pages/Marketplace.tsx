@@ -23,6 +23,7 @@ import PreviewIcon from '@mui/icons-material/Preview';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiSearch, FiGrid, FiLayout } from 'react-icons/fi';
 import Header from '../components/Header';
+import SEO from '../components/SEO';
 
 // Wrap Card with motion
 const MotionCard = motion(Card);
@@ -42,6 +43,12 @@ const Marketplace: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-secondary1">
+      <SEO
+        title="Menu Templates Marketplace | Meniwi"
+        description="Browse our collection of beautiful, responsive menu templates for restaurants, cafes, and bakeries. Find the perfect design for your business."
+        keywords="menu templates, restaurant templates, cafe menu, digital menu templates, food menu design"
+        url="https://meniwi.com/marketplace"
+      />
       <Header />
      <div className="pt-20">
        {/* Background Effects */}
@@ -57,29 +64,29 @@ const Marketplace: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <Typography 
-            variant="h3" 
-            component="h1" 
+          <Typography
+            variant="h3"
+            component="h1"
             className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary2 bg-clip-text text-transparent"
           >
             Template Marketplace
           </Typography>
-          <Typography 
+          <Typography
             variant="h6"
             className="text-gray_bg"
           >
             Choose from our collection of beautiful menu templates
           </Typography>
         </motion.div>
-        
+
         {/* Filters Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="relative mb-12"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary2/30 rounded-2xl blur-xl opacity-50 transform rotate-6 scale-105" />
-          
+
           <Box className="relative bg-secondary1 p-6 rounded-2xl border border-primary/20 backdrop-blur-xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="relative">
@@ -89,7 +96,7 @@ const Marketplace: React.FC = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search templates..."
-                  className="w-full bg-secondary1 border-2 border-primary/20 rounded-xl px-10 py-3 
+                  className="w-full bg-secondary1 border-2 border-primary/20 rounded-xl px-10 py-3
                     text-white focus:border-primary focus:shadow-lg focus:shadow-primary/10 transition-all"
                   onFocus={() => setFocusedInput('search')}
                   onBlur={() => setFocusedInput(null)}
@@ -101,7 +108,7 @@ const Marketplace: React.FC = () => {
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full bg-secondary1 border-2 border-primary/20 rounded-xl px-10 py-3 
+                  className="w-full bg-secondary1 border-2 border-primary/20 rounded-xl px-10 py-3
                     text-white focus:border-primary focus:shadow-lg focus:shadow-primary/10 transition-all appearance-none"
                 >
                   <option value="all">All Categories</option>
@@ -116,7 +123,7 @@ const Marketplace: React.FC = () => {
                 <select
                   value={theme}
                   onChange={(e) => setTheme(e.target.value)}
-                  className="w-full bg-secondary1 border-2 border-primary/20 rounded-xl px-10 py-3 
+                  className="w-full bg-secondary1 border-2 border-primary/20 rounded-xl px-10 py-3
                     text-white focus:border-primary focus:shadow-lg focus:shadow-primary/10 transition-all appearance-none"
                 >
                   <option value="all">All Themes</option>
@@ -143,7 +150,7 @@ const Marketplace: React.FC = () => {
                   className="relative bg-secondary1 rounded-2xl border border-primary/20 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary2/5" />
-                  
+
                   <Box className="relative">
                     <CardMedia
                       component="img"
@@ -159,19 +166,19 @@ const Marketplace: React.FC = () => {
                       {template.name}
                     </Typography>
 
-                    {/* Description 
+                    {/* Description
                     <Typography className="text-gray_bg mb-4">
                       {template.description}
                     </Typography>
                     */}
                     {/* Category and Theme */}
                     <Stack direction="row" spacing={1} className="mb-4">
-                      <Chip 
+                      <Chip
                         label={template.category}
                         size="small"
                         className="bg-primary/10 text-primary"
                       />
-                      <Chip 
+                      <Chip
                         label={template.style.theme}
                         size="small"
                         className="bg-secondary2/10 text-secondary2"
@@ -188,7 +195,7 @@ const Marketplace: React.FC = () => {
                         variant="contained"
                         startIcon={<PreviewIcon />}
                         fullWidth
-                        className="bg-primary hover:bg-secondary2 text-white py-3 rounded-xl 
+                        className="bg-primary hover:bg-secondary2 text-white py-3 rounded-xl
                           font-semibold transition-all duration-300 shadow-lg hover:shadow-primary/25"
                       >
                         View Demo

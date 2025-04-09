@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import restaurantImage from '../assets/menu_cover1.jpg' // Add your image
 import logo from '../assets/menu.png'
+import SEO from '../components/SEO'
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false)
@@ -56,12 +57,12 @@ function Signup() {
         <motion.div
           key={field.id}
           initial={{ opacity: 0, x: -20 }}
-          animate={{ 
+          animate={{
             opacity: focusedInput === null ? 1 : focusedInput === field.id ? 1 : 0.5,
             x: 0,
             scale: focusedInput === field.id ? 1.02 : 1,
           }}
-          transition={{ 
+          transition={{
             delay: 0.2 * index,
             duration: 0.2
           }}
@@ -69,14 +70,14 @@ function Signup() {
           <label className="text-gray_bg text-xs sm:text-sm block mb-1 sm:mb-1.5 md:mb-2">{field.label}</label>
           <div className="relative">
             <field.icon className={`absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 transition-colors duration-300
-              text-base sm:text-lg md:text-xl ${focusedInput === field.id ? 'text-primary' : 'text-primary/50'}`} 
+              text-base sm:text-lg md:text-xl ${focusedInput === field.id ? 'text-primary' : 'text-primary/50'}`}
             />
             <input
               type={field.type}
-              className={`w-full bg-secondary1 border-2 rounded-lg sm:rounded-xl px-8 sm:px-9 md:px-10 py-2 sm:py-2.5 md:py-3 
+              className={`w-full bg-secondary1 border-2 rounded-lg sm:rounded-xl px-8 sm:px-9 md:px-10 py-2 sm:py-2.5 md:py-3
                 text-sm sm:text-base text-white transition-all duration-300
-                ${focusedInput === field.id 
-                  ? 'border-primary shadow-lg shadow-primary/10' 
+                ${focusedInput === field.id
+                  ? 'border-primary shadow-lg shadow-primary/10'
                   : 'border-primary/20'}`}
               placeholder={field.placeholder}
               onFocus={() => setFocusedInput(field.id)}
@@ -100,6 +101,12 @@ function Signup() {
 
   return (
     <div className="min-h-screen bg-secondary1 flex relative">
+      <SEO
+        title="Sign Up | Meniwi"
+        description="Create your Meniwi account to start building interactive digital menus for your restaurant."
+        keywords="sign up, register, create account, restaurant menu platform, digital menu"
+        url="https://meniwi.com/signup"
+      />
       {/* Language Selector */}
       <div className="fixed top-2 right-2 z-50 sm:top-6 sm:right-6">
         <div className="relative">
@@ -107,7 +114,7 @@ function Signup() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowLangMenu(!showLangMenu)}
-            className="flex items-center space-x-2 bg-secondary1/80 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg 
+            className="flex items-center space-x-2 bg-secondary1/80 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg
               border-2 border-primary/20 text-white hover:border-primary/40 transition-all"
           >
             <span className="text-sm sm:text-base">{languages.find(lang => lang.code === i18n.language)?.flag}</span>
@@ -120,14 +127,14 @@ function Signup() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="absolute top-full right-0 mt-2 bg-secondary1 border-2 border-primary/20 
+                className="absolute top-full right-0 mt-2 bg-secondary1 border-2 border-primary/20
                   rounded-lg shadow-xl overflow-hidden min-w-[160px]"
               >
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => changeLang(lang.code)}
-                    className={`flex items-center space-x-2 w-full px-4 py-2 text-left text-white 
+                    className={`flex items-center space-x-2 w-full px-4 py-2 text-left text-white
                       hover:bg-primary/10 transition-colors
                       ${i18n.language === lang.code ? 'bg-primary/20' : ''}`}
                   >
@@ -213,13 +220,13 @@ function Signup() {
               className="flex items-center gap-4"
             >
               <Link to="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
-                <img 
-                  src={logo} 
-                  alt="Menuso Logo" 
+                <img
+                  src={logo}
+                  alt="Meniwi Logo"
                   className="h-12 w-auto"
                 />
                 <h2 className="text-4xl font-bold text-white">
-                  Menuso
+                  Meniwi
                 </h2>
               </Link>
             </motion.div>
@@ -283,7 +290,7 @@ function Signup() {
           className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[440px]"
         >
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary2/30 
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary2/30
               rounded-2xl blur-xl opacity-50 transform rotate-6 scale-105" />
 
             <motion.div
@@ -301,9 +308,9 @@ function Signup() {
                   className="flex justify-center mb-2 sm:mb-3 md:mb-4"
                 >
                   <Link to="/" className="hover:opacity-80 transition-opacity">
-                    <img 
-                      src={logo} 
-                      alt="Menuso Logo" 
+                    <img
+                      src={logo}
+                      alt="Meniwi Logo"
                       className="h-8 sm:h-10 md:h-12 w-auto"
                     />
                   </Link>
@@ -333,7 +340,7 @@ function Signup() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-primary hover:bg-secondary2 text-white rounded-lg sm:rounded-xl py-2 sm:py-2.5 md:py-3 
+                  className="w-full bg-primary hover:bg-secondary2 text-white rounded-lg sm:rounded-xl py-2 sm:py-2.5 md:py-3
                     text-sm sm:text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-primary/25"
                 >
                   {t('signup.form.submit')}

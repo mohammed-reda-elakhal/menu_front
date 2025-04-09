@@ -18,12 +18,12 @@ function About() {
         transition={{ duration: 0.5 }}
         className="flex justify-center mb-12"
       >
-        <img src={logo} alt="Menuso Logo" className="h-12 w-auto" />
+        <img src={logo} alt="Meniwi Logo" className="h-12 w-auto" />
       </motion.div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -35,7 +35,7 @@ function About() {
           <p className="text-gray_bg text-lg max-w-2xl mx-auto mb-8">
             {t('about.subtitle')}
           </p>
-          
+
           {/* Description section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ function About() {
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

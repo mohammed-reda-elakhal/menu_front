@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import TemplatePreviewHeader from '../../components/TemplatePreviewHeader';
 
 const ModernCoffee: React.FC<{ menuData: any }> = ({ menuData }) => {
   useEffect(() => {
@@ -11,6 +12,7 @@ const ModernCoffee: React.FC<{ menuData: any }> = ({ menuData }) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <TemplatePreviewHeader templateName="Modern Coffee Menu" />
       {/* Modern Header */}
       <header className="bg-black text-white py-20">
         <div className="max-w-7xl mx-auto px-4">

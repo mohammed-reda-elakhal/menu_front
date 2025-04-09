@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Drawer, Box, List, Divider, IconButton, Tooltip } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
   FiHome,
   FiPieChart,
   FiMenu as MenuIcon,
@@ -34,7 +34,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   const { darkMode } = useCustomTheme();
 
   const menuItems = [
-    { 
+    {
       name: t('dashboard.sidebar.overview'),
       icon: FiHome,
       path: '/dashboard'
@@ -95,7 +95,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       icon: FiUsers,
       path: '/dashboard/customers'
     },
-    
+
   ];
 
   const bottomItems = [
@@ -133,7 +133,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           className={`flex items-center ${isOpen ? 'gap-3' : 'justify-center'} px-3 py-2.5 rounded-lg cursor-pointer
             transition-colors duration-200 group relative
             ${isActive || isSubmenuOpen
-              ? 'bg-primary/20 text-primary' 
+              ? 'bg-primary/20 text-primary'
               : 'text-gray_bg hover:bg-primary/10'}`}
           onClick={handleClick}
         >
@@ -183,7 +183,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                     className={`flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer
                       transition-colors duration-200 group
                       ${location.pathname === subItem.path
-                        ? 'bg-primary/10 text-primary' 
+                        ? 'bg-primary/10 text-primary'
                         : 'text-gray_bg hover:bg-primary/5'}`}
                     onClick={() => navigate(subItem.path)}
                   >
@@ -211,7 +211,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               animate={{ opacity: 1 }}
               className="text-xl font-bold text-white"
             >
-              Menuso
+              Meniwi
             </motion.span>
           )}
         </div>

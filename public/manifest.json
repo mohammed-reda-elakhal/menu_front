@@ -1,0 +1,21 @@
+{
+  "name": "Meniwi - Digital Menu Platform",
+  "short_name": "Meniwi",
+  "description": "Create, manage, and share your restaurant menu instantly with QR codes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#01021b",
+  "theme_color": "#3768e5",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

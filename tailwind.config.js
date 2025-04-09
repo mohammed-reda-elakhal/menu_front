@@ -33,7 +33,10 @@ export default {
       },
       perspective: {
         '1000': '1000px'
-      }
+      },
+      screens: {
+        'xs': '480px',
+      },
     },
   },
   plugins: [],

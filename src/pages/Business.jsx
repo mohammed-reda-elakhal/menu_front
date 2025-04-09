@@ -16,7 +16,7 @@ const Business = () => {
   const { t, i18n } = useTranslation()
   const [selectedBusiness, setSelectedBusiness] = useState(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  
+
   // Language options
   const languages = [
     { code: 'en', label: 'English', flag: '🇬🇧' },
@@ -67,7 +67,7 @@ const Business = () => {
   const handleBusinessSelect = async (business) => {
     setSelectedBusiness(business)
     setIsTransitioning(true)
-    
+
     setTimeout(() => {
       navigate(`/dashboard/${business.id}`)
     }, 2000)
@@ -87,7 +87,7 @@ const Business = () => {
       {/* Selected business animation */}
       {selectedBusiness && isTransitioning && (
         <motion.div
-          initial={{ 
+          initial={{
             position: 'fixed',
             scale: 0.5,
             top: '50%',
@@ -147,11 +147,11 @@ const Business = () => {
         {/* Existing blur effects */}
         <div className="absolute top-0 -left-4 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-[80px]" />
-        
+
         {/* Main decorative icons */}
         <BsBuildingsFill className="text-primary/10 text-[200px] absolute -right-20 -top-20 animate-pulse" />
         <BsStars className="text-primary/10 text-[150px] absolute left-10 bottom-20 animate-bounce" />
-        
+
         {/* Added decorative food icons */}
         <div className="absolute inset-0 opacity-10">
           <div className="grid grid-cols-6 gap-8 p-8 rotate-12">
@@ -163,7 +163,7 @@ const Business = () => {
               <motion.div
                 key={index}
                 initial={{ opacity: 0 }}
-                animate={{ 
+                animate={{
                   opacity: [0.3, 0.6, 0.3],
                   scale: [1, 1.1, 1],
                   rotate: [0, 5, 0]
@@ -195,14 +195,14 @@ const Business = () => {
               />
 
             <div className="h-5 w-px bg-primary/20" /> {/* Divider */}
-          
-              <span className="text-primary font-bold text-xl">Menuso</span>
+
+              <span className="text-primary font-bold text-xl">Meniwi</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
             {/* Language Selector */}
             <Menu as="div" className="relative">
-              <Menu.Button className="flex items-center gap-2 px-3 py-2 text-sm text-gray_bg 
+              <Menu.Button className="flex items-center gap-2 px-3 py-2 text-sm text-gray_bg
                 hover:text-primary transition-colors rounded-lg hover:bg-primary/5">
                 <FiGlobe className="w-4 h-4" />
                 <span>{languages.find(lang => lang.code === i18n.language)?.flag}</span>
@@ -217,7 +217,7 @@ const Business = () => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="absolute right-0 mt-2 w-48 rounded-md bg-secondary1 
+                <Menu.Items className="absolute right-0 mt-2 w-48 rounded-md bg-secondary1
                   border border-primary/20 shadow-lg">
                   <div className="py-1">
                     {languages.map((language) => (
@@ -241,7 +241,7 @@ const Business = () => {
             </Menu>
 
             {/* Logout Button */}
-            <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray_bg 
+            <button className="flex items-center gap-2 px-3 py-2 text-sm text-gray_bg
               hover:text-primary transition-colors rounded-lg hover:bg-primary/5">
               <FiLogOut className="w-4 h-4" />
               <span>{t('business.logout')}</span>
@@ -273,17 +273,17 @@ const Business = () => {
               key={business.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 rotateY: 5,
                 rotateX: 5,
-                y: -5 
+                y: -5
               }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleBusinessSelect(business)}
-              className={`group bg-secondary1/50 backdrop-blur-sm rounded-xl 
-                border border-primary/20 hover:border-primary/40 
-                shadow-[0_8px_30px_rgb(0,0,0,0.12)] 
+              className={`group bg-secondary1/50 backdrop-blur-sm rounded-xl
+                border border-primary/20 hover:border-primary/40
+                shadow-[0_8px_30px_rgb(0,0,0,0.12)]
                 hover:shadow-[0_8px_30px_rgba(55,104,229,0.1)]
                 transition-all duration-300 p-2 sm:p-3 cursor-pointer
                 transform-gpu perspective-1000
@@ -294,14 +294,14 @@ const Business = () => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
-                  className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary2/20 to-primary/20 
-                    rounded-full blur-xl opacity-0 group-hover:opacity-75 
+                  className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary2/20 to-primary/20
+                    rounded-full blur-xl opacity-0 group-hover:opacity-75
                     transition-all duration-500 animate-gradient"
                 />
-                
+
                 {/* Image container with enhanced 3D effect */}
-                <div className="relative aspect-square overflow-hidden rounded-full 
-                  border-2 border-primary/20 group-hover:border-primary/40 
+                <div className="relative aspect-square overflow-hidden rounded-full
+                  border-2 border-primary/20 group-hover:border-primary/40
                   w-full max-w-[100px] mx-auto
                   transform-gpu group-hover:shadow-[0_0_20px_rgba(55,104,229,0.2)]"
                 >
@@ -309,9 +309,9 @@ const Business = () => {
                     src={business.image}
                     alt={business.name}
                     className="w-full h-full object-cover"
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.15,
-                      rotate: 5 
+                      rotate: 5
                     }}
                     transition={{
                       type: "spring",
@@ -320,14 +320,14 @@ const Business = () => {
                     }}
                     loading="lazy"
                   />
-                  
+
                   {/* Enhanced overlay */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileHover={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute inset-0 bg-gradient-to-t 
-                      from-primary/80 via-primary/50 to-transparent 
+                    className="absolute inset-0 bg-gradient-to-t
+                      from-primary/80 via-primary/50 to-transparent
                       flex items-end justify-center pb-2
                       transform-gpu backdrop-blur-[2px]"
                   >
@@ -362,10 +362,10 @@ const Business = () => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.95 }}
-            className="group bg-secondary1/50 backdrop-blur-sm rounded-xl 
-              border-2 border-dashed border-primary/30 hover:border-primary/50 
-              shadow-lg hover:shadow-xl transition-all duration-300 
-              p-2 sm:p-3 cursor-pointer flex flex-col items-center justify-center 
+            className="group bg-secondary1/50 backdrop-blur-sm rounded-xl
+              border-2 border-dashed border-primary/30 hover:border-primary/50
+              shadow-lg hover:shadow-xl transition-all duration-300
+              p-2 sm:p-3 cursor-pointer flex flex-col items-center justify-center
               aspect-square"
           >
             <motion.div
@@ -376,7 +376,7 @@ const Business = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
-                className="absolute -inset-3 bg-gradient-to-r from-primary/20 to-secondary2/20 
+                className="absolute -inset-3 bg-gradient-to-r from-primary/20 to-secondary2/20
                   rounded-full blur-lg"
               />
               <FiPlus className="relative text-3xl sm:text-4xl text-primary mb-1" />
@@ -404,7 +404,7 @@ const Business = () => {
               className="text-center p-4"
             >
               <motion.div
-                animate={{ 
+                animate={{
                   y: [0, -5, 0],
                   rotate: [0, 5, 0]
                 }}
@@ -430,7 +430,7 @@ const Business = () => {
               className="text-center p-4"
             >
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.2, 1],
                   rotate: [0, 360, 0]
                 }}
@@ -456,7 +456,7 @@ const Business = () => {
               className="text-center p-4"
             >
               <motion.div
-                animate={{ 
+                animate={{
                   opacity: [0.5, 1, 0.5],
                   scale: [1, 1.1, 1]
                 }}

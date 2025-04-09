@@ -12,7 +12,7 @@ const testimonials = [
     name: "Mohamed Alami",
     role: "Owner, Café Marrakech",
     image: "https://randomuser.me/api/portraits/men/1.jpg",
-    quote: "بفضل Menuso، أصبحت إدارة قائمة مطعمنا أسهل بكثير. العملاء يحبون التصميم العصري والوصول السهل عبر رمز QR.",
+    quote: "بفضل Meniwi، أصبحت إدارة قائمة مطعمنا أسهل بكثير. العملاء يحبون التصميم العصري والوصول السهل عبر رمز QR.",
     rating: 5,
     location: "Marrakech"
   },
@@ -44,7 +44,7 @@ const testimonials = [
     name: "Hassan El Mansouri",
     role: "Manager, Café Agadir",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
-    quote: "منذ استخدام Menuso، لاحظنا زيادة في رضا العملاء وتحسن في كفاءة خدمتنا.",
+    quote: "منذ استخدام Meniwi، لاحظنا زيادة في رضا العملاء وتحسن في كفاءة خدمتنا.",
     rating: 5,
     location: "Agadir"
   },
@@ -64,7 +64,7 @@ function Testimonials() {
   return (
     <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -108,13 +108,13 @@ function Testimonials() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-secondary1 p-8 rounded-2xl border-2 border-primary/20 
+                className="bg-secondary1 p-8 rounded-2xl border-2 border-primary/20
                   hover:border-primary/40 transition-all duration-300 h-full
                   shadow-lg hover:shadow-primary/20"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <img 
-                    src={testimonial.image} 
+                  <img
+                    src={testimonial.image}
                     alt={testimonial.name}
                     className="w-16 h-16 rounded-full border-2 border-primary"
                   />

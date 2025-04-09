@@ -30,7 +30,7 @@
       },
       "subtitle": "Améliorez la présence de votre restaurant avec notre solution de menu numérique innovante",
       "description": {
-        "company": "Menuso",
+        "company": "Meniwi",
         "text": "est votre plateforme tout-en-un de gestion de menus numériques, conçue spécifiquement pour les restaurants et cafés modernes. Nous combinons un design élégant avec des fonctionnalités puissantes, vous permettant de créer, mettre à jour et partager vos menus numériques sans effort. Avec l'intégration de codes QR et les mises à jour en temps réel, votre menu reste dynamique et accessible à vos clients à tout moment."
       },
       "features": {
@@ -48,7 +48,7 @@
         }
       }
     },
-    
+
       "features": {
         "title": {
           "powerful": "Fonctionnalités",
@@ -127,7 +127,7 @@
         "part1": "Questions",
         "part2": "Fréquentes"
       },
-      "subtitle": "Tout ce que vous devez savoir sur Menuso et son fonctionnement",
+      "subtitle": "Tout ce que vous devez savoir sur Meniwi et son fonctionnement",
       "questions": [
         {
           "question": "Comment créer mon menu numérique ?",
@@ -157,7 +157,7 @@
         "part2": "nos clients",
         "part3": ""
       },
-      "subtitle": "Découvrez pourquoi les restaurateurs à travers le Maroc font confiance à Menuso"
+      "subtitle": "Découvrez pourquoi les restaurateurs à travers le Maroc font confiance à Meniwi"
     },
     "contact": {
       "title": {
@@ -190,7 +190,7 @@
       }
     },
     "footer": {
-      "description": "Transformez le menu de votre restaurant en une expérience numérique interactive avec Menuso.",
+      "description": "Transformez le menu de votre restaurant en une expérience numérique interactive avec Meniwi.",
       "quickLinks": {
         "title": "Liens Rapides",
         "items": ["Accueil", "À propos", "Fonctionnalités", "Tarification", "Contact"]
@@ -206,7 +206,7 @@
         "button": "S'abonner"
       },
       "bottom": {
-        "copyright": "© {{year}} Menuso. Tous droits réservés.",
+        "copyright": "© {{year}} Meniwi. Tous droits réservés.",
         "links": ["Confidentialité", "Conditions", "Contact"]
       }
     },
@@ -237,7 +237,7 @@
         "updates": "Mises à jour et notifications instantanées",
         "security": "Plateforme sécurisée et fiable"
       },
-      "quote": "Rejoignez des milliers de restaurants qui transforment déjà leur expérience menu avec Menuso",
+      "quote": "Rejoignez des milliers de restaurants qui transforment déjà leur expérience menu avec Meniwi",
       "form": {
         "restaurant": {
           "label": "Nom du Restaurant",
