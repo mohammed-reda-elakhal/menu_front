@@ -23,10 +23,20 @@ export default {
             'background-size': '200% 200%',
             'background-position': 'right center'
           }
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
+        },
+        bounce: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' }
         }
       },
       animation: {
-        gradient: 'gradient 8s ease infinite'
+        gradient: 'gradient 8s ease infinite',
+        'spin-slow': 'spin 3s linear infinite',
+        'bounce-slow': 'bounce 2s ease-in-out infinite'
       },
       transformStyle: {
         'preserve-3d': 'preserve-3d'

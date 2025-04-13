@@ -211,7 +211,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               animate={{ opacity: 1 }}
               className="text-xl font-bold text-white"
             >
-              Meniwi
+              Menuso
             </motion.span>
           )}
         </div>

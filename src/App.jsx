@@ -9,8 +9,6 @@ import menuData from './assets/menu.json';
 import TemplateManager from './components/TemplateManager';
 import Marketplace from './pages/Marketplace';
 import templates from './config/templates';
-import NotFound from './pages/NotFound';
-import ServiceWorkerStatus from './components/ServiceWorkerStatus';
 
 // Lazy load pages
 const Home = React.lazy(() => import('./pages/Home'))
@@ -23,14 +21,12 @@ const MenuSettings = React.lazy(() => import('./pages/dashboard/MenuSettings'))
 const Categories = React.lazy(() => import('./pages/dashboard/products/Categories'))
 const Products = React.lazy(() => import('./pages/dashboard/products/Products'))
 const Supplements = React.lazy(() => import('./pages/dashboard/products/Supplements'))
-const ServiceWorkerTest = React.lazy(() => import('./pages/ServiceWorkerTest'))
 
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <ServiceWorkerStatus />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -45,13 +41,9 @@ function App() {
               <Route path="products/supplements" element={<Supplements />} />
               {/* Add other dashboard routes here */}
             </Route>
-            <Route
-              path="/marketplace"
-              element={<Marketplace />}
-            />
-            <Route
-              path="/sw-test"
-              element={<ServiceWorkerTest />}
+            <Route 
+              path="/marketplace" 
+              element={<Marketplace />} 
             />
             {/* Add dynamic template demo routes */}
             {templates.map(template => (
@@ -61,8 +53,6 @@ function App() {
                 element={<template.component menuData={menuData} />}
               />
             ))}
-            {/* 404 Page - This should be the last route */}
-            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </Router>

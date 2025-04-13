@@ -196,7 +196,7 @@ const Business = () => {
 
             <div className="h-5 w-px bg-primary/20" /> {/* Divider */}
 
-              <span className="text-primary font-bold text-xl">Meniwi</span>
+              <span className="text-primary font-bold text-xl">Menuso</span>
             </div>
           </div>
           <div className="flex items-center gap-4">

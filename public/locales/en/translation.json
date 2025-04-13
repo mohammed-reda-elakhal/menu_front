@@ -30,7 +30,7 @@
       },
       "subtitle": "Elevate your restaurant's presence with our innovative digital menu solution",
       "description": {
-        "company": "Meniwi",
+        "company": "Menuso",
         "text": "is your all-in-one digital menu management platform, designed specifically for modern restaurants and cafes. We combine elegant design with powerful functionality, allowing you to create, update, and share your digital menus effortlessly. With QR code integration and real-time updates, your menu stays dynamic and accessible to your customers at all times."
       },
       "features": {
@@ -126,7 +126,7 @@
         "part1": "Frequently Asked",
         "part2": "Questions"
       },
-      "subtitle": "Everything you need to know about Meniwi and how it works",
+      "subtitle": "Everything you need to know about Menuso and how it works",
       "questions": [
         {
           "question": "How do I create my digital menu?",
@@ -156,7 +156,7 @@
         "part2": "Clients",
         "part3": "Say"
       },
-      "subtitle": "Discover why restaurant owners across Morocco trust Meniwi"
+      "subtitle": "Discover why restaurant owners across Morocco trust Menuso"
     },
     "contact": {
       "title": {
@@ -189,7 +189,7 @@
       }
     },
     "footer": {
-      "description": "Transform your restaurant's menu into an interactive digital experience with Meniwi.",
+      "description": "Transform your restaurant's menu into an interactive digital experience with Menuso.",
       "quickLinks": {
         "title": "Quick Links",
         "items": ["Home", "About", "Features", "Pricing", "Contact"]
@@ -205,7 +205,7 @@
         "button": "Subscribe"
       },
       "bottom": {
-        "copyright": "© {{year}} Meniwi. All rights reserved.",
+        "copyright": "© {{year}} Menuso. All rights reserved.",
         "links": ["Privacy", "Terms", "Contact"]
       }
     },
@@ -236,7 +236,7 @@
         "updates": "Instant updates and notifications",
         "security": "Secure and reliable platform"
       },
-      "quote": "Join thousands of restaurants already transforming their menu experience with Meniwi",
+      "quote": "Join thousands of restaurants already transforming their menu experience with Menuso",
       "form": {
         "restaurant": {
           "label": "Restaurant Name",

@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 import { FaQuoteLeft, FaStar } from 'react-icons/fa'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
@@ -12,7 +11,7 @@ const testimonials = [
     name: "Mohamed Alami",
     role: "Owner, Café Marrakech",
     image: "https://randomuser.me/api/portraits/men/1.jpg",
-    quote: "بفضل Meniwi، أصبحت إدارة قائمة مطعمنا أسهل بكثير. العملاء يحبون التصميم العصري والوصول السهل عبر رمز QR.",
+    quote: "بفضل Menuso، أصبحت إدارة قائمة مطعمنا أسهل بكثير. العملاء يحبون التصميم العصري والوصول السهل عبر رمز QR.",
     rating: 5,
     location: "Marrakech"
   },
@@ -44,7 +43,7 @@ const testimonials = [
     name: "Hassan El Mansouri",
     role: "Manager, Café Agadir",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
-    quote: "منذ استخدام Meniwi، لاحظنا زيادة في رضا العملاء وتحسن في كفاءة خدمتنا.",
+    quote: "منذ استخدام Menuso، لاحظنا زيادة في رضا العملاء وتحسن في كفاءة خدمتنا.",
     rating: 5,
     location: "Agadir"
   },
@@ -64,12 +63,7 @@ function Testimonials() {
   return (
     <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             {t('testimonials.title.part1')}{' '}
             <span className="text-primary">{t('testimonials.title.part2')}</span>{' '}
@@ -78,7 +72,7 @@ function Testimonials() {
           <p className="text-gray_bg text-lg max-w-2xl mx-auto">
             {t('testimonials.subtitle')}
           </p>
-        </motion.div>
+        </div>
 
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -104,12 +98,9 @@ function Testimonials() {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index} className="pb-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+              <div
                 className="bg-secondary1 p-8 rounded-2xl border-2 border-primary/20
-                  hover:border-primary/40 transition-all duration-300 h-full
+                  hover:border-primary/40 transition-colors duration-300 h-full
                   shadow-lg hover:shadow-primary/20"
               >
                 <div className="flex items-center gap-4 mb-6">
@@ -135,7 +126,7 @@ function Testimonials() {
                     <FaStar key={i} className="text-primary" />
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

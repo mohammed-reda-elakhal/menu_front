@@ -1,10 +1,9 @@
 'use client'
 
-import { useState, Fragment } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
+import { useState, Fragment, useEffect } from 'react'
+import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next'
-import { motion, AnimatePresence } from 'framer-motion' // Add this import
 import logo from '../assets/menu.png'
 import { Link } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
@@ -65,7 +64,7 @@ export default function Header() {
               <img alt="" src={logo} className="h-10 w-auto" />
             </a>
           </div>
-          
+
           <div className="flex lg:hidden">
             <button
               type="button"
@@ -89,7 +88,7 @@ export default function Header() {
             ))}
           </div>
 
-          
+
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-center items-center space-x-4">
             <Link
@@ -156,115 +155,93 @@ export default function Header() {
 
         </nav>
 
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <Dialog 
-              static 
-              open={mobileMenuOpen} 
-              onClose={setMobileMenuOpen} 
+        {mobileMenuOpen && (
+            <Dialog
+              static
+              open={mobileMenuOpen}
+              onClose={setMobileMenuOpen}
               className="lg:hidden"
             >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm"
+              <div
+                className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm transition-opacity duration-300"
               />
-              <motion.div
-                initial={{ x: '100%' }}
-                animate={{ x: 0 }}
-                exit={{ x: '100%' }}
-                transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-                className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#01021b] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+              <div
+                className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#01021b] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transform transition-transform duration-300 overscroll-contain"
               >
                 <div className="flex items-center justify-between">
                   <a href="#" className="-m-1.5 p-1.5">
                     <span className="sr-only">Your Company</span>
                     <img alt="" src={logo} className="h-8 w-auto" />
                   </a>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
+                  <button
                     onClick={() => setMobileMenuOpen(false)}
-                    className="-m-2.5 rounded-md p-2.5 text-[#e7e7e7]"
+                    className="-m-2.5 rounded-md p-2.5 text-[#e7e7e7] hover:bg-primary/10 active:bg-primary/20 transition-colors"
                   >
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                  </motion.button>
+                  </button>
                 </div>
                 <div className="mt-6 flow-root">
                   <div className="-my-6 divide-y divide-gray-500/10">
                     <div className="space-y-2 py-6">
                       {navigation.map((item) => (
-                        <motion.a
+                        <a
                           key={item.name}
                           href={item.href}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
                           onClick={() => handleMobileItemClick(() => {})}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-[#e7e7e7] 
-                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] transition-colors duration-300"
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-[#e7e7e7]
+                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] active:bg-[#3768e5]/20 transition-colors duration-300"
                         >
                           {item.name}
-                        </motion.a>
+                        </a>
                       ))}
                     </div>
                     <div className="flex flex-col gap-2 py-4">
                       {languages.map((language) => (
-                        <motion.button
+                        <button
                           key={language.code}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
                           onClick={() => handleMobileItemClick(() => changeLanguage(language.code))}
                           className={`flex items-center px-4 py-2 rounded-md text-sm ${
                             i18n.language === language.code
                               ? 'bg-[#2a2b45] text-[#3768e5]'
-                              : 'text-[#e7e7e7] hover:bg-[#2a2b45] hover:text-[#3768e5]'
-                          } transition-all duration-200`}
+                              : 'text-[#e7e7e7] hover:bg-[#2a2b45] hover:text-[#3768e5] active:bg-[#2a2b45]/70'
+                          } transition-colors duration-200`}
                         >
                           <span className="mr-2">{language.flag}</span>
                           {language.label}
                           {i18n.language === language.code && (
                             <span className="ml-auto">✓</span>
                           )}
-                        </motion.button>
+                        </button>
                       ))}
                     </div>
                     <div className="py-6 space-y-2">
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
+                      <div>
                         <Link
                           to="/login"
                           onClick={() => setMobileMenuOpen(false)}
-                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-[#e7e7e7] 
-                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] transition-colors duration-300"
+                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-[#e7e7e7]
+                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] active:bg-[#3768e5]/20 transition-colors duration-300"
                         >
                           {t('header.auth.login')}
                         </Link>
-                      </motion.div>
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
+                      </div>
+                      <div>
                         <Link
                           to="/signup"
                           onClick={() => setMobileMenuOpen(false)}
-                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold bg-[#3768e5] 
-                            text-white text-center hover:bg-[#757de8] transition-colors duration-300"
+                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold bg-[#3768e5]
+                            text-white text-center hover:bg-[#757de8] active:bg-[#3768e5]/80 transition-colors duration-300"
                         >
                           {t('header.auth.signup')}
                         </Link>
-                      </motion.div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </Dialog>
           )}
-        </AnimatePresence>
       </header>
     </div>
   )
