@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Cache - Menu Front</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #01021b;
+            color: #e7e7e7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #3768e5;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 15px;
+            max-width: 600px;
+        }
+        button {
+            background-color: #3768e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #2855c7;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(55, 104, 229, 0.1);
+            max-width: 600px;
+        }
+        .success {
+            color: #4caf50;
+        }
+        .error {
+            color: #f44336;
+        }
+        .home-link {
+            margin-top: 30px;
+            color: #3768e5;
+            text-decoration: none;
+        }
+        .home-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clear Cache and Service Workers</h1>
+    <p>If you're experiencing issues with the application, clearing the cache and service workers might help.</p>
+    <p>Click the button below to clear all cached data and unregister service workers:</p>
+    
+    <button id="clearButton">Clear Cache and Service Workers</button>
+    
+    <div id="status" class="status" style="display: none;"></div>
+    
+    <a href="/" class="home-link" id="homeLink" style="display: none;">Return to Home Page</a>
+    
+    <script>
+        document.getElementById('clearButton').addEventListener('click', function() {
+            const statusElement = document.getElementById('status');
+            statusElement.style.display = 'block';
+            statusElement.innerHTML = 'Clearing cache and unregistering service workers...';
+            
+            let swUnregistered = false;
+            let cachesCleared = false;
+            
+            // Function to update status and show home link when done
+            function updateStatus() {
+                if (swUnregistered && cachesCleared) {
+                    statusElement.innerHTML += '<br><span class="success">All done! You can now return to the application.</span>';
+                    document.getElementById('homeLink').style.display = 'block';
+                }
+            }
+            
+            // Unregister service workers
+            if ('serviceWorker' in navigator) {
+                statusElement.innerHTML += '<br>Unregistering service workers...';
+                
+                navigator.serviceWorker.getRegistrations()
+                    .then(function(registrations) {
+                        if (registrations.length === 0) {
+                            statusElement.innerHTML += '<br>No service workers found.';
+                            swUnregistered = true;
+                            updateStatus();
+                        } else {
+                            let unregisteredCount = 0;
+                            
+                            registrations.forEach(function(registration) {
+                                registration.unregister()
+                                    .then(function() {
+                                        unregisteredCount++;
+                                        statusElement.innerHTML += '<br>Service worker unregistered.';
+                                        
+                                        if (unregisteredCount === registrations.length) {
+                                            statusElement.innerHTML += '<br><span class="success">All service workers unregistered successfully.</span>';
+                                            swUnregistered = true;
+                                            updateStatus();
+                                        }
+                                    })
+                                    .catch(function(error) {
+                                        statusElement.innerHTML += '<br><span class="error">Error unregistering service worker: ' + error + '</span>';
+                                        swUnregistered = true; // Still mark as done to allow proceeding
+                                        updateStatus();
+                                    });
+                            });
+                        }
+                    })
+                    .catch(function(error) {
+                        statusElement.innerHTML += '<br><span class="error">Error accessing service workers: ' + error + '</span>';
+                        swUnregistered = true; // Still mark as done to allow proceeding
+                        updateStatus();
+                    });
+            } else {
+                statusElement.innerHTML += '<br>Service workers not supported in this browser.';
+                swUnregistered = true;
+                updateStatus();
+            }
+            
+            // Clear caches
+            if ('caches' in window) {
+                statusElement.innerHTML += '<br>Clearing caches...';
+                
+                caches.keys()
+                    .then(function(cacheNames) {
+                        if (cacheNames.length === 0) {
+                            statusElement.innerHTML += '<br>No caches found.';
+                            cachesCleared = true;
+                            updateStatus();
+                        } else {
+                            let clearedCount = 0;
+                            
+                            cacheNames.forEach(function(cacheName) {
+                                caches.delete(cacheName)
+                                    .then(function() {
+                                        clearedCount++;
+                                        statusElement.innerHTML += '<br>Cache "' + cacheName + '" deleted.';
+                                        
+                                        if (clearedCount === cacheNames.length) {
+                                            statusElement.innerHTML += '<br><span class="success">All caches cleared successfully.</span>';
+                                            cachesCleared = true;
+                                            updateStatus();
+                                        }
+                                    })
+                                    .catch(function(error) {
+                                        statusElement.innerHTML += '<br><span class="error">Error clearing cache "' + cacheName + '": ' + error + '</span>';
+                                        
+                                        if (clearedCount === cacheNames.length) {
+                                            cachesCleared = true; // Still mark as done to allow proceeding
+                                            updateStatus();
+                                        }
+                                    });
+                            });
+                        }
+                    })
+                    .catch(function(error) {
+                        statusElement.innerHTML += '<br><span class="error">Error accessing caches: ' + error + '</span>';
+                        cachesCleared = true; // Still mark as done to allow proceeding
+                        updateStatus();
+                    });
+            } else {
+                statusElement.innerHTML += '<br>Cache API not supported in this browser.';
+                cachesCleared = true;
+                updateStatus();
+            }
+            
+            // Also clear localStorage
+            try {
+                localStorage.clear();
+                statusElement.innerHTML += '<br>Local storage cleared.';
+            } catch (e) {
+                statusElement.innerHTML += '<br><span class="error">Error clearing local storage: ' + e + '</span>';
+            }
+            
+            // Also clear sessionStorage
+            try {
+                sessionStorage.clear();
+                statusElement.innerHTML += '<br>Session storage cleared.';
+            } catch (e) {
+                statusElement.innerHTML += '<br><span class="error">Error clearing session storage: ' + e + '</span>';
+            }
+        });
+    </script>
+</body>
+</html>

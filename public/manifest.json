@@ -1,0 +1,21 @@
+{
+  "name": "Menu Front",
+  "short_name": "Menu Front",
+  "description": "Digital Menu Management",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#01021b",
+  "theme_color": "#3768e5",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

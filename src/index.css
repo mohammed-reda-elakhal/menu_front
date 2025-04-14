@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,11 +9,59 @@
   padding: 0;
 }
 
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Header gradient background */
+.header-gradient {
+  background: linear-gradient(135deg, #01021b 0%, #0a0c3d 50%, #01021b 100%);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Animated gradient */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glass effect for header */
+.glass-effect {
+  backdrop-filter: blur(8px);
+  background-color: rgba(1, 2, 27, 0.85);
+  border-bottom: 1px solid rgba(55, 104, 229, 0.1);
+}
+
+/* Modern button styles */
+.btn-primary {
+  @apply bg-primary text-white text-sm font-medium px-4 py-1.5 rounded-md transition-all duration-300 hover:bg-secondary2 hover:shadow-lg;
+}
+
+.btn-outline {
+  @apply border border-primary/20 text-gray_bg text-sm font-medium px-4 py-1.5 rounded-md transition-all duration-300 hover:border-primary/50 hover:bg-primary/10;
+}
+
+/* Modern text styles */
+.text-modern {
+  @apply font-medium tracking-wide;
+  letter-spacing: -0.01em;
+}
+
 .swiper-pagination-bullet {
     background-color: #3768e5 !important;
     opacity: 0.5 !important;
   }
-  
+
   .swiper-pagination-bullet-active {
     opacity: 1 !important;
   }

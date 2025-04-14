@@ -2,12 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
+    <link rel="mask-icon" href="/favicon.ico" color="#3768e5" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#01021b" />
+    <meta name="theme-color" content="#3768e5" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Meniwi - Digital Menu Management</title>
+    <!-- Unregister service workers to prevent cache issues -->
+    <script>
+      // Check if service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Unregister all service workers
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for (let registration of registrations) {
+            registration.unregister();
+            console.log('Service worker unregistered');
+          }
+        });
+
+        // Clear all caches
+        if ('caches' in window) {
+          caches.keys().then(function(cacheNames) {
+            cacheNames.forEach(function(cacheName) {
+              caches.delete(cacheName);
+              console.log('Cache deleted:', cacheName);
+            });
+          });
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Button to manually clear cache and service workers -->
+    <div id="cache-clearer" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; display: none;">
+      <button
+        onclick="window.location.href='/unregister-sw.js'"
+        style="background-color: #3768e5; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 12px;"
+      >
+        Clear Cache
+      </button>
+    </div>
+    <script>
+      // Show the cache clearer button if there's a query parameter ?debug=true
+      if (window.location.search.includes('debug=true')) {
+        document.getElementById('cache-clearer').style.display = 'block';
+      }
+    </script>
   </body>
 </html>

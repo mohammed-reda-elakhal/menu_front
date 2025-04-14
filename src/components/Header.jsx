@@ -1,16 +1,58 @@
-'use client'
-
-import { useState, Fragment, useEffect } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import logo from '../assets/menu.png'
 import { Link } from 'react-router-dom'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+
+// MUI components
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  Tooltip,
+  MenuItem,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Divider,
+  useScrollTrigger,
+  Slide,
+} from '@mui/material'
+
+// MUI icons
+import MenuIcon from '@mui/icons-material/Menu'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import CloseIcon from '@mui/icons-material/Close'
+
+// Import logo with fallback
+import logo  from '../assets/menu.png'
+
+// Hide AppBar on scroll down
+function HideOnScroll(props) {
+  const { children } = props;
+  const trigger = useScrollTrigger();
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
 
 export default function Header() {
-
+  // Define colors from Tailwind config
+  const colors = {
+    primary: '#3768e5',
+    secondary1: '#01021b',
+    secondary2: '#757de8',
+    gray_bg: '#e7e7e7',
+    gray_text: '#333333',
+  };
 
   const languages = [
     {
@@ -28,221 +70,459 @@ export default function Header() {
       label: 'العربية',
       flag: '🇸🇦',
     },
-  ]
+  ];
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { t, i18n } = useTranslation()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [anchorElLang, setAnchorElLang] = useState(null);
+  const { t, i18n } = useTranslation();
 
   const navigation = [
     { name: t('header.navigation.home'), href: '/' },
     { name: t('header.navigation.eatNow'), href: '#' },
     { name: t('header.navigation.marketplace'), href: '/marketplace' },
     { name: t('header.navigation.company'), href: '#' },
-  ]
+  ];
 
   const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng)
+    i18n.changeLanguage(lng);
     // For RTL support
-    document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr'
-  }
+    document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+    handleCloseLangMenu();
+  };
 
-  // Add click handler for mobile menu items
-  const handleMobileItemClick = (action) => {
-    // Execute the action (navigation, language change, etc)
-    action()
-    // Close the mobile menu
-    setMobileMenuOpen(false)
-  }
+  const handleOpenLangMenu = (event) => {
+    setAnchorElLang(event.currentTarget);
+  };
+
+  const handleCloseLangMenu = () => {
+    setAnchorElLang(null);
+  };
+
+  const handleDrawerToggle = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  // Custom styles for MUI components
+  const styles = {
+    appBar: {
+      // Using the gradient and glass effect classes from Tailwind
+      background: 'none', // Remove default background
+      boxShadow: 'none', // Remove default shadow
+      minHeight: { xs: '56px', sm: '60px' }, // Smaller height on all devices
+    },
+    toolbar: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      minHeight: { xs: '56px', sm: '60px' }, // Smaller height on all devices
+      padding: { xs: '0 8px', sm: '0 16px' }, // Smaller padding on mobile and tablet
+    },
+    logo: {
+      height: { xs: '28px', sm: '32px' }, // Smaller logo on all devices
+      marginRight: { xs: '6px', sm: '8px' }, // Smaller margin
+    },
+    menuButton: {
+      color: colors.gray_bg,
+      marginRight: '10px',
+      display: { xs: 'flex', md: 'none' }, // Show only on mobile, not on tablet
+    },
+    navMenu: {
+      display: { xs: 'block', lg: 'none' }, // Show on mobile and tablet
+    },
+    navItem: {
+      my: 1.5, // Reduced vertical margin
+      color: colors.gray_bg,
+      display: 'block',
+      fontWeight: 500, // Slightly reduced font weight
+      fontSize: '0.8rem', // Smaller font size
+      textTransform: 'none',
+      mx: 0.75, // Reduced horizontal margin
+      '&:hover': {
+        color: colors.primary,
+      },
+    },
+    desktopMenu: {
+      flexGrow: 1,
+      display: { xs: 'none', lg: 'flex' }, // Only show on desktop
+      justifyContent: 'center',
+    },
+    authButtons: {
+      display: { xs: 'none', lg: 'flex' }, // Only show on desktop
+      alignItems: 'center',
+    },
+    loginButton: {
+      color: colors.gray_bg,
+      textTransform: 'none',
+      fontWeight: 500, // Reduced font weight
+      fontSize: '0.8rem', // Smaller font size
+      mx: 0.75, // Reduced margin
+      minWidth: 'auto', // Allow button to shrink
+      padding: '6px 8px', // Smaller padding
+      '&:hover': {
+        color: colors.primary,
+        backgroundColor: 'transparent',
+      },
+    },
+    signupButton: {
+      backgroundColor: colors.primary,
+      color: 'white',
+      textTransform: 'none',
+      fontWeight: 500, // Reduced font weight
+      fontSize: '0.8rem', // Smaller font size
+      borderRadius: '6px', // Slightly smaller border radius
+      px: 2, // Reduced horizontal padding
+      py: 0.75, // Reduced vertical padding
+      mx: 0.75, // Reduced margin
+      minWidth: 'auto', // Allow button to shrink
+      '&:hover': {
+        backgroundColor: colors.secondary2,
+      },
+    },
+    langButton: {
+      color: colors.gray_bg,
+      backgroundColor: `${colors.secondary1}`,
+      border: `1px solid ${colors.primary}20`,
+      borderRadius: '6px', // Smaller border radius
+      padding: '4px 8px', // Smaller padding
+      display: 'flex',
+      alignItems: 'center',
+      fontSize: '0.75rem', // Smaller font size
+      fontWeight: 500, // Reduced font weight
+      minWidth: 'auto', // Allow button to shrink
+      minHeight: '32px', // Smaller height
+      '& .MuiButton-endIcon': {
+        marginLeft: 4, // Smaller margin for the icon
+      },
+      '&:hover': {
+        backgroundColor: `${colors.secondary1}`,
+        opacity: 0.9,
+      },
+    },
+    langMenu: {
+      mt: '35px', // Reduced margin top
+    },
+    langMenuItem: {
+      minWidth: 120, // Smaller width
+      display: 'flex',
+      alignItems: 'center',
+      gap: 0.5, // Smaller gap
+      fontSize: '0.75rem', // Smaller font size
+      padding: '6px 10px', // Smaller padding
+    },
+    drawer: {
+      width: { xs: 240, sm: 260 }, // Smaller width on mobile, slightly larger on tablet
+      flexShrink: 0,
+      '& .MuiDrawer-paper': {
+        width: { xs: 240, sm: 260 }, // Smaller width on mobile, slightly larger on tablet
+        backgroundColor: colors.secondary1,
+        color: colors.gray_bg,
+        boxSizing: 'border-box',
+      },
+    },
+    drawerHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '12px', // Smaller padding
+      minHeight: '48px', // Smaller height
+    },
+    drawerItem: {
+      color: colors.gray_bg,
+      padding: '6px 16px', // Smaller padding
+      minHeight: '40px', // Smaller height
+      '& .MuiListItemText-primary': {
+        fontSize: '0.85rem', // Smaller font size
+      },
+      '&:hover': {
+        backgroundColor: `${colors.primary}20`,
+        color: colors.primary,
+      },
+    },
+    activeDrawerItem: {
+      backgroundColor: `${colors.primary}20`,
+      color: colors.primary,
+    },
+  };
 
   return (
-    <div className="bg-[#01021b]">
-      <header className="absolute inset-x-0 top-0 z-50">
-        <nav className="flex items-center justify-between p-6 lg:px-8 bg-[#01021b]/80 backdrop-blur-md">
-          <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img alt="" src={logo} className="h-10 w-auto" />
-            </a>
-          </div>
+    <>
+      <HideOnScroll>
+        <AppBar
+          position="fixed"
+          sx={styles.appBar}
+          className="header-gradient glass-effect"
+        >
+          <Container maxWidth="xl">
+            <Toolbar disableGutters sx={styles.toolbar}>
+              {/* Logo - visible on all screens */}
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Link to="/">
+                  <Box component="img" src={logo} alt="Logo" sx={styles.logo} />
+                </Link>
+              </Box>
 
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[#e7e7e7]"
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item, index) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-semibold text-[#e7e7e7] hover:text-[#3768e5] transition-colors duration-300"
+              {/* Mobile and tablet menu icon */}
+              <IconButton
+                size="small" // Smaller icon button
+                aria-label="menu"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleDrawerToggle}
+                sx={{
+                  ...styles.menuButton,
+                  padding: { xs: '6px', sm: '8px' }, // Smaller padding on mobile and tablet
+                }}
               >
-                {item.name}
-              </a>
-            ))}
-          </div>
+                <MenuIcon fontSize="small" /> {/* Smaller icon */}
+              </IconButton>
 
+              {/* Desktop and tablet navigation */}
+              <Box sx={{
+                ...styles.desktopMenu,
+                // Override to show on tablet as well
+                display: { xs: 'none', md: 'flex', lg: 'flex' },
+                // Adjust spacing for tablet
+                justifyContent: { md: 'center', lg: 'center' },
+                ml: { md: 2, lg: 4 },
+                mr: { md: 2, lg: 4 },
+              }}>
+                {navigation.map((item) => (
+                  <Button
+                    key={item.name}
+                    component={Link}
+                    to={item.href}
+                    className="text-modern"
+                    sx={{
+                      ...styles.navItem,
+                      // Special handling for tablet
+                      fontSize: { md: '0.7rem', lg: '0.8rem' },
+                      my: { md: 1, lg: 1.5 },
+                      mx: { md: 0.5, lg: 0.75 },
+                      px: { md: 0.5, lg: 0.75 },
+                    }}
+                  >
+                    {item.name}
+                  </Button>
+                ))}
+              </Box>
 
+              {/* Auth buttons and language selector - desktop and tablet */}
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                {/* Show auth buttons on desktop and tablet (md and up) */}
+                <Box sx={{
+                  ...styles.authButtons,
+                  // Override to show on tablet as well
+                  display: { xs: 'none', md: 'flex', lg: 'flex' },
+                }}>
+                  <Button
+                    component={Link}
+                    to="/login"
+                    className="btn-outline text-modern"
+                    sx={{
+                      minWidth: 'auto',
+                      // Special handling for tablet
+                      fontSize: { md: '0.75rem', lg: '0.8rem' },
+                      mx: { md: 0.5, lg: 0.75 },
+                    }}
+                  >
+                    {t('header.auth.login')}
+                  </Button>
+                  <Button
+                    component={Link}
+                    to="/signup"
+                    className="btn-primary text-modern"
+                    sx={{
+                      minWidth: 'auto',
+                      // Special handling for tablet
+                      fontSize: { md: '0.75rem', lg: '0.8rem' },
+                      mx: { md: 0.5, lg: 0.75 },
+                    }}
+                  >
+                    {t('header.auth.signup')}
+                  </Button>
+                </Box>
 
-          <div className="hidden lg:flex lg:flex-1 lg:justify-center items-center space-x-4">
-            <Link
+                {/* Language selector */}
+                <Box sx={{ ml: { xs: 0, md: 1, lg: 1.5 } }}>
+                  <Tooltip title="Change language">
+                    <Button
+                      onClick={handleOpenLangMenu}
+                      className="text-modern"
+                      sx={{
+                        ...styles.langButton,
+                        // Special handling for tablet view
+                        padding: { xs: '4px 6px', md: '4px 8px' },
+                      }}
+                      endIcon={<KeyboardArrowDownIcon fontSize="small" />} // Smaller icon
+                    >
+                      <Box component="span" sx={{ mr: { xs: 0, md: 0.5 } }}>
+                        {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
+                      </Box>
+                      {/* Only show text on desktop, not on tablet or mobile */}
+                      <Box component="span" sx={{ display: { xs: 'none', lg: 'block' } }}>
+                        {languages.find(lang => lang.code === i18n.language)?.label || 'Language'}
+                      </Box>
+                    </Button>
+                  </Tooltip>
+                  <Menu
+                    id="menu-language"
+                    anchorEl={anchorElLang}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                    open={Boolean(anchorElLang)}
+                    onClose={handleCloseLangMenu}
+                    sx={{
+                      mt: '10px',
+                      '& .MuiPaper-root': {
+                        backgroundColor: colors.secondary1,
+                        border: `1px solid ${colors.primary}20`,
+                        borderRadius: '8px',
+                      },
+                    }}
+                  >
+                    {languages.map((language) => (
+                      <MenuItem
+                        key={language.code}
+                        onClick={() => changeLanguage(language.code)}
+                        selected={i18n.language === language.code}
+                        className="text-modern"
+                        sx={{
+                          ...styles.langMenuItem,
+                          backgroundColor: i18n.language === language.code ? `${colors.primary}20` : 'transparent',
+                          '&:hover': {
+                            backgroundColor: `${colors.primary}20`,
+                          },
+                        }}
+                      >
+                        <Box component="span" sx={{ mr: 1 }}>{language.flag}</Box>
+                        <Typography>{language.label}</Typography>
+                        {i18n.language === language.code && (
+                          <Box sx={{ ml: 'auto', color: colors.primary }}>✓</Box>
+                        )}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </Box>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </HideOnScroll>
+
+      {/* Mobile drawer - only shown on xs and sm screens */}
+      <Drawer
+        variant="temporary"
+        anchor="right"
+        open={mobileMenuOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better mobile performance
+        }}
+        sx={{
+          ...styles.drawer,
+          display: { xs: 'block', md: 'none' }, // Only show on mobile, not on tablet
+        }}
+      >
+        <Box sx={styles.drawerHeader}>
+          <Box component="img" src={logo} alt="Logo" sx={{ height: '32px' }} />
+          <IconButton onClick={handleDrawerToggle} sx={{ color: colors.gray_bg }}>
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Divider sx={{ backgroundColor: `${colors.primary}20` }} />
+
+        {/* Navigation items */}
+        <List>
+          {navigation.map((item) => (
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton
+                component={Link}
+                to={item.href}
+                onClick={handleDrawerToggle}
+                className="text-modern"
+                sx={styles.drawerItem}
+              >
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+
+        <Divider sx={{ backgroundColor: `${colors.primary}20` }} />
+
+        {/* Language options */}
+        <List>
+          <ListItem>
+            <Typography variant="subtitle2" sx={{ color: `${colors.gray_bg}80` }}>
+              {t('header.language') || 'Language'}
+            </Typography>
+          </ListItem>
+          {languages.map((language) => (
+            <ListItem key={language.code} disablePadding>
+              <ListItemButton
+                onClick={() => {
+                  changeLanguage(language.code);
+                  handleDrawerToggle();
+                }}
+                className="text-modern"
+                sx={{
+                  ...styles.drawerItem,
+                  ...(i18n.language === language.code ? styles.activeDrawerItem : {}),
+                }}
+              >
+                <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                  <Box component="span" sx={{ mr: 1 }}>{language.flag}</Box>
+                  <ListItemText primary={language.label} />
+                  {i18n.language === language.code && (
+                    <Box component="span" sx={{ ml: 'auto', color: colors.primary }}>✓</Box>
+                  )}
+                </Box>
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+
+        <Divider sx={{ backgroundColor: `${colors.primary}20` }} />
+
+        {/* Auth buttons */}
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton
+              component={Link}
               to="/login"
-              className="text-sm font-semibold text-[#e7e7e7] hover:text-[#3768e5] transition-colors duration-300 px-4 py-2"
+              onClick={handleDrawerToggle}
+              className="text-modern"
+              sx={styles.drawerItem}
             >
-              {t('header.auth.login')}
-            </Link>
-            <Link
+              <ListItemText primary={t('header.auth.login')} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding sx={{ p: 2 }}>
+            <Button
+              component={Link}
               to="/signup"
-              className="text-sm font-semibold px-6 py-2 bg-[#3768e5] text-white rounded-lg hover:bg-[#757de8] transition-colors duration-300"
+              variant="contained"
+              fullWidth
+              onClick={handleDrawerToggle}
+              className="btn-primary text-modern"
+              sx={{
+                py: 1,
+              }}
             >
               {t('header.auth.signup')}
-            </Link>
-          </div>
+            </Button>
+          </ListItem>
+        </List>
+      </Drawer>
 
-          <div className="hidden lg:flex lg:items-center lg:gap-x-4 mx-4">
-            <Menu as="div" className="relative inline-block text-left">
-              <div>
-                <Menu.Button className="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-[#1a1b35] px-3 py-2 text-sm text-[#e7e7e7] shadow-sm hover:bg-[#2a2b45] transition-all duration-200">
-                  {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
-                  <span className="ml-2">{languages.find(lang => lang.code === i18n.language)?.label || 'Language'}</span>
-                  <ChevronDownIcon className="-mr-1 h-5 w-5" aria-hidden="true" />
-                </Menu.Button>
-              </div>
-
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-[#1a1b35] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div className="py-1">
-                    {languages.map((language) => (
-                      <Menu.Item key={language.code}>
-                        {({ active }) => (
-                          <button
-                            onClick={() => changeLanguage(language.code)}
-                            className={`${
-                              active ? 'bg-[#2a2b45] text-[#3768e5]' : 'text-[#e7e7e7]'
-                            } ${
-                              i18n.language === language.code ? 'bg-[#2a2b45]' : ''
-                            } group flex w-full items-center px-4 py-2 text-sm`}
-                          >
-                            <span className="mr-2">{language.flag}</span>
-                            {language.label}
-                            {i18n.language === language.code && (
-                              <span className="ml-auto text-[#3768e5]">✓</span>
-                            )}
-                          </button>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </div>
-                </Menu.Items>
-              </Transition>
-            </Menu>
-          </div>
-
-
-        </nav>
-
-        {mobileMenuOpen && (
-            <Dialog
-              static
-              open={mobileMenuOpen}
-              onClose={setMobileMenuOpen}
-              className="lg:hidden"
-            >
-              <div
-                className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm transition-opacity duration-300"
-              />
-              <div
-                className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#01021b] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 transform transition-transform duration-300 overscroll-contain"
-              >
-                <div className="flex items-center justify-between">
-                  <a href="#" className="-m-1.5 p-1.5">
-                    <span className="sr-only">Your Company</span>
-                    <img alt="" src={logo} className="h-8 w-auto" />
-                  </a>
-                  <button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="-m-2.5 rounded-md p-2.5 text-[#e7e7e7] hover:bg-primary/10 active:bg-primary/20 transition-colors"
-                  >
-                    <span className="sr-only">Close menu</span>
-                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-                </div>
-                <div className="mt-6 flow-root">
-                  <div className="-my-6 divide-y divide-gray-500/10">
-                    <div className="space-y-2 py-6">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => handleMobileItemClick(() => {})}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-[#e7e7e7]
-                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] active:bg-[#3768e5]/20 transition-colors duration-300"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
-                    <div className="flex flex-col gap-2 py-4">
-                      {languages.map((language) => (
-                        <button
-                          key={language.code}
-                          onClick={() => handleMobileItemClick(() => changeLanguage(language.code))}
-                          className={`flex items-center px-4 py-2 rounded-md text-sm ${
-                            i18n.language === language.code
-                              ? 'bg-[#2a2b45] text-[#3768e5]'
-                              : 'text-[#e7e7e7] hover:bg-[#2a2b45] hover:text-[#3768e5] active:bg-[#2a2b45]/70'
-                          } transition-colors duration-200`}
-                        >
-                          <span className="mr-2">{language.flag}</span>
-                          {language.label}
-                          {i18n.language === language.code && (
-                            <span className="ml-auto">✓</span>
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                    <div className="py-6 space-y-2">
-                      <div>
-                        <Link
-                          to="/login"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold text-[#e7e7e7]
-                            hover:bg-[#3768e5]/10 hover:text-[#3768e5] active:bg-[#3768e5]/20 transition-colors duration-300"
-                        >
-                          {t('header.auth.login')}
-                        </Link>
-                      </div>
-                      <div>
-                        <Link
-                          to="/signup"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold bg-[#3768e5]
-                            text-white text-center hover:bg-[#757de8] active:bg-[#3768e5]/80 transition-colors duration-300"
-                        >
-                          {t('header.auth.signup')}
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Dialog>
-          )}
-      </header>
-    </div>
-  )
+      {/* Toolbar placeholder to prevent content from hiding behind the AppBar */}
+      <Toolbar />
+    </>
+  );
 }

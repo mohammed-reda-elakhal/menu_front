@@ -4,14 +4,13 @@ import LoadingSpinner from './components/LoadingSpinner'
 import './i18n'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme/theme';
-import CoffeeTemplate1 from './templates/CoffeeTemplate1';
 import menuData from './assets/menu.json';
-import TemplateManager from './components/TemplateManager';
 import Marketplace from './pages/Marketplace';
 import templates from './config/templates';
+import CacheClearer from './components/CacheClearer';
 
 // Lazy load pages
-const Home = React.lazy(() => import('./pages/Home'))
+import Home from './pages/Home'
 const Login = React.lazy(() => import('./pages/Login'))
 const SignUp = React.lazy(() => import('./pages/Singup'))
 const Dashboard = React.lazy(() => import('./pages/dashboard/Dashboard'))
@@ -24,6 +23,10 @@ const Supplements = React.lazy(() => import('./pages/dashboard/products/Suppleme
 
 
 function App() {
+  // Check if we should show the cache clearer (in development or with debug parameter)
+  const showCacheClearer = process.env.NODE_ENV === 'development' ||
+                          window.location.search.includes('debug=true');
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -41,9 +44,9 @@ function App() {
               <Route path="products/supplements" element={<Supplements />} />
               {/* Add other dashboard routes here */}
             </Route>
-            <Route 
-              path="/marketplace" 
-              element={<Marketplace />} 
+            <Route
+              path="/marketplace"
+              element={<Marketplace />}
             />
             {/* Add dynamic template demo routes */}
             {templates.map(template => (
@@ -55,6 +58,9 @@ function App() {
             ))}
           </Routes>
         </Suspense>
+
+        {/* Add the cache clearer component */}
+        {showCacheClearer && <CacheClearer />}
       </Router>
     </ThemeProvider>
   )

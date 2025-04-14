@@ -16,7 +16,7 @@ function Home() {
   return (
     <div className="bg-secondary1">
       <Header />
-      <div className="pt-20"> {/* Added padding-top */}
+      <div> {/* Added padding-top */}
         <Hero />
         <Suspense fallback={<LoadingSpinner />}>
           <About />
