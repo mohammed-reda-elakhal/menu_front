@@ -113,17 +113,22 @@ export default function Header() {
     toolbar: {
       display: 'flex',
       justifyContent: 'space-between',
-      minHeight: { xs: '56px', sm: '60px' }, // Smaller height on all devices
-      padding: { xs: '0 8px', sm: '0 16px' }, // Smaller padding on mobile and tablet
+      minHeight: { xs: '60px', sm: '64px' }, // Slightly taller for better spacing
+      padding: { xs: '0 4px', sm: '0 16px' }, // Adjusted padding for mobile
+      gap: { xs: '8px', sm: '16px' }, // Add gap between elements
     },
     logo: {
-      height: { xs: '28px', sm: '32px' }, // Smaller logo on all devices
-      marginRight: { xs: '6px', sm: '8px' }, // Smaller margin
+      height: { xs: '30px', sm: '32px' }, // Slightly larger on mobile for better visibility
+      margin: { xs: '0 auto', sm: '0 8px 0 0' }, // Centered on mobile, normal margin on larger screens
     },
     menuButton: {
       color: colors.gray_bg,
-      marginRight: '10px',
+      marginLeft: '4px', // Add left margin for spacing from edge
       display: { xs: 'flex', md: 'none' }, // Show only on mobile, not on tablet
+      borderRadius: '8px',
+      '&:hover': {
+        backgroundColor: `${colors.primary}20`,
+      },
     },
     navMenu: {
       display: { xs: 'block', lg: 'none' }, // Show on mobile and tablet
@@ -179,22 +184,22 @@ export default function Header() {
     },
     langButton: {
       color: colors.gray_bg,
-      backgroundColor: `${colors.secondary1}`,
+      backgroundColor: { xs: `${colors.primary}15`, md: colors.secondary1 }, // Lighter background on mobile
       border: `1px solid ${colors.primary}20`,
-      borderRadius: '6px', // Smaller border radius
-      padding: '4px 8px', // Smaller padding
+      borderRadius: '8px', // Larger border radius for better touch target
+      padding: { xs: '6px 10px', md: '4px 8px' }, // Larger padding on mobile
       display: 'flex',
       alignItems: 'center',
-      fontSize: '0.75rem', // Smaller font size
-      fontWeight: 500, // Reduced font weight
-      minWidth: 'auto', // Allow button to shrink
-      minHeight: '32px', // Smaller height
+      fontSize: { xs: '0.85rem', md: '0.75rem' }, // Larger font on mobile
+      fontWeight: 500,
+      minWidth: { xs: '40px', md: 'auto' }, // Fixed width on mobile
+      minHeight: { xs: '36px', md: '32px' }, // Taller on mobile
+      marginRight: { xs: '4px', md: '0' }, // Add right margin on mobile
       '& .MuiButton-endIcon': {
-        marginLeft: 4, // Smaller margin for the icon
+        marginLeft: 4,
       },
       '&:hover': {
-        backgroundColor: `${colors.secondary1}`,
-        opacity: 0.9,
+        backgroundColor: `${colors.primary}25`,
       },
     },
     langMenu: {
@@ -251,29 +256,36 @@ export default function Header() {
           sx={styles.appBar}
           className="header-gradient glass-effect"
         >
-          <Container maxWidth="xl">
+          <Container maxWidth="xl" sx={{ px: { xs: 1, sm: 2, md: 3 } }}>
             <Toolbar disableGutters sx={styles.toolbar}>
-              {/* Logo - visible on all screens */}
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Link to="/">
-                  <Box component="img" src={logo} alt="Logo" sx={styles.logo} />
-                </Link>
-              </Box>
-
-              {/* Mobile and tablet menu icon */}
+              {/* Mobile menu icon - positioned on the left */}
               <IconButton
-                size="small" // Smaller icon button
+                size="small"
                 aria-label="menu"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleDrawerToggle}
                 sx={{
-                  ...styles.menuButton,
-                  padding: { xs: '6px', sm: '8px' }, // Smaller padding on mobile and tablet
+                  color: colors.gray_bg,
+                  display: { xs: 'flex', md: 'none' },
+                  padding: { xs: '8px', sm: '10px' },
+                  marginRight: '8px',
                 }}
               >
-                <MenuIcon fontSize="small" /> {/* Smaller icon */}
+                <MenuIcon fontSize="small" />
               </IconButton>
+
+              {/* Logo - visible on all screens, centered on mobile */}
+              <Box sx={{
+                display: 'flex',
+                alignItems: 'center',
+                flexGrow: { xs: 1, md: 0 },
+                justifyContent: { xs: 'center', md: 'flex-start' }
+              }}>
+                <Link to="/">
+                  <Box component="img" src={logo} alt="Logo" sx={styles.logo} />
+                </Link>
+              </Box>
 
               {/* Desktop and tablet navigation */}
               <Box sx={{
@@ -341,20 +353,29 @@ export default function Header() {
                   </Button>
                 </Box>
 
-                {/* Language selector */}
-                <Box sx={{ ml: { xs: 0, md: 1, lg: 1.5 } }}>
+                {/* Language selector - repositioned for mobile */}
+                <Box sx={{
+                  ml: { xs: 0, md: 1, lg: 1.5 },
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  minWidth: { xs: '50px', md: 'auto' }
+                }}>
                   <Tooltip title="Change language">
                     <Button
                       onClick={handleOpenLangMenu}
                       className="text-modern"
                       sx={{
                         ...styles.langButton,
-                        // Special handling for tablet view
-                        padding: { xs: '4px 6px', md: '4px 8px' },
+                        padding: { xs: '8px 10px', md: '4px 8px' },
+                        minWidth: { xs: '40px', md: 'auto' },
+                        borderRadius: '8px',
                       }}
-                      endIcon={<KeyboardArrowDownIcon fontSize="small" />} // Smaller icon
+                      endIcon={<KeyboardArrowDownIcon sx={{ display: { xs: 'none', md: 'flex' } }} fontSize="small" />}
                     >
-                      <Box component="span" sx={{ mr: { xs: 0, md: 0.5 } }}>
+                      <Box component="span" sx={{
+                        mr: { xs: 0, md: 0.5 },
+                        fontSize: { xs: '1.2rem', md: '1rem' }
+                      }}>
                         {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
                       </Box>
                       {/* Only show text on desktop, not on tablet or mobile */}
