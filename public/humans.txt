@@ -1,0 +1,22 @@
+/* TEAM */
+	Chef de projet: Mohammed reda elakhal
+	Contact: contact@meniwi.com
+	Twitter: @meniwi
+	From: Maroc
+
+	Développeur Front-end: Mohammed reda elakhal
+	Contact: dev@meniwi.com
+	From: Maroc
+
+	Développeur Back-end: Mohammed reda elakhal
+	From: Maroc
+
+	Designer UI/UX: Mohammed reda elakhal
+	From: Maroc
+
+/* SITE */
+	Last update: 2023/11/01
+	Language: Français, Anglais, Arabe
+	Doctype: HTML5
+	IDE: Visual Studio Code, WebStorm
+	Technologies: React, Redux, Node.js, Express, MongoDB, Tailwind CSS

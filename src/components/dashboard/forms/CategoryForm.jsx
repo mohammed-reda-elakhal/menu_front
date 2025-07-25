@@ -1,22 +1,208 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TextField, Button, Box, Typography, Alert } from '@mui/material';
-import { MdCategory, MdDescription, MdSave, MdImage } from 'react-icons/md';
-import { IoCloudDone } from 'react-icons/io5';
+import { motion } from 'framer-motion';
+import { FiSave, FiAlertCircle, FiCheckCircle, FiUpload, FiType, FiFileText, FiCrop, FiCheck, FiX } from 'react-icons/fi';
+import { MdImage } from 'react-icons/md';
+import Cropper from 'react-easy-crop';
+import { useTheme } from '../../../context/ThemeContext';
 
 const CategoryForm = ({ category, onSubmit, isUpdate = false }) => {
   const { t } = useTranslation();
+  const { darkMode } = useTheme();
+  const fileInputRef = useRef(null);
+
   const [formData, setFormData] = useState({
-    name: category?.name || '',
+    name: category?.nom || category?.name || '',
     description: category?.description || '',
     image: category?.image || null
   });
-  const [imagePreview, setImagePreview] = useState(category?.image || '');
-  const [imageError, setImageError] = useState('');
 
-  const handleSubmit = (e) => {
+  const [imagePreview, setImagePreview] = useState(
+    category?.image?.url || category?.image || ''
+  );
+
+  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
+  const [originalImage, setOriginalImage] = useState(null);
+
+  // Cropper state
+  const [showCropper, setShowCropper] = useState(false);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
+  const [cropImageSrc, setCropImageSrc] = useState('');
+
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [formStatus, setFormStatus] = useState({ message: '', type: '' });
+
+  // Crop complete callback
+  const onCropComplete = useCallback((_, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
+
+  // Apply the crop
+  const applyCrop = async () => {
+    if (!cropImageSrc || !croppedAreaPixels) return;
+
+    try {
+      const croppedImage = await getCroppedImg(cropImageSrc, croppedAreaPixels);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+        setImageDimensions({ width: 800, height: 800 });
+        setShowCropper(false);
+
+        // Create a file from the blob
+        const croppedFile = new File([croppedImage], originalImage.name, {
+          type: originalImage.type,
+          lastModified: new Date().getTime()
+        });
+
+        // Update form data with the cropped image
+        setFormData({ ...formData, image: croppedFile });
+      };
+      reader.readAsDataURL(croppedImage);
+    } catch (e) {
+      console.error('Error applying crop:', e);
+      setErrors({ ...errors, image: 'Error cropping image' });
+    }
+  };
+
+  // Cancel cropping
+  const cancelCrop = () => {
+    setShowCropper(false);
+    setCropImageSrc('');
+    // If this is a new image upload (not editing), clear the image
+    if (!imagePreview) {
+      setOriginalImage(null);
+      setFormData({ ...formData, image: null });
+    }
+  };
+
+  // Helper function to create a cropped image
+  const getCroppedImg = (imageSrc, pixelCrop) => {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.src = imageSrc;
+
+      image.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = 800;
+        canvas.height = 800;
+        const ctx = canvas.getContext('2d');
+
+        // Fill with white background (for transparent images)
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Draw the cropped image
+        ctx.drawImage(
+          image,
+          pixelCrop.x,
+          pixelCrop.y,
+          pixelCrop.width,
+          pixelCrop.height,
+          0,
+          0,
+          800,
+          800
+        );
+
+        // Convert to blob
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            reject(new Error('Canvas is empty'));
+            return;
+          }
+          resolve(blob);
+        }, originalImage.type);
+      };
+
+      image.onerror = () => {
+        reject(new Error('Error loading image'));
+      };
+    });
+  };
+
+  // Check dimensions of existing image when component loads
+  const checkExistingImageDimensions = () => {
+    if (imagePreview && typeof imagePreview === 'string' && imagePreview.startsWith('http')) {
+      const img = new Image();
+      img.onload = () => {
+        setImageDimensions({ width: img.width, height: img.height });
+      };
+      img.onerror = () => {
+        // Handle error loading image
+        setImageDimensions({ width: 0, height: 0 });
+      };
+      img.src = imagePreview;
+    }
+  };
+
+  // Call once when component mounts
+  useState(() => {
+    if (imagePreview) {
+      checkExistingImageDimensions();
+    }
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(formData);
+
+    // Validate form
+    const newErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = t('dashboard.forms.category.nameRequired') || 'Category name is required';
+    }
+
+    // If there are errors, don't submit
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // If image is not 800x800 and we're not in the cropper, show the cropper
+    // Only check for File objects (new uploads), not for existing image URLs
+    if (formData.image instanceof File && (imageDimensions.width !== 800 || imageDimensions.height !== 800) && !showCropper) {
+      // Read the image for the cropper
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setCropImageSrc(reader.result);
+        setShowCropper(true);
+      };
+      reader.readAsDataURL(formData.image);
+      return;
+    }
+
+    setLoading(true);
+    setFormStatus({ message: '', type: '' });
+
+    try {
+      // Log form data for debugging
+      console.log('Submitting category form with data:', {
+        name: formData.name,
+        description: formData.description,
+        image: formData.image ? 'Image file present' : 'No image file',
+        imageType: formData.image ? formData.image.type : null,
+        imageSize: formData.image ? formData.image.size : null
+      });
+
+      await onSubmit(formData);
+      setFormStatus({
+        message: isUpdate
+          ? t('dashboard.products.categories.updateSuccess')
+          : t('dashboard.products.categories.createSuccess'),
+        type: 'success'
+      });
+    } catch (error) {
+      console.error('Error submitting category form:', error);
+      setFormStatus({
+        message: error.message || t('dashboard.common.error'),
+        type: 'error'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -25,131 +211,340 @@ const CategoryForm = ({ category, onSubmit, isUpdate = false }) => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImageError('');
+    setErrors({ ...errors, image: '' });
 
     if (file) {
       // Check file type
       const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
       if (!validTypes.includes(file.type)) {
-        setImageError(t('dashboard.forms.category.imageTypeError'));
+        setErrors({ ...errors, image: t('dashboard.forms.category.imageTypeError') });
         return;
       }
 
-      // Check file size (5MB max)
-      const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+      // Check file size (1MB max - to match backend limit)
+      const maxSize = 1 * 1024 * 1024; // 1MB in bytes
       if (file.size > maxSize) {
-        setImageError(t('dashboard.forms.category.imageSizeError'));
+        setErrors({ ...errors, image: t('dashboard.forms.category.imageSizeError') });
         return;
       }
 
+      console.log('Valid image selected:', file.name, file.type, file.size);
+
+      // Store the original file and prepare for cropping
+      setOriginalImage(file);
+
+      // Create a preview for the cropper
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImagePreview(reader.result);
-        setFormData({ ...formData, image: reader.result });
+        // Get image dimensions
+        const img = new Image();
+        img.onload = () => {
+          setImageDimensions({ width: img.width, height: img.height });
+          // Always show the cropper for any image
+          setCropImageSrc(reader.result);
+          setShowCropper(true);
+        };
+        img.src = reader.result;
       };
       reader.readAsDataURL(file);
+
+      // Store the actual file for upload
+      setFormData({ ...formData, image: file });
+      console.log('Image file stored in form data');
     }
   };
 
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Image Preview */}
-      <Box className="mb-4">
-        {imagePreview && (
-          <img
-            src={imagePreview}
-            alt="Category preview"
-            className="w-[350px] h-[350px] object-cover rounded-lg mx-auto mb-2"
-          />
-        )}
-        <input
-          accept="image/*"
-          type="file"
-          id="image-upload"
-          onChange={handleImageChange}
-          className="hidden"
-        />
-        <label
-          htmlFor="image-upload"
-          className="flex items-center justify-center w-full p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition-colors"
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Status message */}
+      {formStatus.message && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`p-3 rounded-lg flex items-center gap-2 ${
+            formStatus.type === 'success'
+              ? darkMode ? 'bg-green-500/10 text-green-500' : 'bg-green-100 text-green-600'
+              : darkMode ? 'bg-red-500/10 text-red-500' : 'bg-red-100 text-red-600'
+          }`}
         >
-          <MdImage className="mr-2 text-white" size={24} />
-          <span className="text-white">
-            {imagePreview ? t('dashboard.forms.category.changeImage') : t('dashboard.forms.category.addImage')}
+          {formStatus.type === 'success' ? <FiCheckCircle /> : <FiAlertCircle />}
+          <span>{formStatus.message}</span>
+        </motion.div>
+      )}
+
+      {/* Image Upload Section */}
+      <div className="mb-6">
+        <div className="flex justify-between items-center mb-2">
+          <label className={`block text-sm font-medium ${
+            darkMode ? 'text-gray-300' : 'text-gray-700'
+          }`}>
+            {t('dashboard.forms.category.image')}
+          </label>
+          <span className={`text-xs ${
+            darkMode ? 'text-gray-400' : 'text-gray-500'
+          }`}>
+            {t('dashboard.forms.category.recommendedSize')}: 800x800px
           </span>
+        </div>
+
+        <div className="flex flex-col items-center">
+          {/* Image Cropper Modal */}
+          {showCropper && (
+            <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+              <div className={`rounded-lg w-full max-w-3xl overflow-hidden ${
+                darkMode ? 'bg-gray-800' : 'bg-white'
+              }`}>
+                <div className={`p-4 flex justify-between items-center border-b ${
+                  darkMode ? 'border-gray-700' : 'border-gray-200'
+                }`}>
+                  <h3 className={`font-medium ${
+                    darkMode ? 'text-white' : 'text-gray-800'
+                  }`}>Crop Image to 800x800px</h3>
+                  <button
+                    type="button"
+                    className={`${
+                      darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-gray-800'
+                    }`}
+                    onClick={cancelCrop}
+                  >
+                    <FiX className="w-5 h-5" />
+                  </button>
+                </div>
+
+                <div className="relative h-[400px] w-full">
+                  <Cropper
+                    image={cropImageSrc}
+                    crop={crop}
+                    zoom={zoom}
+                    aspect={1}
+                    onCropChange={setCrop}
+                    onZoomChange={setZoom}
+                    onCropComplete={onCropComplete}
+                    objectFit="contain"
+                  />
+                </div>
+
+                <div className={`p-4 flex justify-between border-t ${
+                  darkMode ? 'border-gray-700' : 'border-gray-200'
+                }`}>
+                  <div className="flex items-center">
+                    <span className={`mr-2 ${
+                      darkMode ? 'text-white' : 'text-gray-800'
+                    }`}>Zoom:</span>
+                    <input
+                      type="range"
+                      min={1}
+                      max={3}
+                      step={0.1}
+                      value={zoom}
+                      onChange={(e) => setZoom(Number(e.target.value))}
+                      className="w-32"
+                    />
+                  </div>
+
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      className={`px-3 py-1.5 rounded-md flex items-center gap-1 text-white ${
+                        darkMode
+                          ? 'bg-gray-700 hover:bg-gray-600'
+                          : 'bg-gray-500 hover:bg-gray-400'
+                      }`}
+                      onClick={cancelCrop}
+                    >
+                      <FiX className="w-4 h-4" />
+                      <span>Cancel</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-md flex items-center gap-1"
+                      onClick={applyCrop}
+                    >
+                      <FiCheck className="w-4 h-4" />
+                      <span>Apply Crop</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {imagePreview ? (
+            <div className="relative group mb-3">
+              <img
+                src={imagePreview}
+                alt="Category preview"
+                className={`w-full h-[200px] object-cover rounded-lg border-2 transition-colors ${
+                  darkMode
+                    ? 'border-primary/20 group-hover:border-primary/50'
+                    : 'border-primary/30 group-hover:border-primary/70'
+                }`}
+              />
+
+              {/* Image dimensions indicator */}
+              <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded-md">
+                {imageDimensions.width} x {imageDimensions.height}px
+                {imageDimensions.width === 800 && imageDimensions.height === 800 ?
+                  <span className="ml-1 text-green-400">• Optimal</span> :
+                  <span className="ml-1 text-yellow-400">• Not optimal</span>
+                }
+              </div>
+
+              <div
+                className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center rounded-lg"
+              >
+                <div className="flex gap-2 mb-2">
+                  <button
+                    type="button"
+                    className="bg-primary/80 hover:bg-primary text-white px-3 py-1.5 rounded-md flex items-center gap-1 transition-colors"
+                    onClick={triggerFileInput}
+                  >
+                    <FiUpload className="w-4 h-4" />
+                    <span>{t('dashboard.forms.category.changeImage')}</span>
+                  </button>
+
+                  {/* Only show crop button for new uploads, not for existing images */}
+                  {originalImage && (imageDimensions.width !== 800 || imageDimensions.height !== 800) && (
+                    <button
+                      type="button"
+                      className="bg-green-600/80 hover:bg-green-600 text-white px-3 py-1.5 rounded-md flex items-center gap-1 transition-colors"
+                      onClick={() => {
+                        // If we have the original image, show the cropper
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                          setCropImageSrc(reader.result);
+                          setShowCropper(true);
+                        };
+                        reader.readAsDataURL(originalImage);
+                      }}
+                    >
+                      <FiCrop className="w-4 h-4" />
+                      <span>Crop Image</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div
+              onClick={triggerFileInput}
+              className={`w-full h-[150px] border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors mb-3 ${
+                darkMode
+                  ? 'border-gray-500 hover:border-primary'
+                  : 'border-gray-300 hover:border-primary'
+              }`}
+            >
+              <MdImage className={`w-10 h-10 mb-2 ${
+                darkMode ? 'text-gray-400' : 'text-gray-400'
+              }`} />
+              <span className={`${
+                darkMode ? 'text-gray-300' : 'text-gray-600'
+              }`}>{t('dashboard.forms.category.addImage')}</span>
+              <span className={`text-xs mt-1 ${
+                darkMode ? 'text-gray-500' : 'text-gray-400'
+              }`}>JPG, PNG, WebP • {t('dashboard.forms.category.maxSize')}: 1MB</span>
+            </div>
+          )}
+
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            onChange={handleImageChange}
+            className="hidden"
+          />
+
+          {errors.image && (
+            <p className="text-red-500 text-xs mt-1 self-start">{errors.image}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Category Name */}
+      <div>
+        <label className={`block text-sm font-medium mb-1 ${
+          darkMode ? 'text-gray-300' : 'text-gray-700'
+        }`}>
+          {t('dashboard.forms.category.name')} *
         </label>
-
-        <Typography variant="body2" color="white" className="mt-2 text-center">
-          {t('dashboard.forms.category.imageRequirements')}
-        </Typography>
-        
-        <Box className="mt-2">
-          <Typography variant="caption" color="white" component="div" className="text-center">
-            • {t('dashboard.forms.category.acceptedFormats')}: JPG, PNG, WebP
-          </Typography>
-          <Typography variant="caption" color="white" component="div" className="text-center">
-            • {t('dashboard.forms.category.maxSize')}: 5MB
-          </Typography>
-          <Typography variant="caption" color="white" component="div" className="text-center">
-            • {t('dashboard.forms.category.recommendedSize')}: 1200x800px
-          </Typography>
-        </Box>
-
-        {imageError && (
-          <Alert severity="error" className="mt-2">
-            {imageError}
-          </Alert>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FiType className={`h-5 w-5 ${
+              darkMode ? 'text-gray-400' : 'text-gray-500'
+            }`} />
+          </div>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className={`w-full pl-10 pr-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary
+              ${darkMode
+                ? `bg-secondary1/50 text-white ${errors.name ? 'border-red-500' : 'border-primary/20'}`
+                : `bg-white text-gray-800 ${errors.name ? 'border-red-500' : 'border-gray-300'}`
+              }`}
+            placeholder={t('dashboard.forms.category.namePlaceholder') || 'Enter category name'}
+          />
+        </div>
+        {errors.name && (
+          <p className="text-red-500 text-xs mt-1">{errors.name}</p>
         )}
-      </Box>
+      </div>
 
-      <TextField
-        fullWidth
-        label={t('dashboard.forms.category.name')}
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-        variant="filled"
-        sx={{
-          '& .MuiOutlinedInput-root': {
-            color: 'white',
-            '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.23)' },
-            '&:hover fieldset': { borderColor: 'white' },
-          },
-          '& .MuiInputLabel-root': { color: 'white' },
-        }}
-      />
+      {/* Category Description */}
+      <div>
+        <label className={`block text-sm font-medium mb-1 ${
+          darkMode ? 'text-gray-300' : 'text-gray-700'
+        }`}>
+          {t('dashboard.forms.category.description')}
+        </label>
+        <div className="relative">
+          <div className="absolute top-3 left-0 pl-3 flex items-start pointer-events-none">
+            <FiFileText className={`h-5 w-5 ${
+              darkMode ? 'text-gray-400' : 'text-gray-500'
+            }`} />
+          </div>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            rows="4"
+            className={`w-full pl-10 pr-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary
+              ${darkMode
+                ? 'bg-secondary1/50 border-primary/20 text-white'
+                : 'bg-white border-gray-300 text-gray-800'
+              }`}
+            placeholder={t('dashboard.forms.category.descriptionPlaceholder') || 'Enter category description'}
+          />
+        </div>
+      </div>
 
-      <TextField
-        fullWidth
-        label={t('dashboard.forms.category.description')}
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        multiline
-        rows={3}
-        variant="filled"
-        sx={{
-          '& .MuiOutlinedInput-root': {
-            color: 'white',
-            '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.23)' },
-            '&:hover fieldset': { borderColor: 'white' },
-          },
-          '& .MuiInputLabel-root': { color: 'white' },
-        }}
-      />
-
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        startIcon={<IoCloudDone />}
-        className="w-full"
-      >
-        {isUpdate
-          ? t('dashboard.forms.update')
-          : t('dashboard.forms.create')}
-      </Button>
+      {/* Submit Button */}
+      <div className="pt-4">
+        <button
+          type="submit"
+          disabled={loading}
+          className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-white
+            ${loading ? 'bg-primary/50 cursor-not-allowed' : 'bg-primary hover:bg-primary/90'} transition-colors`}
+        >
+          {loading ? (
+            <>
+              <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+              <span>{isUpdate ? t('dashboard.common.updating') : t('dashboard.common.creating')}</span>
+            </>
+          ) : (
+            <>
+              <FiSave className="w-5 h-5" />
+              <span>{isUpdate ? t('dashboard.forms.update') : t('dashboard.forms.create')}</span>
+            </>
+          )}
+        </button>
+      </div>
     </form>
   );
 };

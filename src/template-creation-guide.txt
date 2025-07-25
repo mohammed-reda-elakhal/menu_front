@@ -1,0 +1,329 @@
+# Meniwi Template Creation Guide
+
+This guide provides step-by-step instructions for creating a new template in the Meniwi application.
+
+## 1. Understanding the Template System
+
+The Meniwi application uses a template system for displaying menus. Each template is:
+
+1. Defined as a React component
+2. Registered in the template service
+3. Stored in the database with metadata
+4. Dynamically loaded when needed
+
+## 2. Step-by-Step Guide to Create a New Template
+
+### Step 1: Create the Template Component
+
+1. Create a new JSX/TSX file in the appropriate directory:
+   - For coffee templates: `menu_front/src/templates/coffee/`
+   - For other categories, create or use the appropriate folder
+
+2. Basic template structure:
+
+```jsx
+import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const YourTemplateName = ({ menuData, styles, features }) => {
+  // Add scroll to top effect on load
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Preview Header - will be shown in preview mode */}
+      <div className="bg-blue-600 text-white py-4 px-6 text-center">
+        <h2 className="text-xl font-bold">Your Template Name Preview</h2>
+      </div>
+
+      {/* Header Section */}
+      <header className="bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <h1 className="text-3xl font-bold">{menuData.business.nom}</h1>
+          <p className="text-gray-600">{menuData.business.description}</p>
+        </div>
+      </header>
+
+      {/* Menu Categories and Products */}
+      <main className="max-w-7xl mx-auto py-12 px-4">
+        {menuData.categories.map((category) => (
+          <section key={category._id} className="mb-12">
+            <h2 className="text-2xl font-bold mb-6">{category.nom}</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {category.produits.map((product) => (
+                <div key={product._id} className="bg-white rounded-lg shadow p-6">
+                  <div className="flex">
+                    <img
+                      src={product.image?.url || `https://picsum.photos/seed/${product._id}/200/200`}
+                      alt={product.nom}
+                      className="w-24 h-24 object-cover rounded-lg"
+                    />
+                    <div className="ml-4">
+                      <h3 className="text-xl font-semibold">{product.nom}</h3>
+                      <p className="text-gray-600 text-sm">{product.description}</p>
+                      <p className="text-lg font-bold mt-2">{product.prix} DH</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-6">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p>© {new Date().getFullYear()} {menuData.business.nom}</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default YourTemplateName;
+```
+
+### Step 2: Register the Template in templateService.ts
+
+1. Open `menu_front/src/services/templateService.ts`
+2. Add your template to the `templateComponents` object:
+
+```typescript
+const templateComponents: { [key: string]: React.LazyExoticComponent<any> } = {
+  DefaultTemplate: lazy(() => import('../templates/DefaultTemplate.jsx')),
+  YourTemplateName: lazy(() => import('../templates/YourTemplateName.jsx')), // Add your template here
+};
+```
+
+### Step 3: Create a Demo Path for Your Template
+
+1. The demo path allows users to preview your template
+2. Update the routes in `App.jsx` to include your template demo:
+
+```jsx
+<Route path="/templates/your-template-name" element={<DemoTemplate componentName="YourTemplateName" />} />
+```
+
+### Step 4: Add Your Template to the Database
+
+You can do this through the admin interface or directly via API:
+
+1. Use the Create Template form in the admin dashboard
+2. Fill in the following details:
+   - Name: Display name for your template
+   - Component Name: Must match the key in templateService.ts
+   - Category: e.g., "coffee", "restaurant"
+   - Price: Set a price or 0 if free
+   - Is Free: Toggle if the template is free
+   - Description: Describe your template
+   - Style: Add style options as JSON strings
+   - Features: Add feature descriptions as JSON strings
+   - Demo Path: Path to preview the template
+   - Is Published: Toggle to make it available to users
+
+## 3. Template Data Structure
+
+Your template will receive the following data structure:
+
+```javascript
+menuData = {
+  _id: "67f5d58d9950f2e5d0a8d9d4",
+  title: "Menu of Coffe",
+  description: "This is best menu in the coffe domaine",
+  publier: true,
+  business: {
+    _id: "67f04d8c66fc9c57d4ab0749",
+    nom: "Caffe Ali",
+    description: "Modern Coffe calm for studying and rolaxing",
+    type: "Coffe",
+    logo: {
+      url: "https://res.cloudinary.com/dgkwdiga4/image/upload/v1743801740/profile_photos/racztz1vohg6cadqb6d5.png",
+      publicId: "profile_photos/racztz1vohg6cadqb6d5"
+    },
+    ville: "Rabat",
+    adress: "hassan",
+    tele: "0690137708",
+    person: "67f037d82f246b14a8a16c1a",
+    createdAt: "2025-04-04T21:22:20.168Z",
+    updatedAt: "2025-04-04T21:22:20.168Z"
+  },
+  socialMediaVisible: true,
+  active: true,
+  code_menu: "menu_2025040903_c89c2d57",
+  createdAt: "2025-04-09T02:03:57.644Z",
+  updatedAt: "2025-04-09T03:50:21.818Z",
+  template: {
+    _id: "67f5ebe460b7b612ad5e2970",
+    name: "Vintage",
+    componentName: "VintageCoffee",
+    category: "coffee",
+    price: 0,
+    isFree: true,
+    description: "Classic vintage style with decorative elements",
+    style: [],
+    imagePreview: {
+      url: "https://res.cloudinary.com/dgkwdiga4/image/upload/v1744169958/profile_photos/bgs0bcgev65ycfa91twk.png",
+      publicId: "profile_photos/bgs0bcgev65ycfa91twk"
+    },
+    features: [],
+    demoPath: "/templates/vintage-coffee",
+    isPublished: false,
+    createdAt: "2025-04-09T03:39:16.207Z",
+    updatedAt: "2025-04-09T03:39:16.207Z"
+  },
+  categories: [
+    {
+      _id: "67f5d91092c172e3486d12c6",
+      nom: "Boissons Chaude",
+      description: "best boissons chaude with best quality",
+      image: {
+        url: "https://res.cloudinary.com/dgkwdiga4/image/upload/v1744165138/profile_photos/abezfdfkwr8acaaqschz.jpg",
+        publicId: "profile_photos/abezfdfkwr8acaaqschz"
+      },
+      menu: "67f5d58d9950f2e5d0a8d9d4",
+      createdAt: "2025-04-09T02:18:56.363Z",
+      updatedAt: "2025-04-09T02:29:30.142Z",
+      produits: [
+        {
+          _id: "67f5e1231990c87b86c83c61",
+          nom: "coffe noir",
+          description: "best coffe chaude",
+          prix: 14,
+          composant: ["composant 1", "composant 2"],
+          image: {
+            url: "https://res.cloudinary.com/dgkwdiga4/image/upload/v1744167205/profile_photos/ae80veqr9817n1h3glwh.jpg",
+            publicId: "profile_photos/ae80veqr9817n1h3glwh"
+          },
+          visible: true,
+          review: 0,
+          categorie: "67f5d91092c172e3486d12c6",
+          createdAt: "2025-04-09T02:53:23.411Z",
+          updatedAt: "2025-04-09T02:53:23.411Z"
+        }
+      ],
+      supplementaires: [
+        {
+          _id: "67f5e553187aaa92f43800ce",
+          nom: "Creep",
+          description: "best product",
+          prix: 5,
+          image: {
+            url: "https://res.cloudinary.com/dgkwdiga4/image/upload/v1744168277/profile_photos/zenloxr8npmf1pyofsmu.jpg",
+            publicId: "profile_photos/zenloxr8npmf1pyofsmu"
+          },
+          visible: true,
+          categorie: "67f5d91092c172e3486d12c6",
+          createdAt: "2025-04-09T03:11:15.219Z",
+          updatedAt: "2025-04-09T03:11:15.219Z"
+        }
+      ]
+    }
+  ]
+}
+```
+
+## 4. Styling and Design Tips
+
+1. Use Tailwind CSS for styling - the project uses Tailwind extensively
+2. Use Framer Motion for animations
+3. Make your template responsive for all device sizes
+4. Consider different themes or color schemes
+5. Use the `styles` and `features` props to customize your template
+
+## 5. Advanced Features
+
+### Custom Styles and Features
+
+Your template can accept custom styles and features:
+
+```jsx
+const YourTemplateName = ({ menuData, styles, features }) => {
+  // Use styles to customize your template
+  const primaryColor = styles?.primaryColor || '#3768e5';
+
+  // Use features to enable/disable functionality
+  const showPrices = features?.includes('showPrices') !== false;
+
+  return (
+    // Template JSX using these variables
+  );
+};
+```
+
+### Interactive Elements
+
+Add interactive elements to enhance user experience:
+
+```jsx
+const [selectedCategory, setSelectedCategory] = useState(null);
+
+// Then in your JSX:
+<div className="flex space-x-4 mb-8">
+  {menuData.categories.map(category => (
+    <button
+      key={category._id}
+      onClick={() => setSelectedCategory(category._id)}
+      className={`px-4 py-2 rounded ${
+        selectedCategory === category._id ? 'bg-blue-600 text-white' : 'bg-gray-200'
+      }`}
+    >
+      {category.nom}
+    </button>
+  ))}
+</div>
+
+{/* Show only selected category or all if none selected */}
+{menuData.categories
+  .filter(cat => !selectedCategory || cat._id === selectedCategory)
+  .map(category => (
+    // Render category and products
+  ))}
+```
+
+## 6. Testing Your Template
+
+1. Use the demo route to test your template with sample data
+2. Check responsiveness on different screen sizes
+3. Test with different menu structures (varying numbers of categories and products)
+4. Verify that all dynamic data is displayed correctly
+
+## 7. Publishing Your Template
+
+1. Make sure your template is registered in the templateService
+2. Add it to the database through the admin interface
+3. Set "isPublished" to true when ready for users
+4. Provide a good preview image and detailed description
+
+## 8. Troubleshooting
+
+- If your template doesn't appear, check that the componentName in the database matches the key in templateService.ts
+- If styles or features aren't working, verify the JSON format in the database
+- Use browser developer tools to debug rendering issues
+- Check the console for any errors related to your template
+
+## 9. Example: Creating a New Template
+
+Here's a quick example of creating a new template:
+
+1. Create file: `menu_front/src/templates/YourTemplateName.jsx`
+2. Add the component code (similar to the example above but with your own styling)
+3. Register in templateService.ts: `YourTemplateName: lazy(() => import('../templates/YourTemplateName.jsx'))`
+4. Add demo route in App.jsx: `<Route path="/templates/your-template" element={<DemoTemplate componentName="YourTemplateName" />} />`
+5. Add to database with componentName "YourTemplateName"
+6. Test and publish
+
+## 10. Best Practices
+
+1. Keep your template code clean and well-organized
+2. Use meaningful variable names
+3. Add comments to explain complex logic
+4. Test thoroughly before publishing
+5. Consider accessibility in your design
+6. Optimize images and animations for performance
+7. Follow the existing design patterns in the application

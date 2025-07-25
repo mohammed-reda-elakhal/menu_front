@@ -1,416 +1,1297 @@
 {
-    "header": {
-      "navigation": {
-        "home": "Accueil",
-        "eatNow": "Manger",
-        "marketplace": "Marché",
-        "company": "Entreprise"
+  "header": {
+    "navigation": {
+      "home": "Accueil",
+      "eatNow": "Manger",
+      "marketplace": "Marché",
+      "company": "Entreprise",
+      "businesses": "Entreprises",
+      "Privacy":"Confidentialité"
+    },
+    "auth": {
+      "login": "Connexion",
+      "signup": "S'inscrire"
+    },
+    "language":"Langue",
+    "theme":"Thème"
+  },
+  "hero": {
+    "title": {
+      "part1": "Améliorez Votre",
+      "part2": "Expérience Menu"
+    },
+    "description": "Transformez le menu de votre restaurant en une expérience numérique interactive. Créez, gérez et partagez votre menu instantanément avec des codes QR.",
+    "buttons": {
+      "getStarted": "Commencer Gratuitement",
+      "viewDemo": "Voir la Démo"
+    },
+    "liveUpdates": "Mises à jour en direct"
+  },
+  "howToUse": {
+    "title": "Comment",
+    "highlight": "ça marche",
+    "subtitle": "Créez votre menu digital en quelques étapes simples",
+    "step": "Étape",
+    "steps": {
+      "create_account": {
+        "title": "Créez votre compte",
+        "description": "Inscrivez-vous gratuitement et commencez à personnaliser votre menu digital."
       },
-      "auth": {
-        "login": "Connexion",
-        "signup": "S'inscrire"
+      "create_menu": {
+        "title": "Créez votre menu",
+        "description": "Ajoutez vos plats, catégories et prix facilement avec notre interface intuitive."
+      },
+      "select_template": {
+        "title": "Choisissez votre template",
+        "description": "Sélectionnez parmi nos designs professionnels et personnalisez les couleurs."
+      },
+      "done": {
+        "title": "C'est prêt !",
+        "description": "Votre menu digital est en ligne, partagez-le avec vos clients via QR code."
       }
+    }
+  },
+  "about": {
+    "title": {
+      "transform": "Transformez Votre",
+      "experience": "Expérience Menu"
     },
-    "hero": {
-      "title": {
-        "part1": "Améliorez Votre",
-        "part2": "Expérience Menu"
-      },
-      "description": "Transformez le menu de votre restaurant en une expérience numérique interactive. Créez, gérez et partagez votre menu instantanément avec des codes QR.",
-      "buttons": {
-        "getStarted": "Commencer Gratuitement",
-        "viewDemo": "Voir la Démo"
-      },
-      "liveUpdates": "Mises à jour en direct"
+    "subtitle": "Améliorez la présence de votre restaurant avec notre solution de menu numérique innovante",
+    "description": {
+      "company": "Meniwi",
+      "text": "est votre plateforme tout-en-un de gestion de menus numériques, conçue spécifiquement pour les restaurants et cafés modernes. Nous combinons un design élégant avec des fonctionnalités puissantes, vous permettant de créer, mettre à jour et partager vos menus numériques sans effort. Avec l'intégration de codes QR et les mises à jour en temps réel, votre menu reste dynamique et accessible à vos clients à tout moment."
     },
-    "about": {
-      "title": {
-        "transform": "Transformez Votre",
-        "experience": "Expérience Menu"
+    "features": {
+      "realtime": {
+        "title": "Mises à jour en temps réel",
+        "description": "Mettez à jour votre menu instantanément via une interface de gestion intuitive"
       },
-      "subtitle": "Améliorez la présence de votre restaurant avec notre solution de menu numérique innovante",
-      "description": {
-        "company": "Menuso",
-        "text": "est votre plateforme tout-en-un de gestion de menus numériques, conçue spécifiquement pour les restaurants et cafés modernes. Nous combinons un design élégant avec des fonctionnalités puissantes, vous permettant de créer, mettre à jour et partager vos menus numériques sans effort. Avec l'intégration de codes QR et les mises à jour en temps réel, votre menu reste dynamique et accessible à vos clients à tout moment."
+      "interactive": {
+        "title": "Design Interactif",
+        "description": "Mises en page élégantes et réactives qui fonctionnent parfaitement sur tous les appareils"
       },
-      "features": {
-        "realtime": {
-          "title": "Mises à jour en temps réel",
-          "description": "Mettez à jour votre menu instantanément via une interface de gestion intuitive"
-        },
-        "interactive": {
-          "title": "Design Interactif",
-          "description": "Mises en page élégantes et réactives qui fonctionnent parfaitement sur tous les appareils"
-        },
-        "sharing": {
-          "title": "Partage Facile",
-          "description": "Partagez votre menu instantanément via des codes QR et l'intégration aux réseaux sociaux"
-        }
+      "sharing": {
+        "title": "Partage Facile",
+        "description": "Partagez votre menu instantanément via des codes QR et l'intégration aux réseaux sociaux"
       }
-    },
+    }
+  },
 
-      "features": {
-        "title": {
-          "powerful": "Fonctionnalités",
-          "features": "Puissantes"
-        },
-        "subtitle": "Tout ce dont vous avez besoin pour créer et gérer votre expérience de menu numérique",
-        "items": {
-          "design": {
-            "title": "Design Personnalisable",
-            "description": "Personnalisez l'apparence de votre menu avec des thèmes et des mises en page personnalisés"
-          },
-          "qr": {
-            "title": "Intégration QR Code",
-            "description": "Générez des codes QR uniques pour un accès facile au menu"
-          },
-          "mobile": {
-            "title": "Adaptatif Mobile",
-            "description": "Expérience de visualisation parfaite sur tous les appareils"
-          },
-          "analytics": {
-            "title": "Tableau de Bord Analytique",
-            "description": "Suivez les vues du menu et l'engagement des clients"
-          },
-          "language": {
-            "title": "Support Multilingue",
-            "description": "Atteignez plus de clients avec des options multilingues"
-          },
-          "updates": {
-            "title": "Mises à jour en temps réel",
-            "description": "Mettez à jour instantanément les prix, les articles et les promotions"
-          }
-        }
-      },
-    "pricing": {
-      "title": {
-        "simple": "Simple,",
-        "transparent": "Transparent"
-      },
-      "subtitle": "Choisissez le forfait parfait pour les besoins de votre restaurant",
-      "plans": {
-        "free": {
-          "name": "Essai Gratuit",
-          "price": "0",
-          "description": "Parfait pour commencer",
-          "buttonText": "Commencer",
-          "features": [
-            "Compte professionnel unique",
-            "Gestion d'un seul menu",
-            "Génération de code QR basique",
-            "Design adaptatif mobile",
-            "Partage sur réseaux sociaux"
-          ]
-        },
-        "premium": {
-          "name": "Premium",
-          "price": "100",
-          "description": "Idéal pour les restaurants en croissance",
-          "buttonText": "Démarrer Premium",
-          "popular": "Plus Populaire",
-          "features": [
-            "1 à 5 comptes professionnels",
-            "Gestion de menus multiples",
-            "Design QR code personnalisé",
-            "Tableau de bord analytique avancé",
-            "Support prioritaire",
-            "Support multilingue",
-            "Mises à jour en temps réel",
-            "Image de marque personnalisée"
-          ]
-        }
-      },
-      "currency": "DH/mois"
+  "features": {
+    "title": {
+      "powerful": "Fonctionnalités",
+      "features": "Puissantes"
     },
-    "faq": {
-      "title": {
-        "part1": "Questions",
-        "part2": "Fréquentes"
+    "subtitle": "Tout ce dont vous avez besoin pour créer et gérer votre expérience de menu numérique",
+    "items": {
+      "design": {
+        "title": "Design Personnalisable",
+        "description": "Personnalisez l'apparence de votre menu avec des thèmes et des mises en page personnalisés"
       },
-      "subtitle": "Tout ce que vous devez savoir sur Menuso et son fonctionnement",
-      "questions": [
-        {
-          "question": "Comment créer mon menu numérique ?",
-          "answer": "La création de votre menu numérique est simple. Après l'inscription, vous pouvez facilement ajouter des catégories, des articles, des prix et des descriptions via notre tableau de bord intuitif. Téléchargez des images, personnalisez les mises en page, et votre menu sera prêt à être partagé en quelques minutes."
-        },
-        {
-          "question": "Puis-je mettre à jour mon menu en temps réel ?",
-          "answer": "Oui ! Vous pouvez mettre à jour votre menu à tout moment via notre tableau de bord. Les modifications sont reflétées instantanément sur toutes les plateformes où votre menu est partagé, y compris les codes QR et les liens de médias sociaux."
-        },
-        {
-          "question": "Comment fonctionne le système de code QR ?",
-          "answer": "Chaque menu reçoit un code QR unique que vous pouvez imprimer et afficher dans votre restaurant. Lorsque les clients scannent le code avec leur smartphone, ils voient instantanément votre dernier menu dans leur navigateur - aucun téléchargement d'application requis."
-        },
-        {
-          "question": "La plateforme est-elle adaptée aux mobiles ?",
-          "answer": "Absolument ! Nos menus sont entièrement responsifs et optimisés pour tous les appareils - smartphones, tablettes et ordinateurs de bureau. Vos clients profiteront d'une expérience fluide quel que soit leur appareil."
-        },
-        {
-          "question": "Quels modes de paiement acceptez-vous ?",
-          "answer": "Nous acceptons les principales cartes de crédit, cartes de débit et méthodes de paiement numériques. Tous les paiements sont traités de manière sécurisée via nos partenaires de passerelle de paiement de confiance."
-        }
-      ]
+      "qr": {
+        "title": "Intégration QR Code",
+        "description": "Générez des codes QR uniques pour un accès facile au menu"
+      },
+      "mobile": {
+        "title": "Adaptatif Mobile",
+        "description": "Expérience de visualisation parfaite sur tous les appareils"
+      },
+      "analytics": {
+        "title": "Tableau de Bord Analytique",
+        "description": "Suivez les vues du menu et l'engagement des clients"
+      },
+      "language": {
+        "title": "Support Multilingue",
+        "description": "Atteignez plus de clients avec des options multilingues"
+      },
+      "updates": {
+        "title": "Mises à jour en temps réel",
+        "description": "Mettez à jour instantanément les prix, les articles et les promotions"
+      }
+    }
+  },
+  "pricing": {
+    "title": {
+      "simple": "Simple,",
+      "transparent": "Transparent"
     },
-    "testimonials": {
-      "title": {
-        "part1": "Ce que disent",
-        "part2": "nos clients",
-        "part3": ""
+    "subtitle": "Choisissez le forfait parfait pour les besoins de votre restaurant",
+    "plans": {
+      "free": {
+        "name": "Essai Gratuit",
+        "price": "0",
+        "description": "Parfait pour commencer",
+        "buttonText": "Commencer",
+        "features": [
+          "Compte professionnel unique",
+          "Gestion d'un seul menu",
+          "Génération de code QR basique",
+          "Design adaptatif mobile",
+          "Partage sur réseaux sociaux"
+        ]
       },
-      "subtitle": "Découvrez pourquoi les restaurateurs à travers le Maroc font confiance à Menuso"
+      "premium": {
+        "name": "Premium",
+        "price": "100",
+        "description": "Idéal pour les restaurants en croissance",
+        "buttonText": "Démarrer Premium",
+        "popular": "Plus Populaire",
+        "features": [
+          "1 à 5 comptes professionnels",
+          "Gestion de menus multiples",
+          "Design QR code personnalisé",
+          "Tableau de bord analytique avancé",
+          "Support prioritaire",
+          "Support multilingue",
+          "Mises à jour en temps réel",
+          "Image de marque personnalisée"
+        ]
+      }
     },
-    "contact": {
-      "title": {
-        "part1": "Contactez",
-        "part2": "Nous"
+    "currency": "DH/mois"
+  },
+  "faq": {
+    "title": {
+      "part1": "Questions",
+      "part2": "Fréquentes"
+    },
+    "subtitle": "Tout ce que vous devez savoir sur Meniwi et son fonctionnement",
+    "questions": [
+      {
+        "question": "Comment créer mon menu numérique ?",
+        "answer": "La création de votre menu numérique est simple. Après l'inscription, vous pouvez facilement ajouter des catégories, des articles, des prix et des descriptions via notre tableau de bord intuitif. Téléchargez des images, personnalisez les mises en page, et votre menu sera prêt à être partagé en quelques minutes."
       },
-      "subtitle": "Vous avez des questions ? Nous aimerions avoir de vos nouvelles. Envoyez-nous un message et nous vous répondrons dès que possible.",
-      "form": {
-        "name": {
-          "label": "Nom",
-          "placeholder": "Votre nom"
-        },
-        "email": {
-          "label": "Email",
-          "placeholder": "votre@email.com"
-        },
-        "message": {
-          "label": "Message",
-          "placeholder": "Votre message..."
-        },
-        "button": "Envoyer le message"
+      {
+        "question": "Puis-je mettre à jour mon menu en temps réel ?",
+        "answer": "Oui ! Vous pouvez mettre à jour votre menu à tout moment via notre tableau de bord. Les modifications sont reflétées instantanément sur toutes les plateformes où votre menu est partagé, y compris les codes QR et les liens de médias sociaux."
       },
-      "info": {
-        "email": {
-          "title": "Envoyez-nous un email"
-        },
-        "phone": {
-          "title": "Appelez-nous"
+      {
+        "question": "Comment fonctionne le système de code QR ?",
+        "answer": "Chaque menu reçoit un code QR unique que vous pouvez imprimer et afficher dans votre restaurant. Lorsque les clients scannent le code avec leur smartphone, ils voient instantanément votre dernier menu dans leur navigateur - aucun téléchargement d'application requis."
+      },
+      {
+        "question": "La plateforme est-elle adaptée aux mobiles ?",
+        "answer": "Absolument ! Nos menus sont entièrement responsifs et optimisés pour tous les appareils - smartphones, tablettes et ordinateurs de bureau. Vos clients profiteront d'une expérience fluide quel que soit leur appareil."
+      },
+      {
+        "question": "Quels modes de paiement acceptez-vous ?",
+        "answer": "Nous acceptons les principales cartes de crédit, cartes de débit et méthodes de paiement numériques. Tous les paiements sont traités de manière sécurisée via nos partenaires de passerelle de paiement de confiance."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": {
+      "part1": "Ce que disent",
+      "part2": "nos clients",
+      "part3": ""
+    },
+    "subtitle": "Découvrez pourquoi les restaurateurs à travers le Maroc font confiance à Meniwi"
+  },
+  "contact": {
+    "title": {
+      "part1": "Contactez",
+      "part2": "Nous"
+    },
+    "subtitle": "Vous avez des questions ? Nous aimerions avoir de vos nouvelles. Envoyez-nous un message et nous vous répondrons dès que possible.",
+    "form": {
+      "name": {
+        "label": "Nom",
+        "placeholder": "Votre nom"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Votre message..."
+      },
+      "button": "Envoyer le message"
+    },
+    "info": {
+      "email": {
+        "title": "Envoyez-nous un email"
+      },
+      "phone": {
+        "title": "Appelez-nous"
+      }
+    }
+  },
+  "footer": {
+    "description": "Transformez le menu de votre restaurant en une expérience numérique interactive avec Meniwi.",
+    "quickLinks": {
+      "title": "Liens Rapides",
+      "items": ["Accueil", "À propos", "Fonctionnalités", "Tarification", "Contact"]
+    },
+    "legal": {
+      "title": "Légal",
+      "items": ["Politique de Confidentialité", "Conditions d'Utilisation", "Politique des Cookies", "RGPD"]
+    },
+    "newsletter": {
+      "title": "Restez Informé",
+      "description": "Abonnez-vous à notre newsletter pour recevoir nos actualités et conseils.",
+      "placeholder": "Votre email",
+      "button": "S'abonner"
+    },
+    "bottom": {
+      "copyright": "© {{year}} Meniwi. Tous droits réservés.",
+      "links": ["Confidentialité", "Conditions", "Contact"]
+    }
+  },
+  "login": {
+    "title": "Bon Retour",
+    "subtitle": "Connectez-vous pour gérer votre menu numérique",
+    "form": {
+      "email": {
+        "label": "Adresse Email",
+        "placeholder": "votre@email.com"
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "••••••••"
+      },
+      "rememberMe": "Se souvenir de moi",
+      "forgotPassword": "Mot de passe oublié?",
+      "submit": "Se Connecter"
+    },
+    "noAccount": "Vous n'avez pas de compte?",
+    "signupLink": "S'inscrire"
+  },
+  "signup": {
+    "title": "Créer un Compte",
+    "subtitle": "Commencez avec votre menu numérique",
+    "features": {
+      "menu": "Créez et gérez votre menu numérique",
+      "updates": "Mises à jour et notifications instantanées",
+      "security": "Plateforme sécurisée et fiable"
+    },
+    "quote": "Rejoignez des milliers de restaurants qui transforment déjà leur expérience menu avec Meniwi",
+    "form": {
+      "restaurant": {
+        "label": "Nom du Restaurant",
+        "placeholder": "Nom de votre Restaurant"
+      },
+      "name": {
+        "label": "Nom",
+        "placeholder": "Mohammed..."
+      },
+      "phone": {
+        "label": "Numero de Telephone",
+        "placeholder": "06 ..."
+      },
+      "city": {
+        "label": "Ville",
+        "placeholder": "Rabat"
+      },
+      "cin": {
+        "label": "CIN",
+        "placeholder": "Exemple : AB22512 "
+      },
+      "email": {
+        "label": "Adresse Email",
+        "placeholder": "votre@email.com"
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "••••••••"
+      },
+      "terms": {
+        "text": "J'accepte les",
+        "termsLink": "Conditions d'Utilisation",
+        "and": "et la",
+        "privacyLink": "Politique de Confidentialité"
+      },
+      "submit": "Créer un Compte",
+      "loading": "Création du compte...",
+      "login": {
+        "text": "Vous avez déjà un compte?",
+        "link": "Se connecter"
+      }
+    }
+  },
+  "dashboard": {
+    "common": {
+      "error": "Une erreur est survenue. Veuillez réessayer.",
+      "creating": "Création en cours...",
+      "updating": "Mise à jour en cours...",
+      "cancel": "Annuler"
+    },
+    "forms": {
+      "product": {
+        "name": "Nom du Produit",
+        "description": "Description",
+        "price": "Prix",
+        "promo_price": "Prix Promotionnel",
+        "category": "Catégorie",
+        "components": "Composants",
+        "componentsHelp": "Séparez les composants par des virgules",
+        "componentsPlaceholder": "Entrez les composants séparés par des virgules",
+        "visible": "Visible",
+        "hidden": "Masqué",
+        "review": "Score d'Évaluation",
+        "allergens": "Allergènes",
+        "nutritionalInfo": "Informations Nutritionnelles",
+        "addImage": "Ajouter une Image de Produit",
+        "changeImage": "Changer l'Image",
+        "image": "Image du Produit",
+        "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
+        "imageSizeError": "Le fichier est trop volumineux. Taille maximale 5MB",
+        "namePlaceholder": "Entrez le nom du produit",
+        "descriptionPlaceholder": "Entrez la description du produit",
+        "nameRequired": "Le nom du produit est requis",
+        "priceRequired": "Un prix valide est requis",
+        "promoPriceInvalid": "Le prix promotionnel doit être un nombre valide",
+        "categoryRequired": "La catégorie est requise",
+        "selectCategory": "Sélectionnez une catégorie",
+        "tags": "Tags",
+        "tagsHelp": "Séparez les tags par des virgules (ex: épicé, populaire, nouveau)",
+        "tagsPlaceholder": "Entrez les tags séparés par des virgules",
+        "calories": "Calories",
+        "caloriesPlaceholder": "Entrez les calories (ex: 250)",
+        "vegetarian": "Végétarien",
+        "spicy": "Épicé",
+        "halal": "Halal",
+        "best": "Meilleur Produit",
+        "imageRequirements": {
+          "format": "Formats acceptés: JPG, PNG, WEBP",
+          "size": "Taille maximale: 5MB",
+          "recommended": "Recommandé: 350x350px"
         }
       }
     },
-    "footer": {
-      "description": "Transformez le menu de votre restaurant en une expérience numérique interactive avec Menuso.",
-      "quickLinks": {
-        "title": "Liens Rapides",
-        "items": ["Accueil", "À propos", "Fonctionnalités", "Tarification", "Contact"]
+    "navbar": {
+      "profile": "Profil",
+      "businesses": "Mes Restaurants",
+      "settings": "Paramètres",
+      "logout": "Déconnexion",
+      "quitBusiness": "Quitter l'Entreprise",
+      "notifications": "Notifications",
+      "language": "Langue",
+      "darkMode": "Mode Sombre",
+      "noNotifications": "Aucune notification",
+      "adminMode": "Mode Admin",
+      "active": "Actif"
+    },
+    "sidebar": {
+      "overview": "Aperçu",
+      "analytics": "Analytiques",
+      "menus": "Menus",
+      "menuList": "Liste des Menus",
+      "menuSettings": "Paramètres du Menu",
+      "createMenu": "Créer un Menu",
+      "exportMenu": "Générateur de Menu IA",
+      "customers": "Clients",
+      "settings": "Paramètres",
+      "help": "Aide & Support",
+      "products": "Nos Produits",
+      "categories": "Catégories",
+      "productsList": "Produits",
+      "supplements": "Suppléments",
+      "template": "Templates",
+      "templateList": "Liste des Templates",
+      "theme":"Thèmes",
+      "marketplace":"MarketPlace",
+      "ownerTheme":"Mes Thèmes"
+    },
+    "templates": {
+      "title": "Templates",
+      "subtitle": "Gérez vos modèles de menu",
+      "addNew": "Ajouter un Template",
+      "createFirst": "Créer Premier Template",
+      "noTemplatesTitle": "Aucun Template Trouvé",
+      "noTemplatesDescription": "Vous n'avez pas encore créé de templates. Créez votre premier template pour commencer.",
+      "published": "Publié",
+      "draft": "Brouillon",
+      "free": "Gratuit",
+      "currency": "DH",
+      "demo": "Démo",
+      "created": "Créé",
+      "updated": "Dernière Mise à Jour",
+      "viewDemo": "Voir la Démo",
+      "create": {
+        "title": "Créer un Nouveau Template",
+        "name": "Nom du Template",
+        "namePlaceholder": "Entrez le nom du template",
+        "componentName": "Nom du Composant",
+        "componentNamePlaceholder": "Entrez le nom du composant (ex: ModernCoffee)",
+        "category": "Catégorie",
+        "categoryPlaceholder": "Entrez la catégorie (ex: café, restaurant)",
+        "isFree": "Template Gratuit",
+        "price": "Prix (DH)",
+        "demoPath": "Chemin de Démo",
+        "demoPathPlaceholder": "Entrez le chemin de démo (ex: /templates/coffee-modern)",
+        "isPublished": "Publier le Template",
+        "isPublishedDescription": "Rendre ce template visible pour les utilisateurs",
+        "image": "Image du Template",
+        "uploadImage": "Télécharger une image",
+        "dragDrop": "ou glisser-déposer",
+        "imageRequirements": "PNG, JPG, WebP jusqu'à 5MB",
+        "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
+        "imageSizeError": "Le fichier est trop volumineux. Taille maximale 5MB",
+        "description": "Description",
+        "descriptionPlaceholder": "Entrez la description du template",
+        "features": "Fonctionnalités",
+        "featurePlaceholder": "Ajouter une fonctionnalité",
+        "styles": "Styles",
+        "stylePlaceholder": "Ajouter un style (ex: moderne, minimaliste)",
+        "nameRequired": "Le nom du template est requis",
+        "componentNameRequired": "Le nom du composant est requis",
+        "categoryRequired": "La catégorie est requise",
+        "priceRequired": "Un prix valide est requis pour les templates non gratuits",
+        "createButton": "Créer le Template",
+        "creating": "Création en cours...",
+        "success": "Template créé avec succès"
       },
-      "legal": {
-        "title": "Légal",
-        "items": ["Politique de Confidentialité", "Conditions d'Utilisation", "Politique des Cookies", "RGPD"]
+      "update": {
+        "title": "Mettre à Jour le Template",
+        "name": "Nom du Template",
+        "namePlaceholder": "Entrez le nom du template",
+        "componentName": "Nom du Composant",
+        "componentNamePlaceholder": "Entrez le nom du composant (ex: ModernCoffee)",
+        "category": "Catégorie",
+        "categoryPlaceholder": "Entrez la catégorie (ex: café, restaurant)",
+        "isFree": "Template Gratuit",
+        "price": "Prix (DH)",
+        "demoPath": "Chemin de Démo",
+        "demoPathPlaceholder": "Entrez le chemin de démo (ex: /templates/coffee-modern)",
+        "isPublished": "Publier le Template",
+        "isPublishedDescription": "Rendre ce template visible pour les utilisateurs",
+        "image": "Image du Template",
+        "uploadImage": "Télécharger une image",
+        "dragDrop": "ou glisser-déposer",
+        "imageRequirements": "PNG, JPG, WebP jusqu'à 5MB",
+        "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
+        "imageSizeError": "Le fichier est trop volumineux. Taille maximale 5MB",
+        "description": "Description",
+        "descriptionPlaceholder": "Entrez la description du template",
+        "features": "Fonctionnalités",
+        "featurePlaceholder": "Ajouter une fonctionnalité",
+        "styles": "Styles",
+        "stylePlaceholder": "Ajouter un style (ex: moderne, minimaliste)",
+        "nameRequired": "Le nom du template est requis",
+        "componentNameRequired": "Le nom du composant est requis",
+        "categoryRequired": "La catégorie est requise",
+        "priceRequired": "Un prix valide est requis pour les templates non gratuits",
+        "updateButton": "Mettre à Jour le Template",
+        "updating": "Mise à jour en cours...",
+        "success": "Template mis à jour avec succès"
       },
-      "newsletter": {
-        "title": "Restez Informé",
-        "description": "Abonnez-vous à notre newsletter pour recevoir nos actualités et conseils.",
-        "placeholder": "Votre email",
-        "button": "S'abonner"
-      },
-      "bottom": {
-        "copyright": "© {{year}} Menuso. Tous droits réservés.",
-        "links": ["Confidentialité", "Conditions", "Contact"]
+      "delete": {
+        "title": "Supprimer le Template",
+        "confirmation": "Êtes-vous sûr de vouloir supprimer \"{{name}}\"? Cette action ne peut pas être annulée.",
+        "warning": "Avertissement",
+        "warningText": "La suppression de ce template le supprimera définitivement. Tous les menus utilisant ce template seront affectés.",
+        "deleteButton": "Supprimer le Template",
+        "deleting": "Suppression en cours...",
+        "success": "Template supprimé avec succès"
       }
     },
-    "login": {
-      "title": "Bon Retour",
-      "subtitle": "Connectez-vous pour gérer votre menu numérique",
-      "form": {
-        "email": {
-          "label": "Adresse Email",
-          "placeholder": "votre@email.com"
-        },
-        "password": {
-          "label": "Mot de passe",
-          "placeholder": "••••••••"
-        },
-        "rememberMe": "Se souvenir de moi",
-        "forgotPassword": "Mot de passe oublié?",
-        "submit": "Se Connecter"
+    "overview": {
+      "stats": {
+        "totalCategories": "Total des Catégories",
+        "totalProducts": "Total des Produits",
+        "todayViews": "Vues Aujourd'hui",
+        "growthRate": "Taux de Croissance",
+        "thisWeek": "cette semaine"
       },
-      "noAccount": "Vous n'avez pas de compte?",
-      "signupLink": "S'inscrire"
-    },
-    "signup": {
-      "title": "Créer un Compte",
-      "subtitle": "Commencez avec votre menu numérique",
-      "features": {
-        "menu": "Créez et gérez votre menu numérique",
-        "updates": "Mises à jour et notifications instantanées",
-        "security": "Plateforme sécurisée et fiable"
-      },
-      "quote": "Rejoignez des milliers de restaurants qui transforment déjà leur expérience menu avec Menuso",
-      "form": {
-        "restaurant": {
-          "label": "Nom du Restaurant",
-          "placeholder": "Nom de votre Restaurant"
-        },
-        "email": {
-          "label": "Adresse Email",
-          "placeholder": "votre@email.com"
-        },
-        "password": {
-          "label": "Mot de passe",
-          "placeholder": "••••••••"
-        },
-        "terms": {
-          "text": "J'accepte les",
-          "termsLink": "Conditions d'Utilisation",
-          "and": "et la",
-          "privacyLink": "Politique de Confidentialité"
-        },
-        "submit": "Créer un Compte",
-        "login": {
-          "text": "Vous avez déjà un compte?",
-          "link": "Se connecter"
-        }
+      "charts": {
+        "menuViews": "Vues Quotidiennes du Menu",
+        "bestProducts": "Meilleurs Produits",
+        "viewAll": "Voir Tous les Produits",
+        "noProducts": "Aucun produit à afficher"
       }
     },
-    "dashboard": {
-      "navbar": {
-        "profile": "Profil",
-        "settings": "Paramètres",
-        "logout": "Déconnexion",
-        "notifications": "Notifications",
-        "language": "Langue",
-        "darkMode": "Mode Sombre",
-        "noNotifications": "Aucune notification"
-      },
-      "sidebar": {
-        "overview": "Aperçu",
-        "analytics": "Analytiques",
-        "menus": "Menus",
-        "menuList": "Liste des Menus",
-        "menuSettings": "Paramètres du Menu",
-        "createMenu": "Créer un Menu",
-        "customers": "Clients",
-        "settings": "Paramètres",
-        "help": "Aide & Support",
-        "products": "Nos Produits",
-        "categories": "Catégories",
-        "productsList": "Produits",
-        "supplements": "Suppléments"
-      },
-      "overview": {
-        "stats": {
-          "totalCategories": "Total des Catégories",
-          "totalProducts": "Total des Produits",
-          "todayViews": "Vues Aujourd'hui",
-          "growthRate": "Taux de Croissance",
-          "thisWeek": "cette semaine"
-        },
-        "charts": {
-          "menuViews": "Vues Quotidiennes du Menu",
-          "bestProducts": "Meilleurs Produits",
-          "viewAll": "Voir Tous les Produits",
-          "noProducts": "Aucun produit à afficher"
-        }
-      },
-      "menuSettings": {
+    "menuSettings": {
+      "title": "Paramètres du Menu",
+      "menuTitle": "Titre du Menu",
+      "menuDescription": "Description du Menu",
+      "publishMenu": "Publier le Menu",
+      "chooseTemplate": "Choisir un Modèle",
+      "saveChanges": "Enregistrer les Modifications"
+    },
+    "ownerTemplate": {
+      "title": "Mes Templates"
+    },
+    "menu": {
+      "settings": {
         "title": "Paramètres du Menu",
+        "edit": "Modifier",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
         "menuTitle": "Titre du Menu",
+        "menuTitlePlaceholder": "Entrez le titre du menu",
         "menuDescription": "Description du Menu",
+        "menuDescriptionPlaceholder": "Entrez la description du menu",
+        "menuCode": "Code du Menu",
+        "createdAt": "Créé le",
+        "published": "Publié",
+        "unpublished": "Non Publié",
+        "socialMediaVisible": "Réseaux Sociaux Visibles",
+        "socialMediaHidden": "Réseaux Sociaux Masqués",
+        "publish": "Publier le Menu",
+        "unpublish": "Dépublier le Menu",
+        "showSocialMedia": "Afficher les Réseaux Sociaux",
+        "hideSocialMedia": "Masquer les Réseaux Sociaux",
+        "updateSuccess": "Menu mis à jour avec succès",
+        "publishToggleSuccess": "Statut de publication du menu modifié avec succès",
+        "socialMediaToggleSuccess": "Visibilité des réseaux sociaux modifiée avec succès",
+        "noMenuTitle": "Aucun Menu Trouvé",
+        "noMenu": "Aucun menu trouvé pour cette entreprise. Créez votre premier menu pour commencer.",
+        "createMenu": "Créer un Menu",
+        "qrCode": "Code QR du Menu",
+        "qrCodePlaceholder": "Le code QR sera affiché ici",
+        "qrCodeDescription": "Scannez ce code QR pour voir votre menu. Vous pouvez imprimer ce code QR et le placer sur vos tables ou à l'entrée de votre établissement.",
+        "downloadQR": "Télécharger le Code QR",
+        "printQR": "Imprimer le Code QR"
+      },
+      "create": {
+        "title": "Créer un Nouveau Menu",
+        "menuTitle": "Titre du Menu",
+        "menuTitlePlaceholder": "Entrez le titre du menu",
+        "menuDescription": "Description du Menu",
+        "menuDescriptionPlaceholder": "Entrez la description du menu",
         "publishMenu": "Publier le Menu",
-        "chooseTemplate": "Choisir un Modèle",
-        "saveChanges": "Enregistrer les Modifications"
+        "publishMenuDescription": "Rendre ce menu visible pour les clients",
+        "socialMediaVisible": "Afficher les Réseaux Sociaux",
+        "socialMediaVisibleDescription": "Afficher les liens des réseaux sociaux sur le menu",
+        "createButton": "Créer le Menu",
+        "creating": "Création en cours...",
+        "titleRequired": "Le titre du menu est requis",
+        "success": "Menu créé avec succès",
+        "noMenuTitle": "Aucun Menu Trouvé",
+        "noMenu": "Vous devez créer un menu avant d'ajouter des catégories",
+        "createMenu": "Créer un Menu"
+      }
+    },
+    "products": {
+      "categories": {
+        "title": "Gestion des Catégories",
+        "add": "Nouvelle catégorie",
+        "items": "éléments",
+        "list": "Liste des Catégories",
+        "edit": "Modifier la Catégorie",
+        "category": "catégorie",
+        "categories": "catégories",
+        "noCategories": "Aucune catégorie trouvée",
+        "addFirst": "Créez votre première catégorie pour commencer",
+        "createSuccess": "Catégorie créée avec succès",
+        "createError": "Échec de la création de la catégorie",
+        "updateSuccess": "Catégorie mise à jour avec succès",
+        "updateError": "Échec de la mise à jour de la catégorie",
+        "deleteSuccess": "Catégorie supprimée avec succès",
+        "deleteError": "Échec de la suppression de la catégorie",
+        "searchPlaceholder": "Rechercher une catégorie..."
       },
       "products": {
-        "categories": {
-          "title": "Gestion des Catégories",
-          "add": "Nouvelle catégorie",
-          "items": "éléments",
-          "list": "Liste des Catégories"
-        },
-        "products": {
-          "title": "Gestion des Produits",
-          "add": "Nouveau Produit",
-          "edit": "Modifier le Produit",
-          "deleteConfirmTitle": "Confirmer la Suppression",
-          "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer {{name}}?"
-        },
-        "supplements": {
-          "title": "Gestion des Suppléments"
-        }
-      },
-      "forms": {
-        "category": {
-          "name": "Nom de la catégorie",
-          "description": "Description",
-          "addImage": "Ajouter une Image",
-          "changeImage": "Changer l'Image",
-          "image": "Image de la Catégorie",
-          "imageRequirements": "Exigences pour l'image",
-          "acceptedFormats": "Formats acceptés",
-          "maxSize": "Taille maximale",
-          "recommendedSize": "Dimensions recommandées",
-          "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
-          "imageSizeError": "Fichier trop volumineux. La taille maximale est de 5MB"
-        },
-        "create": "Créer une catégorie",
-        "update": "Modifier la catégorie",
-        "product": {
-          "name": "Nom du Produit",
-          "description": "Description",
-          "price": "Prix",
-          "category": "Catégorie",
-          "ingredients": "Ingrédients",
-          "allergens": "Allergènes",
-          "nutritionalInfo": "Information Nutritionnelle",
-          "addImage": "Ajouter une Image",
-          "changeImage": "Changer l'Image",
-          "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
-          "imageSizeError": "Fichier trop volumineux. La taille maximale est de 5MB",
-          "imageRequirements": {
-            "format": "Formats acceptés: JPG, PNG, WEBP",
-            "size": "Taille maximale: 5MB",
-            "recommended": "Dimensions recommandées: 350x350px"
-          }
-        }
-      },
-      "tables": {
-        "category": {
-          "name": "Nom",
-          "description": "Description",
-          "image": "Image"
-        },
-        "product": {
-          "name": "Nom",
-          "description": "Description",
-          "category": "Catégorie",
-          "price": "Prix",
-          "image": "Image",
-          "currency":{
-            "format": "DH"
-          }
-        },
-        "actions": "Actions",
-        "edit": "Modifier",
+        "title": "Gestion des Produits",
+        "add": "Nouveau Produit",
+        "edit": "Modifier le Produit",
+        "deleteConfirmTitle": "Confirmer la Suppression",
+        "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer {{name}}?",
+        "active": "Actif",
+        "hidden": "Masqué",
+        "show": "Afficher",
+        "hide": "Masquer",
+        "noProducts": "Aucun produit trouvé",
+        "addFirst": "Créez votre premier produit pour commencer",
+        "selectCategory": "Sélectionnez une catégorie",
+        "noCategoriesTitle": "Aucune Catégorie Trouvée",
+        "noCategories": "Vous devez créer des catégories avant d'ajouter des produits",
+        "createCategory": "Créer une Catégorie",
+        "categories": "Produits",
+        "createSuccess": "Produit créé avec succès",
+        "createError": "Échec de la création du produit",
+        "updateSuccess": "Produit mis à jour avec succès",
+        "updateError": "Échec de la mise à jour du produit",
+        "deleteSuccess": "Produit supprimé avec succès",
+        "deleteError": "Échec de la suppression du produit",
+        "visibilityToggleSuccess": "Visibilité du produit mise à jour",
+        "visibilityToggleError": "Échec de la mise à jour de la visibilité du produit",
+        "markBest": "Marquer comme meilleur",
+        "unmarkBest": "Retirer des meilleurs",
+        "bestToggleSuccess": "Statut de meilleur produit mis à jour avec succès",
+        "bestToggleError": "Échec de la mise à jour du statut de meilleur produit",
+        "allProducts": "Tous les Produits",
+        "products": "Produits",
+        "uncategorized": "Sans catégorie",
+        "selectMenuFirst": "Veuillez sélectionner un menu pour voir les produits",
+        "implementationInProgress": "La gestion des produits est en cours d'implémentation",
+        "searchPlaceholder": "Rechercher un produit...",
+        "bulkDeleteButton": "Supprimer la sélection",
+        "bulkDeleteConfirmTitle": "Confirmer la suppression multiple",
+        "bulkDeleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer les produits sélectionnés ? Cette action est irréversible.",
+        "bulkDeleteSuccess": "Les produits sélectionnés ont été supprimés avec succès.",
+        "bulkDeleteError": "Échec de la suppression des produits sélectionnés.",
         "delete": "Supprimer"
+      },
+      "supplements": {
+        "title": "Gestion des Suppléments",
+        "add": "Nouveau Supplément",
+        "edit": "Modifier le Supplément",
+        "active": "Actif",
+        "hidden": "Masqué",
+        "deleteConfirmTitle": "Confirmer la Suppression",
+        "deleteConfirmMessage": "Êtes-vous sûr de vouloir supprimer {{name}}?",
+        "createSuccess": "Supplément créé avec succès",
+        "updateSuccess": "Supplément mis à jour avec succès",
+        "supplements": "Suppléments",
+        "categories": "Catégories",
+        "deleteSuccess": "Supplément supprimé avec succès",
+        "visibilityToggleSuccess": "Visibilité du supplément mise à jour",
+        "noCategoriesTitle": "Aucune Catégorie Trouvée",
+        "noCategories": "Vous devez créer des catégories avant d'ajouter des suppléments",
+        "createCategory": "Créer une Catégorie"
+      }
+    }
+  },
+  "tables": {
+    "category": {
+      "name": "Nom",
+      "description": "Description",
+      "image": "Image"
+    },
+    "product": {
+      "name": "Nom",
+      "description": "Description",
+      "category": "Catégorie",
+      "price": "Prix",
+      "promo_price": "Prix Promo",
+      "components": "Composants",
+      "attributes": "Attributs",
+      "vegetarian": "Végétarien",
+      "spicy": "Épicé",
+      "halal": "Halal",
+      "best": "Meilleur",
+      "calories": "cal",
+      "tags": "Tags",
+      "status": "Statut",
+      "image": "Image",
+      "currency": {
+        "format": "DH"
       }
     },
-    "business": {
-      "title": "Sélectionnez Votre Empire Commercial",
-      "description": "Choisissez une entreprise à gérer ou créez-en une nouvelle. Chaque entreprise dispose d'outils puissants pour améliorer votre présence numérique.",
-      "addNew": "Ajouter une Entreprise",
-      "features": {
-        "growth": {
-          "title": "Développez Votre Entreprise",
-          "description": "Transformez votre menu en chef-d'œuvre numérique et regardez votre entreprise prospérer"
-        },
-        "experience": {
-          "title": "Expérience Premium",
-          "description": "Offrez une expérience culinaire exceptionnelle avec notre plateforme de pointe"
-        },
-        "analytics": {
-          "title": "Suivez Votre Succès",
-          "description": "Obtenez des informations précieuses pour prendre des décisions éclairées"
-        }
-      },
-      "logout": "Déconnexion"
+    "supplement": {
+      "image": "Image",
+      "name": "Nom",
+      "category": "Catégorie",
+      "price": "Prix",
+      "visible": "Statut"
     },
-    "common": {
-      "cancel": "Annuler",
-      "delete": "Supprimer",
+    "actions": "Actions",
+    "edit": "Modifier",
+    "delete": "Supprimer"
+  },
+  "business": {
+    "title": "Sélectionnez Votre Empire Commercial",
+    "description": "Choisissez une entreprise à gérer ou créez-en une nouvelle. Chaque entreprise dispose d'outils puissants pour améliorer votre présence numérique.",
+    "addNew": "Ajouter une Entreprise",
+    "dashboard": "Tableau de Bord",
+    "logout": "Déconnexion",
+    "loggingOut": "Déconnexion en cours...",
+    "noBusiness": {
+      "title": "Aucune entreprise trouvée",
+      "description": "Créez votre première entreprise pour commencer"
+    },
+    "features": {
+      "growth": {
+        "title": "Développez Votre Entreprise",
+        "description": "Transformez votre menu en chef-d'œuvre numérique et regardez votre entreprise prospérer"
+      },
+      "experience": {
+        "title": "Expérience Premium",
+        "description": "Offrez une expérience culinaire exceptionnelle avec notre plateforme de pointe"
+      },
+      "analytics": {
+        "title": "Suivez Votre Succès",
+        "description": "Obtenez des informations précieuses pour prendre des décisions basées sur les données"
+      }
+    },
+    "types": {
+      "coffee": "Café",
+      "restaurant": "Restaurant",
+      "snack": "Snack",
+      "coffeeToGo": "Café à Emporter",
+      "bakery": "Boulangerie",
+      "pizzeria": "Pizzeria",
+      "other": "Autre"
+    },
+    "days": {
+      "monday": "Lundi",
+      "tuesday": "Mardi",
+      "wednesday": "Mercredi",
+      "thursday": "Jeudi",
+      "friday": "Vendredi",
+      "saturday": "Samedi",
+      "sunday": "Dimanche"
+    },
+    "settings": {
+      "title": "Paramètres de l'Entreprise",
+      "pageTitle": "Mon Entreprise",
+      "pageDescription": "Consultez et gérez les informations de votre entreprise",
+      "edit": "Modifier",
       "save": "Enregistrer",
-      "create": "Créer",
-      "update": "Modifier"
+      "saving": "Enregistrement...",
+      "cancel": "Annuler",
+      "viewProfile": "Voir le Profil",
+      "name": "Nom de l'Entreprise",
+      "namePlaceholder": "Entrez le nom de l'entreprise",
+      "type": "Type d'Entreprise",
+      "customType": "Type d'Entreprise Personnalisé",
+      "customTypePlaceholder": "Entrez un type d'entreprise personnalisé",
+      "city": "Ville",
+      "cityPlaceholder": "Entrez la ville",
+      "phone": "Numéro de Téléphone",
+      "phonePlaceholder": "Entrez le numéro de téléphone",
+      "address": "Adresse",
+      "addressPlaceholder": "Entrez l'adresse de l'entreprise",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description de l'entreprise",
+      "bio": "Biographie de l'Entreprise",
+      "bioPlaceholder": "Entrez une brève biographie de votre entreprise (max 500 caractères)",
+      "bioMaxLength": "La biographie a atteint la longueur maximale de 500 caractères",
+      "characters": "caractères",
+      "website": "Site Web",
+      "websitePlaceholder": "https://exemple.com",
+      "tags": "Tags de l'Entreprise",
+      "addTagPlaceholder": "Ajouter un tag",
+      "noTags": "Aucun tag ajouté",
+      "operatingHours": "Heures d'Ouverture",
+      "day": "Jour",
+      "openTime": "Heure d'Ouverture",
+      "closeTime": "Heure de Fermeture",
+      "closed": "Fermé",
+      "open": "Ouvert",
+      "createdAt": "Créée le",
+      "updatedAt": "Dernière mise à jour",
+      "updateSuccess": "Entreprise mise à jour avec succès",
+      "invalidFileType": "Type de fichier invalide. Veuillez télécharger une image.",
+      "compressingImage": "L'image est volumineuse, compression en cours...",
+      "stillTooLarge": "L'image est encore trop volumineuse après compression. Veuillez sélectionner une image plus petite (max 1Mo).",
+      "processingError": "Erreur lors du traitement de l'image. Veuillez essayer une autre image.",
+      "backToBusinesses": "Retour aux Entreprises",
+      "socialMedia": "Réseaux Sociaux",
+      "invalidMoroccanPhone": "Veuillez entrer un numéro de téléphone marocain valide (ex: 06XXXXXXXX ou +212XXXXXXXX)",
+      "coverImageHint": "Image de Couverture (Recommandé: ratio 16:9, max 1Mo)",
+      "cropCoverImage": "Recadrer l'Image de Couverture (ratio 16:9)",
+      "zoom": "Zoom",
+      "applyCrop": "Appliquer le Recadrage",
+      "basicInfo": "Informations de Base",
+      "contactInfo": "Informations de Contact",
+      "additionalInfo": "Informations Supplémentaires"
+    },
+    "create": {
+      "button": "Créer une Entreprise",
+      "firstBusiness": "Créer Votre Première Entreprise",
+      "title": "Créer une Nouvelle Entreprise",
+      "logo": "Logo de l'Entreprise",
+      "uploadLogo": "Télécharger un Logo",
+      "logoHint": "Recommandé: Image carrée, max 1MB",
+      "coverImage": "Image de Couverture",
+      "uploadCoverImage": "Télécharger et Recadrer l'Image de Couverture",
+      "coverImageHint": "Téléchargez une image et recadrez-la au format 16:9 (1600x900px), max 2MB",
+      "cropCoverImage": "Recadrer l'Image de Couverture",
+      "cropInstructions": "Ajustez la zone de recadrage pour sélectionner la partie de votre image à utiliser comme image de couverture. L'image sera redimensionnée à 1600x900 pixels (format 16:9).",
+      "applyCrop": "Appliquer le Recadrage",
+      "name": "Nom de l'Entreprise",
+      "nameHint": "Le nom officiel de votre entreprise tel que les clients le verront",
+      "namePlaceholder": "ex., Café Central, Restaurant Le Jardin, Boulangerie Moderne",
+      "type": "Type d'Entreprise",
+      "typePlaceholder": "ex. Café, Restaurant",
+      "customType": "Type d'Entreprise Personnalisé",
+      "customTypePlaceholder": "Entrez votre type d'entreprise",
+      "city": "Ville",
+      "cityHint": "La ville où se trouve votre entreprise",
+      "cityPlaceholder": "ex., Casablanca, Rabat, Marrakech",
+      "phone": "Numéro de Téléphone",
+      "phoneHint": "Numéro de téléphone principal pour les demandes et réservations des clients",
+      "phonePlaceholder": "ex., 0612345678 ou 0522123456",
+      "address": "Adresse",
+      "addressHint": "Adresse complète où les clients peuvent trouver votre entreprise (rue, quartier, points de repère)",
+      "addressPlaceholder": "ex., 123 Rue Mohammed V, Quartier Gueliz, près de la Mosquée Hassan II",
+      "description": "Description",
+      "descriptionPlaceholder": "Entrez la description de l'entreprise",
+      "presentation": "Présentation de l'Entreprise",
+      "presentationHint": "Rédigez une présentation convaincante de votre entreprise que les clients verront. Décrivez ce qui rend votre entreprise spéciale, vos principales offres et ce que les clients peuvent attendre.",
+      "presentationPlaceholder": "ex., \"Bienvenue dans notre café chaleureux ! Nous servons du café fraîchement torréfié, des pâtisseries maison, et offrons une atmosphère chaleureuse parfaite pour le travail ou la détente. Notre spécialité est notre mélange signature et nos croissants artisanaux.\"",
+      "generateWithAI": "Générer avec IA",
+      "characters": "caractères",
+      "notProvided": "Non fourni",
+      "bio": "Biographie",
+      "bioPlaceholder": "Entrez une courte biographie de votre entreprise",
+      "website": "Site Web",
+      "websitePlaceholder": "https://www.exemple.com",
+      "tags": "Étiquettes",
+      "tagsPlaceholder": "Tapez une étiquette et appuyez sur Entrée",
+      "tagsHint": "Ajoutez des étiquettes pour aider les clients à trouver votre entreprise (ex: café, petit-déjeuner, wifi)",
+      "operatingHours": "Heures d'Ouverture",
+      "operatingHoursHint": "Définissez les heures d'ouverture de votre entreprise pour chaque jour de la semaine",
+      "requiredFields": "Champs obligatoires",
+      "cancel": "Annuler",
+      "create": "Créer l'Entreprise",
+      "creating": "Création en cours...",
+      "success": "Entreprise créée avec succès",
+      "socialMedia":"Liens Réseaux Sociaux",
+      "steps": {
+        "basicInfo": "Informations de Base",
+        "basicInfoDesc": "Entrez les informations essentielles sur votre entreprise",
+        "businessDetails": "Détails de l'Entreprise",
+        "businessDetailsDesc": "Parlez-nous de votre type d'entreprise et de ses spécialités",
+        "visualIdentity": "Identité Visuelle",
+        "visualIdentityDesc": "Téléchargez le logo de votre entreprise et l'image de couverture (optionnel mais recommandé)",
+        "contactSocial": "Contact et Réseaux Sociaux",
+        "contactSocialDesc": "Ajoutez vos liens de réseaux sociaux et heures d'ouverture (optionnel)",
+        "reviewSubmit": "Révision et Soumission",
+        "reviewSubmitDesc": "Révisez toutes vos informations avant de créer votre entreprise"
+      },
+      "navigation": {
+        "previous": "Précédent",
+        "next": "Suivant",
+        "skip": "Ignorer",
+        "finish": "Terminer"
+      },
+      "errors": {
+        "nameRequired": "Le nom de l'entreprise est requis",
+        "descriptionRequired": "La description est requise",
+        "presentationRequired": "La présentation de l'entreprise est requise",
+        "typeRequired": "Le type d'entreprise est requis",
+        "customTypeRequired": "Le type d'entreprise personnalisé est requis",
+        "cityRequired": "La ville est requise",
+        "addressRequired": "L'adresse est requise",
+        "phoneRequired": "Le numéro de téléphone est requis",
+        "invalidPhone": "Veuillez entrer un numéro de téléphone valide",
+        "invalidFileType": "Type de fichier invalide. Veuillez télécharger une image.",
+        "fileTooLarge": "Le fichier est trop volumineux. Taille maximale 1MB.",
+        "coverImageTooLarge": "L'image de couverture est trop volumineuse. Taille maximale 2MB."
+      },
+      "warnings": {
+        "noLogo": "Un logo est recommandé pour votre entreprise"
+      }
+    },
+    "presentationGenerator": {
+      "title": "Générateur de Présentation IA",
+      "subtitle": "Créez des présentations d'entreprise convaincantes avec l'IA",
+      "configuration": "Configuration",
+      "language": "Langue",
+      "style": "Style de Présentation",
+      "generate": "Générer une Présentation",
+      "generateVariations": "Générer des Variations",
+      "generating": "Génération de la présentation...",
+      "improving": "Amélioration de la présentation...",
+      "results": "Présentations Générées",
+      "mainPresentation": "Présentation Principale",
+      "bio": "Biographie Courte",
+      "suggestedTags": "Étiquettes Suggérées",
+      "improve": "Améliorer la Présentation",
+      "improvementPlaceholder": "Décrivez ce que vous voulez améliorer (ex: \"Rendre plus convivial\", \"Ajouter plus de détails sur notre café\", \"Mettre l'accent sur notre emplacement\")",
+      "applyImprovement": "Appliquer l'Amélioration",
+      "usePresentation": "Utiliser cette Présentation",
+      "useCustomPrompt": "Utiliser une description/prompt personnalisé",
+      "customPromptTitle": "Description Personnalisée de l'Entreprise (Optionnel)",
+      "customPromptHint": "Fournissez votre propre description ou des instructions spécifiques pour l'IA. Laissez vide pour utiliser la génération automatique basée sur votre type d'entreprise.",
+      "customPromptLabel": "Description/Prompt Personnalisé",
+      "customPromptPlaceholder": "ex: \"Nous sommes un café familial qui sert la communauté depuis 20 ans. Nous nous spécialisons dans le café biologique et équitable et les pâtisseries maison. Notre atmosphère chaleureuse fait de nous un endroit favori pour les étudiants et les télétravailleurs. Veuillez mettre l'accent sur notre engagement communautaire et nos pratiques durables.\"",
+      "customPromptTip": "Conseil: Soyez spécifique sur ce qui rend votre entreprise unique, votre public cible et les points clés à mettre en avant"
+    }
+  },
+  "common": {
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "create": "Créer",
+    "update": "Modifier",
+    "error": "Erreur",
+    "retry": "Réessayer",
+    "loading": "Chargement...",
+    "darkMode": "Mode Sombre",
+    "lightMode": "Mode Clair",
+    "item": "élément",
+    "items": "éléments"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Gérez vos paramètres de compte et vos préférences",
+    "manageAll": "Gérer tous les paramètres",
+    "needHelp": "Besoin d'aide avec vos paramètres ?",
+    "contactSupport": "Contacter le support",
+    "profile": {
+      "title": "Paramètres du profil",
+      "description": "Gérez vos informations personnelles et les préférences de votre compte",
+      "personalInfo": "Informations personnelles",
+      "security": "Sécurité"
+    },
+    "business": {
+      "title": "Paramètres de l'entreprise",
+      "description": "Gérez les détails, l'image de marque et les préférences de votre entreprise",
+      "businessInfo": "Informations de l'entreprise",
+      "payment": "Méthodes de paiement"
+    },
+    "preferences": {
+      "title": "Préférences de l'application",
+      "description": "Personnalisez votre expérience et vos paramètres de notification",
+      "notifications": "Notifications",
+      "language": "Langue et région"
+    }
+  },
+  "profile": {
+    "title": "Paramètres du Profil",
+    "pageTitle": "Mon Profil",
+    "pageDescription": "Consultez et gérez vos informations personnelles",
+    "edit": "Modifier",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "name": "Nom Complet",
+    "email": "Adresse Email",
+    "phone": "Numéro de Téléphone",
+    "city": "Ville",
+    "cin": "CIN / Numéro d'Identité",
+    "role": "Rôle",
+    "status": "Statut",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "verified": "Vérifié",
+    "yes": "Oui",
+    "no": "Non",
+    "memberSince": "Membre depuis",
+    "changePassword": "Changer le Mot de Passe",
+    "newPassword": "Nouveau Mot de Passe",
+    "confirmPassword": "Confirmer le Mot de Passe",
+    "updatePassword": "Mettre à jour le mot de passe",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "passwordTooShort": "Le mot de passe doit contenir au moins 6 caractères",
+    "updateSuccess": "Profil mis à jour avec succès",
+    "updateError": "Erreur lors de la mise à jour du profil",
+    "passwordSuccess": "Mot de passe mis à jour avec succès",
+    "passwordError": "Erreur lors de la mise à jour du mot de passe",
+    "photoSuccess": "Photo de profil mise à jour avec succès",
+    "photoError": "Erreur lors de la mise à jour de la photo de profil",
+    "noData": "Aucune donnée de profil disponible",
+    "plan": {
+      "title": "Votre Abonnement",
+      "premium": "Premium",
+      "free": "Gratuit",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "period": "Période",
+      "features": "Fonctionnalités",
+      "oneMonth": "1 Mois",
+      "threeMonths": "3 Mois",
+      "sixMonths": "6 Mois",
+      "oneYear": "1 An",
+      "twoYears": "2 Ans",
+      "timeRemaining": "Temps Restant",
+      "days": "Jours",
+      "hours": "Heures",
+      "minutes": "Min",
+      "seconds": "Sec",
+      "active": "Actif",
+      "expired": "Expiré",
+      "currency": "DH"
+    },
+    "validation": {
+      "passwordRequired": "Le nouveau mot de passe est requis",
+      "passwordTooShort": "Le mot de passe doit contenir au moins 6 caractères",
+      "confirmPasswordRequired": "Veuillez confirmer votre mot de passe",
+      "passwordsDoNotMatch": "Les mots de passe ne correspondent pas"
+    },
+    "updating": "Mise à jour...",
+    "uploading": "Téléchargement de la photo de profil...",
+    "compressingImage": "L'image est volumineuse, compression en cours...",
+    "stillTooLarge": "L'image est toujours trop volumineuse après compression. Veuillez sélectionner une image plus petite (max 1Mo).",
+    "processingError": "Erreur lors du traitement de l'image. Veuillez essayer une autre image.",
+    "invalidFileType": "Type de fichier invalide. Veuillez télécharger un fichier image."
+  },
+  "businessProfile": {
+    "backToHome": "Retour à l'Accueil",
+    "aboutUs": "À Propos de Nous",
+    "location": "Emplacement",
+    "connectWithUs": "Connectez-vous avec Nous",
+    "viewOurMenu": "Voir Notre Menu",
+    "checkOutOurDeliciousOfferings": "Découvrez nos délicieuses offres",
+    "openMenu": "Ouvrir le Menu",
+    "allRightsReserved": "Tous droits réservés.",
+    "showLess": "Voir Moins",
+    "readMore": "Lire Plus",
+    "openNow": "Ouvert Maintenant",
+    "closed": "Fermé",
+    "tags": "Tags",
+    "operatingHours": "Heures d'Ouverture",
+    "hoursNotSpecified": "Heures non spécifiées",
+    "website": "Site Web",
+    "navigation": {
+      "about": "À Propos",
+      "bestProducts": "Meilleurs Produits",
+      "hours": "Horaires",
+      "contact": "Contact"
+    },
+    "tabs": {
+      "home": "Accueil",
+      "menu": "Menu",
+      "contact": "Contact"
+    }
+  },
+  "exportMenu": {
+    "title": "Exporter Menu depuis Image",
+    "description": "Téléchargez une image de menu et extrayez les détails des produits à l'aide de Google Gemini AI",
+    "uploadImage": "Télécharger l'Image du Menu",
+    "dragDrop": "Glissez-déposez votre image de menu ici",
+    "imageRequirements": "PNG, JPG, WebP jusqu'à 10MB",
+    "processImage": "Extraire le Menu",
+    "extractedProducts": "Menu Extrait",
+    "copy": "Copier",
+    "download": "Télécharger",
+    "rawText": "Texte Brut Reconnu",
+    "extractFromImage": "Extraire depuis Image",
+    "viewExistingMenu": "Voir Menu Existant",
+    "selectedBusiness": "Entreprise Sélectionnée",
+    "selectMenu": "Sélectionner Menu",
+    "existingMenuItems": "Vos Éléments de Menu Existants",
+    "existingCategories": "Catégories",
+    "existingProducts": "Produits",
+    "userGuide": {
+      "title": "Guide d'Extraction de Menu par IA",
+      "clickToExpand": "Cliquez pour développer",
+      "intro": "Cet outil vous aide à créer rapidement votre menu en extrayant des produits à partir d'images de menu grâce à l'IA. Suivez ces étapes pour obtenir les meilleurs résultats :",
+      "step1": {
+        "title": "1. Préparez une image claire de votre menu",
+        "description": "Prenez une photo claire et bien éclairée de votre menu ou utilisez un fichier de menu numérique. Assurez-vous que le texte est lisible et que les prix sont visibles."
+      },
+      "step2": {
+        "title": "2. Téléchargez votre image de menu",
+        "description": "Glissez-déposez votre image dans la zone de téléchargement ou cliquez pour parcourir les fichiers. Formats pris en charge : JPG, PNG, WebP (max 10 Mo)."
+      },
+      "step3": {
+        "title": "3. Traitement avec l'IA",
+        "description": "Cliquez sur \"Extraire avec l'IA\" pour traiter votre image. Notre IA identifiera automatiquement les produits, les prix et catégorisera les articles."
+      },
+      "step4": {
+        "title": "4. Révision et organisation",
+        "description": "Examinez les produits extraits regroupés par catégorie. Créez des catégories en cliquant sur le bouton \"+\" à côté de chaque groupe."
+      },
+      "step5": {
+        "title": "5. Ajoutez des produits à votre menu",
+        "description": "Cliquez sur le bouton \"+\" à côté de chaque produit pour l'ajouter à votre menu. Vous pouvez modifier les détails avant de sauvegarder."
+      },
+      "tips": {
+        "title": "Conseils pour de meilleurs résultats",
+        "tip1": "Utilisez des images haute résolution, bien éclairées avec un texte clair pour une meilleure précision d'extraction.",
+        "tip2": "Créez d'abord des catégories avant d'ajouter des produits pour organiser efficacement votre menu.",
+        "tip3": "Vérifiez attentivement les prix extraits car ils peuvent nécessiter des ajustements.",
+        "tip4": "Pour les menus comportant plusieurs pages, traitez chaque page séparément pour de meilleurs résultats."
+      }
+    },
+    "viewCategories": "Voir Catégories",
+    "refreshData": "Actualiser",
+    "categoriesCount": "{{count}} catégories disponibles",
+    "noExistingCategories": "Aucune catégorie trouvée. Ajoutez-en depuis la section menu.",
+    "noExistingProducts": "Aucun produit trouvé. Ajoutez-en depuis la section menu.",
+    "existingMenu": "Menu Existant",
+    "noCategories": "Aucune catégorie ou produit trouvé pour ce menu.",
+    "quickCreateCategory": "Création Rapide de Catégorie",
+    "uploadImageInfo": "Télécharger une image pour cette catégorie",
+    "createProduct": "Ajouter",
+    "processing": "Traitement...",
+    "dropHere": "Déposer l'image ici",
+    "browseFiles": "Parcourir les fichiers",
+    "uploadDescription": "Téléchargez une image claire de votre menu pour extraire automatiquement les éléments à l'aide de l'IA",
+    "extractionSuccess": "Les éléments suivants ont été extraits avec succès de votre image de menu. Vous pouvez maintenant créer des catégories et des produits.",
+    "steps": {
+      "upload": "Télécharger l'Image",
+      "process": "Traiter l'Image",
+      "review": "Examiner les Résultats"
+    },
+    "errors": {
+      "invalidFileType": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP.",
+      "fileTooLarge": "Le fichier est trop volumineux. Taille maximale de 10MB.",
+      "noImage": "Veuillez sélectionner une image à traiter.",
+      "processingFailed": "Échec du traitement: {{error}}",
+      "noProductsFound": "Aucun produit n'a pu être extrait de cette image.",
+      "noProductsToCopy": "Aucun produit à copier",
+      "noProductsToDownload": "Aucun produit à télécharger",
+      "failedToCopy": "Échec de la copie: {{error}}"
+    },
+    "success": {
+      "extracted": "{{count}} produits ont été extraits avec succès de l'image.",
+      "copied": "Produits copiés dans le presse-papiers!"
+    },
+    "reset": "Réinitialiser",
+    "reviewResults": "Examiner les Résultats",
+    "fileName": "produits-menu.json"
+  },
+  "categoryForm": {
+    "title": "Formulaire de Catégorie",
+    "name": "Nom de la Catégorie",
+    "namePlaceholder": "Entrez le nom de la catégorie",
+    "description": "Description",
+    "descriptionPlaceholder": "Entrez la description de la catégorie",
+    "nameRequired": "Le nom de la catégorie est requis",
+    "submit": "Créer la Catégorie",
+    "update": "Mettre à jour la Catégorie",
+    "success": "Catégorie créée avec succès",
+    "updateSuccess": "Catégorie mise à jour avec succès",
+    "error": "Erreur lors de la création de la catégorie",
+    "updateError": "Erreur lors de la mise à jour de la catégorie",
+    "image": "Image de la Catégorie",
+    "addImage": "Ajouter une Image",
+    "changeImage": "Changer l'Image",
+    "createCategory": "Créer une catégorie",
+    "hideForm": "Masquer le formulaire",
+    "imageTypeError": "Type de fichier invalide. Veuillez télécharger une image JPG, PNG ou WebP",
+    "imageSizeError": "Le fichier est trop volumineux. Taille maximale de 1MB",
+    "recommendedSize": "Taille recommandée: 1200x800px",
+    "maxSize": "1MB"
+  },
+  "productForm": {
+    "title": "Formulaire de Produit",
+    "name": "Nom du Produit",
+    "namePlaceholder": "Entrez le nom du produit",
+    "description": "Description",
+    "descriptionPlaceholder": "Entrez la description du produit",
+    "price": "Prix",
+    "pricePlaceholder": "0.00",
+    "category": "Catégorie",
+    "selectCategory": "Sélectionnez une catégorie",
+    "nameRequired": "Le nom du produit est requis",
+    "priceRequired": "Un prix valide est requis",
+    "categoryRequired": "La catégorie est requise",
+    "imageRequired": "L'image du produit est requise",
+    "validationError": "Veuillez remplir tous les champs obligatoires",
+    "submit": "Créer le Produit",
+    "update": "Mettre à jour le Produit",
+    "success": "Produit créé avec succès! ({{price}} {{currency}})",
+    "updateSuccess": "Produit mis à jour avec succès",
+    "error": "Erreur lors de la création du produit",
+    "updateError": "Erreur lors de la mise à jour du produit",
+    "image": "Image du Produit"
+  },
+  "businesses": {
+    "title": "Découvrir les Entreprises",
+    "description": "Explorez notre collection d'entreprises et leurs menus",
+    "searchPlaceholder": "Rechercher des entreprises...",
+    "filters": {
+      "title": "Filtres",
+      "allTypes": "Tous les Types",
+      "allCities": "Toutes les Villes",
+      "allStatus": "Tous les Statuts",
+      "openNow": "Ouvert Maintenant",
+      "closed": "Fermé",
+      "clear": "Effacer",
+      "activeFilters": "Filtres actifs:",
+      "search": "Recherche",
+      "type": "Type",
+      "city": "Ville",
+      "typeLabel": "Type d'Entreprise",
+      "cityLabel": "Ville",
+      "statusLabel": "Statut"
+    },
+    "openNow": "Ouvert Maintenant",
+    "closed": "Fermé",
+    "viewProfile": "Voir le Profil",
+    "openMenu": "Ouvrir le Menu",
+    "ratings": "évaluations",
+    "positiveRatings": "évaluations positives",
+    "rateThisBusiness": "Évaluer cette entreprise",
+    "howWasYourExperience": "Comment était votre expérience avec cette entreprise?",
+    "good": "Bien",
+    "bad": "Mauvais",
+    "thankYou": "Merci pour votre avis!",
+    "yourRatingHelps": "Votre évaluation aide les autres à découvrir de bonnes entreprises",
+    "alreadyRated": "Vous avez déjà évalué cette entreprise",
+    "totalRatings": "Total des évaluations",
+    "currentRating": "Évaluation actuelle",
+    "positive": "positif",
+    "votes": "votes",
+    "review": "avis",
+    "reviews": "avis",
+    "noResults": {
+      "title": "Aucune entreprise trouvée",
+      "description": "Essayez d'ajuster vos filtres ou termes de recherche"
+    },
+    "allRightsReserved": "Tous droits réservés."
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "subtitle": "Nous valorisons votre vie privée et nous nous engageons à protéger vos données personnelles",
+    "dataProtection": {
+      "title": "Protection des Données",
+      "description": "Nous mettons en œuvre des mesures de sécurité strictes pour protéger vos données et assurer la confidentialité"
+    },
+    "security": {
+      "title": "Mesures de Sécurité",
+      "description": "Protocoles de sécurité et de cryptage avancés pour protéger vos informations"
+    },
+    "userRights": {
+      "title": "Droits des Utilisateurs",
+      "description": "Vous avez un contrôle total sur vos données avec des droits d'accès, de modification ou de suppression"
+    },
+    "dataStorage": {
+      "title": "Stockage des Données",
+      "description": "Solutions de stockage sécurisées avec sauvegardes régulières et mesures de protection des données"
+    },
+    "contact": {
+      "title": "Questions sur la Confidentialité ?",
+      "description": "Si vous avez des questions sur nos pratiques de confidentialité ou si vous souhaitez exercer vos droits, contactez notre équipe."
+    },
+    "businessTypes": {
+      "title": "Types d'Entreprises Protégés",
+      "restaurant": {
+        "title": "Restaurants",
+        "description": "Protection complète des articles du menu, des prix et des données clients"
+      },
+      "cafe": {
+        "title": "Cafés",
+        "description": "Gestion sécurisée des menus de boissons et des programmes de fidélité"
+      },
+      "snack": {
+        "title": "Snacks & Service Rapide",
+        "description": "Gestion de menu rapide et sécurisée pour les établissements de restauration rapide"
+      }
+    },
+    "dataCompliance": {
+      "title": "Conformité des Données Commerciales",
+      "point1": "Protection stricte des articles de menu et des prix spécifiques à l'entreprise",
+      "point2": "Gestion sécurisée des préférences clients et historique des commandes",
+      "point3": "Audits de sécurité et contrôles de conformité réguliers"
+    },
+    "dataUsage": {
+      "management": {
+        "title": "Comment Nous Utilisons Vos Données",
+        "points": [
+          "Gestion du compte et fourniture de services (création de menu, affichage QR)",
+          "Notifications techniques et emails (récupération de mot de passe, mises à jour)",
+          "Analyses internes (Google Analytics ou alternative), sans lien direct avec l'identité",
+          "Amélioration de la sécurité (surveillance des tentatives de connexion suspectes)"
+        ]
+      }
+    },
+    "dataSharing": {
+      "title": "Partage des Données",
+      "points": [
+        "Prestataires de services : Cloudinary (stockage d'images), Google Maps (cadre de carte), services CDN",
+        "Autorités légales lorsque la loi l'exige (ex : ordonnance du tribunal)",
+        "Nous ne vendons jamais de données à des tiers à des fins commerciales"
+      ]
+    },
+    "dataRetention": {
+      "title": "Conservation des Données",
+      "points": [
+        "Nous conservons les menus et les images tant que le compte est actif",
+        "Après la suppression du compte : les données sont supprimées sous 30 jours (sauf exigences légales/facturation)"
+      ]
+    },
+    "restrictions": {
+      "title": "Restrictions Commerciales",
+      "description": "En accord avec les valeurs islamiques et les pratiques commerciales éthiques, certains types d'entreprises ne sont pas autorisés sur notre plateforme.",
+      "examples": [
+        "Contenu pour adultes ou entreprises à orientation sexuelle",
+        "Entreprises liées à l'alcool et au tabac",
+        "Services de jeux d'argent et de paris",
+        "Toute entreprise promouvant des pratiques nocives ou contraires à l'éthique"
+      ]
+    },
+    "updates": {
+      "title": "Mises à Jour de la Politique",
+      "description": "Tout changement substantiel sera communiqué par email 7 jours avant sa mise en œuvre.",
+      "lastUpdated": "Dernière mise à jour : {{date}}"
     }
   }
+}

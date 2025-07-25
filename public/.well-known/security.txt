@@ -1,0 +1,6 @@
+Contact: mailto:security@meniwi.com
+Expires: 2024-12-31T23:59:59+00:00
+Preferred-Languages: fr, en
+Canonical: https://www.meniwi.com/.well-known/security.txt
+Policy: https://www.meniwi.com/security-policy
+Hiring: https://www.meniwi.com/careers

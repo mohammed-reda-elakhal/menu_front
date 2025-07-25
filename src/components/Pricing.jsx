@@ -1,9 +1,11 @@
 import React from 'react'
 import { FaCheck } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '../context/ThemeContext'
 
 function Pricing() {
   const { t } = useTranslation()
+  const { darkMode } = useTheme()
 
   const plans = [
     {
@@ -17,13 +19,16 @@ function Pricing() {
   ]
 
   return (
-    <div className="bg-secondary1 py-24 px-4 sm:px-6 lg:px-8">
+    <div className={`py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300
+      ${darkMode ? 'bg-secondary1' : 'bg-gray-50'}`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className={`text-3xl md:text-4xl font-bold mb-4 transition-colors duration-300
+            ${darkMode ? 'text-white' : 'text-gray-800'}`}>
             {t('pricing.title.simple')} <span className="text-primary">{t('pricing.title.transparent')}</span>
           </h2>
-          <p className="text-gray_bg text-lg max-w-2xl mx-auto">
+          <p className={`text-lg max-w-2xl mx-auto transition-colors duration-300
+            ${darkMode ? 'text-gray_bg' : 'text-gray-600'}`}>
             {t('pricing.subtitle')}
           </p>
         </div>
@@ -32,10 +37,14 @@ function Pricing() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative p-8 rounded-2xl border-2
-                ${plan.popular ? 'border-primary' : 'border-primary/20'}
-                bg-gradient-to-br from-secondary1 to-secondary1/95
-                hover:border-primary/60 transition-all duration-300`}
+              className={`relative p-8 rounded-2xl border-2 transition-all duration-300
+                ${plan.popular
+                  ? 'border-primary'
+                  : darkMode ? 'border-primary/20' : 'border-blue-200'}
+                ${darkMode
+                  ? 'bg-gradient-to-br from-secondary1 to-secondary1/95'
+                  : 'bg-gradient-to-br from-white to-blue-50/80 shadow-md'}
+                hover:border-primary/60`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 right-4">
@@ -46,21 +55,29 @@ function Pricing() {
               )}
 
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className={`text-2xl font-bold mb-2 transition-colors duration-300
+                  ${darkMode ? 'text-white' : 'text-gray-800'}`}>
                   {t(`pricing.plans.${plan.key}.name`)}
                 </h3>
                 <div className="flex items-baseline mb-2">
                   <span className="text-4xl font-bold text-primary">
                     {t(`pricing.plans.${plan.key}.price`)}
                   </span>
-                  <span className="text-gray_bg ml-2">{t('pricing.currency')}</span>
+                  <span className={`ml-2 transition-colors duration-300
+                    ${darkMode ? 'text-gray_bg' : 'text-gray-500'}`}>
+                    {t('pricing.currency')}
+                  </span>
                 </div>
-                <p className="text-gray_bg">{t(`pricing.plans.${plan.key}.description`)}</p>
+                <p className={`transition-colors duration-300
+                  ${darkMode ? 'text-gray_bg' : 'text-gray-600'}`}>
+                  {t(`pricing.plans.${plan.key}.description`)}
+                </p>
               </div>
 
               <ul className="space-y-4 mb-8">
                 {t(`pricing.plans.${plan.key}.features`, { returnObjects: true }).map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-gray_bg">
+                  <li key={idx} className={`flex items-center gap-3 transition-colors duration-300
+                    ${darkMode ? 'text-gray_bg' : 'text-gray-600'}`}>
                     <FaCheck className="text-primary flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
@@ -71,7 +88,9 @@ function Pricing() {
                 className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors duration-300
                   ${plan.popular
                     ? 'bg-primary hover:bg-secondary2 text-white'
-                    : 'bg-primary/10 hover:bg-primary/20 text-white'}`}
+                    : darkMode
+                      ? 'bg-primary/10 hover:bg-primary/20 text-white'
+                      : 'bg-blue-100 hover:bg-blue-200 text-blue-700'}`}
               >
                 {t(`pricing.plans.${plan.key}.buttonText`)}
               </button>

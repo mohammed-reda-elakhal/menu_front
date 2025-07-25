@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Drawer, Box, List, Divider, IconButton, Tooltip } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LuLayoutTemplate } from "react-icons/lu";
+import { BsFillMenuButtonFill } from "react-icons/bs";
 import {
   FiHome,
   FiPieChart,
@@ -18,11 +20,19 @@ import {
   FiList,
   FiPlusSquare,
   FiLayout,
-  FiBriefcase
+  FiBriefcase,
+  FiUser,
+  FiShield
 } from 'react-icons/fi';
+import { FaBoxes } from "react-icons/fa";
+import { CiBoxList } from "react-icons/ci";
+import { MdLocalGroceryStore } from "react-icons/md";
 import logo from '../../assets/menu.png';
 import { useTheme as useCustomTheme } from '../../context/ThemeContext';
 import { MdOutlineMenuBook } from 'react-icons/md';
+import { useSelector } from 'react-redux';
+import { GoProjectTemplate } from "react-icons/go";
+import { FiImage } from "react-icons/fi";
 
 const drawerWidth = 260;
 
@@ -33,27 +43,33 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   const { t } = useTranslation();
   const { darkMode } = useCustomTheme();
 
-  const menuItems = [
+  // Get user from Redux
+  const { user } = useSelector(state => state.auth);
+
+  // Determine if user is admin for styling and menu filtering
+  const isAdmin = user?.role === 'admin';
+  const isClient = user?.role === 'client';
+
+  // Define all menu items
+  const allMenuItems = [
     {
       name: t('dashboard.sidebar.overview'),
       icon: FiHome,
-      path: '/dashboard'
+      path: '/dashboard',
+      roles: ['admin', 'client'] // Available for all users
     },
     {
       name: t('dashboard.sidebar.menuSettings'),
-      icon: MdOutlineMenuBook,
-      path: '/dashboard/menu-settings'
-    },
-    {
-      name: t('dashboard.sidebar.analytics'),
-      icon: FiPieChart,
-      path: '/dashboard/analytics'
+      icon: BsFillMenuButtonFill,
+      path: '/dashboard/menu-settings',
+      roles: ['client'] // Only for clients
     },
     {
       name: t('dashboard.sidebar.products'),
-      icon: FiBriefcase,
+      icon: FaBoxes,
       submenu: true,
       id: 'products',
+      roles: ['client'], // Only for clients
       items: [
         {
           name: t('dashboard.sidebar.categories'),
@@ -69,34 +85,70 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           name: t('dashboard.sidebar.supplements'),
           icon: FiPlusSquare,
           path: '/dashboard/products/supplements'
+        },
+        {
+          name: t('dashboard.sidebar.exportMenu'),
+          icon: FiImage,
+          path: '/dashboard/export-menu',
         }
       ]
     },
     {
-      name: t('dashboard.sidebar.menus'),
-      icon: FiGrid,
+      name: t('dashboard.sidebar.theme'),
+      icon: LuLayoutTemplate,
       submenu: true,
-      id: 'menus',
+      id: 'theme',
+      roles: ['admin', 'client'], // Mixed roles for submenu items
       items: [
         {
-          name: t('dashboard.sidebar.menuList'),
-          icon: FiList,
-          path: '/dashboard/menus/list'
+          name: t('dashboard.sidebar.ownerTheme'),
+          icon: CiBoxList,
+          path: '/dashboard/ownerTheme',
+          roles: ['client'] // Only for clients
         },
         {
-          name: t('dashboard.sidebar.createMenu'),
-          icon: FiPlusSquare,
-          path: '/dashboard/menus/create'
-        }
+          name: t('dashboard.sidebar.marketplace'),
+          icon: MdLocalGroceryStore,
+          path: '/dashboard/Marketplace',
+          roles: ['admin', 'client'] // Available for all users
+        },
+        {
+          name: t('dashboard.sidebar.templateList'),
+          icon: GoProjectTemplate,
+          path: '/dashboard/templates',
+          roles: ['admin'] // Only for admins
+        },
       ]
     },
     {
       name: t('dashboard.sidebar.customers'),
       icon: FiUsers,
-      path: '/dashboard/customers'
+      path: '/dashboard/customers',
+      roles: ['admin'] // Only for admins
     },
-
   ];
+
+  // Filter menu items based on user role
+  const menuItems = allMenuItems.filter(item => {
+    // Check if the item is available for the user's role
+    if (!item.roles.includes(user?.role)) {
+      return false;
+    }
+
+    // For items with submenu, filter the submenu items
+    if (item.submenu) {
+      // Create a copy of the item with filtered submenu items
+      const filteredItem = { ...item };
+      filteredItem.items = item.items.filter(subItem =>
+        !subItem.roles || subItem.roles.includes(user?.role)
+      );
+
+      // Only include the submenu if it has at least one item
+      return filteredItem.items.length > 0;
+    }
+
+    return true;
+  });
 
   const bottomItems = [
     {
@@ -128,23 +180,34 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     return (
       <>
         <motion.div
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.98 }}
-          className={`flex items-center ${isOpen ? 'gap-3' : 'justify-center'} px-3 py-2.5 rounded-lg cursor-pointer
+          className={`flex items-center ${isOpen ? 'gap-2' : 'justify-center'} px-2 py-1.5 rounded-lg cursor-pointer
             transition-colors duration-200 group relative
             ${isActive || isSubmenuOpen
-              ? 'bg-primary/20 text-primary'
-              : 'text-gray_bg hover:bg-primary/10'}`}
+              ? darkMode
+                ? 'bg-primary/20 text-primary'
+                : 'bg-primary/10 text-primary'
+              : darkMode
+                ? 'text-gray-300 hover:bg-primary/10'
+                : 'text-gray-700 hover:bg-primary/5'
+            }`}
           onClick={handleClick}
         >
-          <Icon className={`text-xl ${isActive || isSubmenuOpen ? 'text-primary' : 'text-gray_bg group-hover:text-primary'}`} />
+          <Icon className={`text-lg ${
+            isActive || isSubmenuOpen
+              ? 'text-primary'
+              : darkMode
+                ? 'text-gray-300 group-hover:text-primary'
+                : 'text-gray-700 group-hover:text-primary'
+          }`} />
           {isOpen && (
             <motion.div className="flex items-center justify-between flex-1">
               <motion.span
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -10 }}
-                className="text-sm font-medium whitespace-nowrap"
+                className="text-xs font-medium whitespace-nowrap"
               >
                 {item.name}
               </motion.span>
@@ -153,7 +216,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                   animate={{ rotate: isSubmenuOpen ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <FiChevronDown className="text-lg" />
+                  <FiChevronDown className="text-base" />
                 </motion.div>
               )}
             </motion.div>
@@ -173,22 +236,35 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
-                className="ml-4 mt-1 space-y-1 border-l-2 border-primary/20"
+                className={`ml-4 mt-1 space-y-1 border-l-2 ${
+                  darkMode ? 'border-primary/20' : 'border-primary/30'
+                }`}
               >
                 {item.items.map((subItem) => (
                   <motion.div
                     key={subItem.path}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer
+                    className={`flex items-center gap-2 px-2 py-1.5 rounded-lg cursor-pointer
                       transition-colors duration-200 group
                       ${location.pathname === subItem.path
-                        ? 'bg-primary/10 text-primary'
-                        : 'text-gray_bg hover:bg-primary/5'}`}
+                        ? darkMode
+                          ? 'bg-primary/10 text-primary'
+                          : 'bg-primary/5 text-primary'
+                        : darkMode
+                          ? 'text-gray-300 hover:bg-primary/5'
+                          : 'text-gray-700 hover:bg-gray-100'
+                      }`}
                     onClick={() => navigate(subItem.path)}
                   >
-                    <subItem.icon className={`text-lg ${location.pathname === subItem.path ? 'text-primary' : 'text-gray_bg group-hover:text-primary'}`} />
-                    <span className="text-sm font-medium">{subItem.name}</span>
+                    <subItem.icon className={`text-base ${
+                      location.pathname === subItem.path
+                        ? 'text-primary'
+                        : darkMode
+                          ? 'text-gray-300 group-hover:text-primary'
+                          : 'text-gray-700 group-hover:text-primary'
+                    }`} />
+                    <span className="text-xs font-medium">{subItem.name}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -200,7 +276,15 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
   };
 
   const sidebarContent = (
-    <div className="flex flex-col h-full bg-secondary1">
+    <div className={`flex flex-col h-full ${
+      darkMode
+        ? isAdmin
+          ? 'bg-gradient-to-b from-secondary1 via-[#0a1a4d] to-secondary1'
+          : 'bg-secondary1'
+        : isAdmin
+          ? 'bg-gradient-to-b from-blue-50 via-blue-100 to-blue-50'
+          : 'bg-white'
+    }`}>
       {/* Header - Center logo when closed */}
       <div className={`flex items-center ${isOpen ? 'justify-between' : 'justify-center'} p-4`}>
         <div className={`flex items-center ${isOpen ? 'gap-3' : 'justify-center'}`}>
@@ -209,25 +293,51 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-xl font-bold text-white"
+              className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}
             >
-              Menuso
+              Meniwi
             </motion.span>
           )}
         </div>
+        {isAdmin && isOpen && (
+          <div className={`flex items-center gap-1 px-2 py-1 rounded-md border ${
+            darkMode
+              ? 'bg-primary/20 border-primary/30'
+              : 'bg-primary/10 border-primary/20'
+          }`}>
+            <FiShield className="h-3.5 w-3.5 text-primary" />
+            <span className="text-xs font-medium text-primary">Admin</span>
+          </div>
+        )}
       </div>
 
-      <Divider className="border-primary/10" />
+      <Divider className={`${
+        darkMode
+          ? isAdmin ? 'border-primary/20' : 'border-primary/10'
+          : isAdmin ? 'border-primary/30' : 'border-gray-200'
+      }`} />
 
       {/* Main Menu */}
       <div className="flex-1 px-3 py-4 space-y-2 overflow-y-auto">
-        {menuItems.map((item) => (
-          <MenuItem key={item.path} item={item} />
-        ))}
+        {menuItems.map((item) => {
+          // For submenu items, we need to filter the items based on user role
+          if (item.submenu) {
+            const filteredItem = { ...item };
+            filteredItem.items = item.items.filter(subItem =>
+              !subItem.roles || subItem.roles.includes(user?.role)
+            );
+            return <MenuItem key={item.id} item={filteredItem} />;
+          }
+          return <MenuItem key={item.path} item={item} />;
+        })}
       </div>
 
       {/* Bottom Menu */}
-      <div className="p-3 space-y-2 border-t border-primary/10">
+      <div className={`p-3 space-y-2 border-t ${
+        darkMode
+          ? isAdmin ? 'border-primary/20' : 'border-primary/10'
+          : isAdmin ? 'border-primary/30' : 'border-gray-200'
+      }`}>
         {bottomItems.map((item) => (
           <MenuItem key={item.path} item={item} />
         ))}
@@ -245,7 +355,15 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         ModalProps={{ keepMounted: true }}
         className="lg:hidden"
         PaperProps={{
-          className: "w-[260px] border-r border-primary/20 bg-secondary1"
+          className: `w-[260px] border-r ${
+            darkMode
+              ? isAdmin
+                ? 'border-primary/30 bg-gradient-to-b from-secondary1 via-[#0a1a4d] to-secondary1'
+                : 'border-primary/20 bg-secondary1'
+              : isAdmin
+                ? 'border-primary/20 bg-gradient-to-b from-blue-50 via-blue-100 to-blue-50'
+                : 'border-gray-200 bg-white'
+          }`
         }}
       >
         {sidebarContent}
@@ -256,8 +374,16 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         variant="permanent"
         className="hidden lg:block"
         PaperProps={{
-          className: `border-r border-primary/20 overflow-hidden transition-all duration-300
-            ${isOpen ? 'w-[260px]' : 'w-[80px]'} bg-secondary1`
+          className: `border-r overflow-hidden transition-all duration-300
+            ${isOpen ? 'w-[260px]' : 'w-[80px]'}
+            ${darkMode
+              ? isAdmin
+                ? 'border-primary/30 bg-gradient-to-b from-secondary1 via-[#0a1a4d] to-secondary1'
+                : 'border-primary/20 bg-secondary1'
+              : isAdmin
+                ? 'border-primary/20 bg-gradient-to-b from-blue-50 via-blue-100 to-blue-50'
+                : 'border-gray-200 bg-white'
+            }`
         }}
       >
         {sidebarContent}

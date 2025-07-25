@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
+import { FiHome, FiShoppingBag, FiCompass, FiShield, FiLogIn, FiUserPlus } from 'react-icons/fi'
 
 // MUI components
 import {
@@ -30,7 +32,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import CloseIcon from '@mui/icons-material/Close'
 
 // Import logo with fallback
-import logo  from '../assets/menu.png'
+import logo from '../assets/menu.png'
+import '../styles/headerStyles.css'
 
 // Hide AppBar on scroll down
 function HideOnScroll(props) {
@@ -45,6 +48,9 @@ function HideOnScroll(props) {
 }
 
 export default function Header() {
+  // Get theme context
+  const { darkMode } = useTheme();
+
   // Define colors from Tailwind config
   const colors = {
     primary: '#3768e5',
@@ -74,13 +80,18 @@ export default function Header() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [anchorElLang, setAnchorElLang] = useState(null);
+  const [themeState, setThemeState] = useState(darkMode);
   const { t, i18n } = useTranslation();
 
+  // Force re-render when darkMode changes
+  useEffect(() => {
+    setThemeState(darkMode);
+  }, [darkMode]);
+
   const navigation = [
-    { name: t('header.navigation.home'), href: '/' },
-    { name: t('header.navigation.eatNow'), href: '#' },
-    { name: t('header.navigation.marketplace'), href: '/marketplace' },
-    { name: t('header.navigation.company'), href: '#' },
+    { name: t('header.navigation.home'), href: '/', icon: <FiHome size={16} /> },
+    { name: t('header.navigation.businesses'), href: '/discover', icon: <FiCompass size={16} /> },
+    { name: t('header.navigation.Privacy'), href: '/privacy', icon: <FiShield size={16} /> },
   ];
 
   const changeLanguage = (lng) => {
@@ -105,141 +116,206 @@ export default function Header() {
   // Custom styles for MUI components
   const styles = {
     appBar: {
-      // Using the gradient and glass effect classes from Tailwind
-      background: 'none', // Remove default background
-      boxShadow: 'none', // Remove default shadow
-      minHeight: { xs: '56px', sm: '60px' }, // Smaller height on all devices
+      background: 'none',
+      boxShadow: 'none',
+      minHeight: { xs: '56px', sm: '60px' },
+      width: { xs: '96%', md: '90%', lg: '80%' },
+      margin: '12px auto 0',
+      left: { xs: '2%', md: '5%', lg: '10%' },
+      transition: 'all 0.3s ease-in-out',
+      borderRadius: { xs: '25px', sm: '50px' },
+      overflow: 'hidden',
+      '& .MuiContainer-root': {
+        background: `linear-gradient(150deg,
+          ${colors.secondary1}f9,
+          ${colors.primary}85)`,
+        backgroundSize: '200% 200%',
+        animation: 'gradient 15s ease infinite',
+        borderRadius: 'inherit',
+        backdropFilter: 'blur(10px)',
+      },
     },
     toolbar: {
       display: 'flex',
       justifyContent: 'space-between',
-      minHeight: { xs: '60px', sm: '64px' }, // Slightly taller for better spacing
-      padding: { xs: '0 4px', sm: '0 16px' }, // Adjusted padding for mobile
-      gap: { xs: '8px', sm: '16px' }, // Add gap between elements
+      minHeight: { xs: '60px', sm: '64px' },
+      padding: { xs: '0 16px', sm: '0 24px' },
+      gap: { xs: '8px', sm: '16px' },
+      width: '100%',
+      transition: 'all 0.3s ease-in-out',
+      '& .MuiButton-root': {
+        color: darkMode ? colors.gray_bg : '#475569', // text-slate-600 for light mode
+      },
+      '& .MuiIconButton-root': {
+        color: darkMode ? colors.gray_bg : '#475569',
+      }
     },
     logo: {
-      height: { xs: '30px', sm: '32px' }, // Slightly larger on mobile for better visibility
-      margin: { xs: '0 auto', sm: '0 8px 0 0' }, // Centered on mobile, normal margin on larger screens
+      height: { xs: '30px', sm: '32px' },
+      margin: { xs: '0 auto', sm: '0 8px 0 0' },
     },
     menuButton: {
       color: colors.gray_bg,
-      marginLeft: '4px', // Add left margin for spacing from edge
-      display: { xs: 'flex', md: 'none' }, // Show only on mobile, not on tablet
+      marginLeft: '4px',
+      display: { xs: 'flex', md: 'none' },
       borderRadius: '8px',
       '&:hover': {
         backgroundColor: `${colors.primary}20`,
       },
     },
     navMenu: {
-      display: { xs: 'block', lg: 'none' }, // Show on mobile and tablet
+      display: { xs: 'block', lg: 'none' },
     },
     navItem: {
-      my: 1.5, // Reduced vertical margin
-      color: colors.gray_bg,
+      my: 1.5,
+      color: darkMode ? colors.gray_bg : '#475569', // text-slate-600
       display: 'block',
-      fontWeight: 500, // Slightly reduced font weight
-      fontSize: '0.8rem', // Smaller font size
+      fontWeight: 500,
+      fontSize: '0.8rem',
       textTransform: 'none',
-      mx: 0.75, // Reduced horizontal margin
+      mx: 0.75,
+      position: 'relative',
+      textAlign: 'center',
+      transition: 'all 0.3s ease-in-out',
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        width: '0%',
+        height: '2px',
+        bottom: '-4px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        backgroundColor: darkMode ? colors.primary : 'white',  // Updated for light mode
+        transition: 'width 0.3s ease-in-out',
+      },
       '&:hover': {
-        color: colors.primary,
+        color: darkMode ? colors.primary : '#3B82F6', // text-blue-500
+        transform: 'translateY(-2px)',
+        '&::after': {
+          width: '100%',
+        },
       },
     },
     desktopMenu: {
       flexGrow: 1,
-      display: { xs: 'none', lg: 'flex' }, // Only show on desktop
+      display: { xs: 'none', lg: 'flex' },
       justifyContent: 'center',
     },
     authButtons: {
-      display: { xs: 'none', lg: 'flex' }, // Only show on desktop
+      display: { xs: 'none', md: 'flex', lg: 'flex' },
+      gap: '12px',
       alignItems: 'center',
     },
     loginButton: {
-      color: colors.gray_bg,
+      color: darkMode ? colors.gray_bg : '#475569', // text-slate-600
       textTransform: 'none',
-      fontWeight: 500, // Reduced font weight
-      fontSize: '0.8rem', // Smaller font size
-      mx: 0.75, // Reduced margin
-      minWidth: 'auto', // Allow button to shrink
-      padding: '6px 8px', // Smaller padding
+      fontWeight: 500,
+      fontSize: '0.8rem',
+      mx: 0.75,
+      padding: '8px 20px',
+      borderRadius: '12px',
+      background: 'transparent',
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      position: 'relative',
+      overflow: 'hidden',
+      textAlign: 'center',
       '&:hover': {
-        color: colors.primary,
-        backgroundColor: 'transparent',
+        color: darkMode ? colors.primary : '#3B82F6', // text-blue-500
+        transform: 'translateY(-2px)',
+        background: 'transparent',
+      },
+      '&:active': {
+        transform: 'translateY(1px)',
       },
     },
     signupButton: {
-      backgroundColor: colors.primary,
-      color: 'white',
+      color: darkMode ? colors.primary : '#3B82F6', // text-blue-500
       textTransform: 'none',
-      fontWeight: 500, // Reduced font weight
-      fontSize: '0.8rem', // Smaller font size
-      borderRadius: '6px', // Slightly smaller border radius
-      px: 2, // Reduced horizontal padding
-      py: 0.75, // Reduced vertical padding
-      mx: 0.75, // Reduced margin
-      minWidth: 'auto', // Allow button to shrink
+      fontWeight: 500,
+      fontSize: '0.8rem',
+      borderRadius: '12px',
+      padding: '8px 20px',
+      mx: 0.75,
+      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+      position: 'relative',
+      overflow: 'hidden',
+      textAlign: 'center',
+      border: `1px solid ${darkMode ? colors.primary : '#93C5FD'}`, // border-blue-300
+      background: 'transparent',
       '&:hover': {
-        backgroundColor: colors.secondary2,
+        background: darkMode ? `${colors.primary}15` : 'rgba(59, 130, 246, 0.1)', // bg-blue-500/10
+        transform: 'translateY(-2px)',
+        boxShadow: darkMode ? '0 4px 12px rgba(55, 104, 229, 0.2)' : '0 4px 12px rgba(255, 255, 255, 0.1)',  // Updated for light mode
+      },
+      '&:active': {
+        transform: 'translateY(1px)',
       },
     },
     langButton: {
-      color: colors.gray_bg,
-      backgroundColor: { xs: `${colors.primary}15`, md: colors.secondary1 }, // Lighter background on mobile
-      border: `1px solid ${colors.primary}20`,
-      borderRadius: '8px', // Larger border radius for better touch target
-      padding: { xs: '6px 10px', md: '4px 8px' }, // Larger padding on mobile
+      color: darkMode ? colors.gray_bg : '#475569', // text-slate-600
+      backgroundColor: 'transparent',
+      border: `1px solid ${darkMode ? `${colors.gray_bg}30` : '#E2E8F0'}`, // border-slate-200
+      borderRadius: '12px',
+      padding: '8px',
+      minWidth: '42px',
+      height: '42px',
       display: 'flex',
       alignItems: 'center',
-      fontSize: { xs: '0.85rem', md: '0.75rem' }, // Larger font on mobile
-      fontWeight: 500,
-      minWidth: { xs: '40px', md: 'auto' }, // Fixed width on mobile
-      minHeight: { xs: '36px', md: '32px' }, // Taller on mobile
-      marginRight: { xs: '4px', md: '0' }, // Add right margin on mobile
-      '& .MuiButton-endIcon': {
-        marginLeft: 4,
-      },
+      justifyContent: 'center',
+      transition: 'all 0.3s ease-in-out',
       '&:hover': {
-        backgroundColor: `${colors.primary}25`,
+        backgroundColor: `${colors.primary}15`,
+        borderColor: darkMode ? colors.primary : '#3B82F6', // border-blue-500
+        transform: 'translateY(-2px)',
       },
     },
     langMenu: {
-      mt: '35px', // Reduced margin top
+      mt: '35px',
     },
     langMenuItem: {
-      minWidth: 120, // Smaller width
+      minWidth: 120,
       display: 'flex',
       alignItems: 'center',
-      gap: 0.5, // Smaller gap
-      fontSize: '0.75rem', // Smaller font size
-      padding: '6px 10px', // Smaller padding
+      gap: 0.5,
+      fontSize: '0.75rem',
+      padding: '6px 10px',
     },
     drawer: {
-      width: { xs: 240, sm: 260 }, // Smaller width on mobile, slightly larger on tablet
+      width: { xs: 240, sm: 260 },
       flexShrink: 0,
       '& .MuiDrawer-paper': {
-        width: { xs: 240, sm: 260 }, // Smaller width on mobile, slightly larger on tablet
-        backgroundColor: colors.secondary1,
-        color: colors.gray_bg,
+        width: { xs: 240, sm: 260 },
+        backgroundColor: 'transparent', // Will be set by the gradient
+        color: darkMode ? colors.gray_bg : 'white',
         boxSizing: 'border-box',
+        background: darkMode
+          ? 'linear-gradient(to bottom, rgba(1, 2, 27, 0.98), rgba(55, 104, 229, 0.85))'
+          : 'linear-gradient(to bottom, rgba(239, 246, 255, 0.98), rgba(59, 130, 246, 0.85))',
+        backdropFilter: 'blur(10px)',
       },
     },
     drawerHeader: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      padding: '12px', // Smaller padding
-      minHeight: '48px', // Smaller height
+      padding: '12px',
+      minHeight: '48px',
     },
     drawerItem: {
-      color: colors.gray_bg,
-      padding: '6px 16px', // Smaller padding
-      minHeight: '40px', // Smaller height
+      color: darkMode ? colors.gray_bg : 'white',
+      padding: '8px 16px',
+      minHeight: '44px',
+      transition: 'all 0.3s ease-in-out',
+      borderRadius: '8px',
+      margin: '4px 8px',
+      textAlign: 'left', // Keep drawer items left-aligned for better UX
       '& .MuiListItemText-primary': {
-        fontSize: '0.85rem', // Smaller font size
+        fontSize: '0.85rem',
       },
       '&:hover': {
-        backgroundColor: `${colors.primary}20`,
+        backgroundColor: `${colors.primary}15`,
         color: colors.primary,
+        paddingLeft: '24px',
       },
     },
     activeDrawerItem: {
@@ -253,10 +329,82 @@ export default function Header() {
       <HideOnScroll>
         <AppBar
           position="fixed"
-          sx={styles.appBar}
+          sx={{
+            ...styles.appBar,
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              borderRadius: 'inherit',
+              padding: '1px',
+              background: `linear-gradient(150deg, ${colors.primary}30, ${colors.secondary2}20)`,
+              WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+              WebkitMaskComposite: 'xor',
+              maskComposite: 'exclude',
+              pointerEvents: 'none',
+            }
+          }}
           className="header-gradient glass-effect"
         >
-          <Container maxWidth="xl" sx={{ px: { xs: 1, sm: 2, md: 3 } }}>
+          <Container
+            maxWidth={false}
+            sx={{
+              width: '100%',
+              height: '100%',
+              position: 'relative',
+              transition: 'all 0.3s ease-in-out',
+              color: darkMode ? colors.gray_bg : 'rgba(255, 255, 255, 0.95)', // Add this line
+              '& *': { // Add this to affect all children
+                color: 'inherit'
+              }
+            }}
+          >
+            {/* Gradient background */}
+            <Box
+              sx={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                transition: 'all 0.3s ease-in-out',
+                background: darkMode
+                  ? 'linear-gradient(to bottom, #01021b, rgba(1, 2, 27, 0.95))'
+                  : 'linear-gradient(to bottom, #EFF6FF, #FFFFFF)', // from-blue-50 to white
+                backgroundSize: '200% 200%',
+                animation: 'gradient 15s ease infinite',
+              }}
+            >
+              {/* Enhanced background effects */}
+              <Box sx={{
+                position: 'absolute',
+                inset: 0,
+                pointerEvents: 'none',
+                overflow: 'hidden',
+              }}>
+                <Box sx={{
+                  position: 'absolute',
+                  bottom: '25%',
+                  right: '25%',
+                  width: '300px',
+                  height: '300px',
+                  borderRadius: '50%',
+                  filter: 'blur(100px)',
+                  animation: 'pulse 4s ease infinite',
+                  backgroundColor: darkMode ? 'rgba(117, 125, 232, 0.1)' : 'rgba(96, 165, 250, 0.1)', // bg-blue-400/10
+                }} />
+                <Box sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '400px',
+                  height: '400px',
+                  borderRadius: '50%',
+                  filter: 'blur(120px)',
+                  backgroundColor: darkMode ? 'rgba(55, 104, 229, 0.05)' : 'rgba(59, 130, 246, 0.05)', // bg-blue-500/5
+                }} />
+              </Box>
+            </Box>
+
             <Toolbar disableGutters sx={styles.toolbar}>
               {/* Mobile menu icon - positioned on the left */}
               <IconButton
@@ -266,10 +414,15 @@ export default function Header() {
                 aria-haspopup="true"
                 onClick={handleDrawerToggle}
                 sx={{
-                  color: colors.gray_bg,
+                  color: darkMode ? colors.gray_bg : 'white',
                   display: { xs: 'flex', md: 'none' },
                   padding: { xs: '8px', sm: '10px' },
                   marginRight: '8px',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                    backgroundColor: `${colors.primary}20`,
+                  }
                 }}
               >
                 <MenuIcon fontSize="small" />
@@ -283,7 +436,18 @@ export default function Header() {
                 justifyContent: { xs: 'center', md: 'flex-start' }
               }}>
                 <Link to="/">
-                  <Box component="img" src={logo} alt="Logo" sx={styles.logo} />
+                  <Box
+                    component="img"
+                    src={logo}
+                    alt="Logo"
+                    sx={{
+                      ...styles.logo,
+                      transition: 'transform 0.3s ease',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                      }
+                    }}
+                  />
                 </Link>
               </Box>
 
@@ -310,8 +474,27 @@ export default function Header() {
                       my: { md: 1, lg: 1.5 },
                       mx: { md: 0.5, lg: 0.75 },
                       px: { md: 0.5, lg: 0.75 },
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
+                    <Box
+                      className="nav-icon"
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        color: 'inherit',
+                        transition: 'all 0.3s ease',
+                        transform: 'translateY(0)',
+                        '&:hover': {
+                          transform: 'translateY(-2px) scale(1.1)',
+                          color: colors.primary,
+                        }
+                      }}
+                    >
+                      {item.icon}
+                    </Box>
                     {item.name}
                   </Button>
                 ))}
@@ -322,114 +505,116 @@ export default function Header() {
                 {/* Show auth buttons on desktop and tablet (md and up) */}
                 <Box sx={{
                   ...styles.authButtons,
-                  // Override to show on tablet as well
                   display: { xs: 'none', md: 'flex', lg: 'flex' },
+                  gap: '12px',
+                  alignItems: 'center',
                 }}>
                   <Button
                     component={Link}
                     to="/login"
-                    className="btn-outline text-modern"
                     sx={{
-                      minWidth: 'auto',
-                      // Special handling for tablet
+                      ...styles.loginButton,
                       fontSize: { md: '0.75rem', lg: '0.8rem' },
-                      mx: { md: 0.5, lg: 0.75 },
+                      '&:hover': {
+                        ...styles.loginButton['&:hover'],
+                        transform: 'translateY(-2px) scale(1.02)',
+                      },
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
+                    <FiLogIn size={16} />
                     {t('header.auth.login')}
                   </Button>
                   <Button
                     component={Link}
                     to="/signup"
-                    className="btn-primary text-modern"
                     sx={{
-                      minWidth: 'auto',
-                      // Special handling for tablet
+                      ...styles.signupButton,
                       fontSize: { md: '0.75rem', lg: '0.8rem' },
-                      mx: { md: 0.5, lg: 0.75 },
+                      '&:hover': {
+                        ...styles.signupButton['&:hover'],
+                        transform: 'translateY(-2px) scale(1.02)',
+                      },
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
                     }}
                   >
+                    <FiUserPlus size={16} />
                     {t('header.auth.signup')}
                   </Button>
                 </Box>
 
-                {/* Language selector - repositioned for mobile */}
-                <Box sx={{
-                  ml: { xs: 0, md: 1, lg: 1.5 },
-                  display: 'flex',
-                  justifyContent: 'flex-end',
-                  minWidth: { xs: '50px', md: 'auto' }
-                }}>
-                  <Tooltip title="Change language">
-                    <Button
-                      onClick={handleOpenLangMenu}
-                      className="text-modern"
-                      sx={{
-                        ...styles.langButton,
-                        padding: { xs: '8px 10px', md: '4px 8px' },
-                        minWidth: { xs: '40px', md: 'auto' },
-                        borderRadius: '8px',
-                      }}
-                      endIcon={<KeyboardArrowDownIcon sx={{ display: { xs: 'none', md: 'flex' } }} fontSize="small" />}
-                    >
-                      <Box component="span" sx={{
-                        mr: { xs: 0, md: 0.5 },
-                        fontSize: { xs: '1.2rem', md: '1rem' }
-                      }}>
-                        {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
-                      </Box>
-                      {/* Only show text on desktop, not on tablet or mobile */}
-                      <Box component="span" sx={{ display: { xs: 'none', lg: 'block' } }}>
-                        {languages.find(lang => lang.code === i18n.language)?.label || 'Language'}
-                      </Box>
-                    </Button>
-                  </Tooltip>
-                  <Menu
-                    id="menu-language"
-                    anchorEl={anchorElLang}
-                    anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'right',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                    open={Boolean(anchorElLang)}
-                    onClose={handleCloseLangMenu}
+
+
+                {/* Language selector button */}
+                <Tooltip title={t('header.language')}>
+                  <Button
+                    onClick={handleOpenLangMenu}
                     sx={{
-                      mt: '10px',
-                      '& .MuiPaper-root': {
-                        backgroundColor: colors.secondary1,
-                        border: `1px solid ${colors.primary}20`,
-                        borderRadius: '8px',
-                      },
+                      ...styles.langButton,
+                      '&:hover': {
+                        ...styles.langButton['&:hover'],
+                        transform: 'translateY(-2px) scale(1.05)',
+                      }
                     }}
                   >
-                    {languages.map((language) => (
-                      <MenuItem
-                        key={language.code}
-                        onClick={() => changeLanguage(language.code)}
-                        selected={i18n.language === language.code}
-                        className="text-modern"
-                        sx={{
-                          ...styles.langMenuItem,
-                          backgroundColor: i18n.language === language.code ? `${colors.primary}20` : 'transparent',
-                          '&:hover': {
-                            backgroundColor: `${colors.primary}20`,
-                          },
-                        }}
-                      >
-                        <Box component="span" sx={{ mr: 1 }}>{language.flag}</Box>
-                        <Typography>{language.label}</Typography>
-                        {i18n.language === language.code && (
-                          <Box sx={{ ml: 'auto', color: colors.primary }}>✓</Box>
-                        )}
-                      </MenuItem>
-                    ))}
-                  </Menu>
-                </Box>
+                    <Box sx={{ fontSize: '1.2rem' }}>
+                      {languages.find(lang => lang.code === i18n.language)?.flag || '🌐'}
+                    </Box>
+                  </Button>
+                </Tooltip>
+                <Menu
+                  id="menu-language"
+                  anchorEl={anchorElLang}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElLang)}
+                  onClose={handleCloseLangMenu}
+                  sx={{
+                    mt: '10px',
+                    '& .MuiPaper-root': {
+                      backgroundColor: colors.secondary1,
+                      border: `1px solid ${colors.primary}20`,
+                      borderRadius: '8px',
+                      backgroundImage: `linear-gradient(150deg, ${colors.secondary1}, ${colors.secondary1}f0)`,
+                      backdropFilter: 'blur(10px)',
+                    },
+                  }}
+                >
+                  {languages.map((language) => (
+                    <MenuItem
+                      key={language.code}
+                      onClick={() => changeLanguage(language.code)}
+                      selected={i18n.language === language.code}
+                      className="text-modern"
+                      sx={{
+                        ...styles.langMenuItem,
+                        backgroundColor: i18n.language === language.code ? `${colors.primary}20` : 'transparent',
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          backgroundColor: `${colors.primary}20`,
+                          transform: 'translateX(4px)',
+                        },
+                      }}
+                    >
+                      <Box component="span" sx={{ mr: 1 }}>{language.flag}</Box>
+                      <Typography>{language.label}</Typography>
+                      {i18n.language === language.code && (
+                        <Box sx={{ ml: 'auto', color: colors.primary }}>✓</Box>
+                      )}
+                    </MenuItem>
+                  ))}
+                </Menu>
               </Box>
             </Toolbar>
           </Container>
@@ -447,19 +632,72 @@ export default function Header() {
         }}
         sx={{
           ...styles.drawer,
-          display: { xs: 'block', md: 'none' }, // Only show on mobile, not on tablet
+          display: { xs: 'block', md: 'none' },
         }}
       >
-        <Box sx={styles.drawerHeader}>
-          <Box component="img" src={logo} alt="Logo" sx={{ height: '32px' }} />
-          <IconButton onClick={handleDrawerToggle} sx={{ color: colors.gray_bg }}>
+        {/* Enhanced background effects for drawer */}
+        <Box sx={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          overflow: 'hidden',
+        }}>
+          <Box sx={{
+            position: 'absolute',
+            top: '10%',
+            right: '10%',
+            width: '150px',
+            height: '150px',
+            borderRadius: '50%',
+            filter: 'blur(60px)',
+            opacity: 0.1,
+            animation: 'pulse 6s ease infinite',
+            backgroundColor: darkMode ? colors.secondary2 : 'rgba(255, 255, 255, 0.5)',
+          }} />
+          <Box sx={{
+            position: 'absolute',
+            bottom: '5%',
+            left: '5%',
+            width: '200px',
+            height: '200px',
+            borderRadius: '50%',
+            filter: 'blur(70px)',
+            opacity: 0.05,
+            backgroundColor: darkMode ? colors.primary : 'rgba(255, 255, 255, 0.3)',
+          }} />
+        </Box>
+
+        <Box sx={{
+          ...styles.drawerHeader,
+          position: 'relative',
+          zIndex: 1,
+          backdropFilter: 'blur(5px)',
+        }}>
+          <Box component="img" src={logo} alt="Logo" sx={{
+            height: '32px',
+            transition: 'transform 0.3s ease',
+            '&:hover': {
+              transform: 'scale(1.05)',
+            }
+          }} />
+          <IconButton
+            onClick={handleDrawerToggle}
+            sx={{
+              color: darkMode ? colors.gray_bg : 'white',
+              transition: 'all 0.2s ease',
+              '&:hover': {
+                color: colors.primary,
+                transform: 'rotate(90deg)',
+              }
+            }}
+          >
             <CloseIcon />
           </IconButton>
         </Box>
         <Divider sx={{ backgroundColor: `${colors.primary}20` }} />
 
         {/* Navigation items */}
-        <List>
+        <List sx={{ position: 'relative', zIndex: 1 }}>
           {navigation.map((item) => (
             <ListItem key={item.name} disablePadding>
               <ListItemButton
@@ -467,8 +705,34 @@ export default function Header() {
                 to={item.href}
                 onClick={handleDrawerToggle}
                 className="text-modern"
-                sx={styles.drawerItem}
+                sx={{
+                  ...styles.drawerItem,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: `${colors.primary}15`,
+                    color: colors.primary,
+                    paddingLeft: '24px',
+                    transform: 'translateY(-2px)',
+                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px'
+                }}
               >
+                <Box
+                  className="drawer-nav-icon"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    color: colors.primary,
+                    transition: 'all 0.3s ease',
+                    borderRadius: '50%',
+                    padding: '6px',
+                    backgroundColor: `${colors.primary}15`,
+                  }}
+                >
+                  {item.icon}
+                </Box>
                 <ListItemText primary={item.name} />
               </ListItemButton>
             </ListItem>
@@ -478,9 +742,12 @@ export default function Header() {
         <Divider sx={{ backgroundColor: `${colors.primary}20` }} />
 
         {/* Language options */}
-        <List>
+        <List sx={{ position: 'relative', zIndex: 1 }}>
           <ListItem>
-            <Typography variant="subtitle2" sx={{ color: `${colors.gray_bg}80` }}>
+            <Typography variant="subtitle2" sx={{
+              color: darkMode ? `${colors.gray_bg}80` : 'white',
+              fontWeight: 500,
+            }}>
               {t('header.language') || 'Language'}
             </Typography>
           </ListItem>
@@ -495,6 +762,13 @@ export default function Header() {
                 sx={{
                   ...styles.drawerItem,
                   ...(i18n.language === language.code ? styles.activeDrawerItem : {}),
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    backgroundColor: `${colors.primary}15`,
+                    color: colors.primary,
+                    paddingLeft: '24px',
+                    transform: 'translateY(-2px)',
+                  }
                 }}
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
@@ -512,16 +786,28 @@ export default function Header() {
         <Divider sx={{ backgroundColor: `${colors.primary}20` }} />
 
         {/* Auth buttons */}
-        <List>
+        <List sx={{ position: 'relative', zIndex: 1 }}>
           <ListItem disablePadding>
             <ListItemButton
               component={Link}
               to="/login"
               onClick={handleDrawerToggle}
               className="text-modern"
-              sx={styles.drawerItem}
+              sx={{
+                ...styles.drawerItem,
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundColor: `${colors.primary}15`,
+                  color: colors.primary,
+                  paddingLeft: '24px',
+                  transform: 'translateY(-2px)',
+                }
+              }}
             >
-              <ListItemText primary={t('header.auth.login')} />
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <FiLogIn size={16} />
+                <ListItemText primary={t('header.auth.login')} />
+              </Box>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding sx={{ p: 2 }}>
@@ -534,9 +820,20 @@ export default function Header() {
               className="btn-primary text-modern"
               sx={{
                 py: 1,
+                background: `linear-gradient(to right, ${colors.primary}, ${colors.secondary2})`,
+                backgroundSize: '200% auto',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  backgroundPosition: 'right center',
+                  transform: 'translateY(-2px)',
+                  boxShadow: `0 4px 12px rgba(${parseInt(colors.primary.slice(1, 3), 16)}, ${parseInt(colors.primary.slice(3, 5), 16)}, ${parseInt(colors.primary.slice(5, 7), 16)}, 0.3)`,
+                }
               }}
             >
-              {t('header.auth.signup')}
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'center' }}>
+                <FiUserPlus size={16} />
+                {t('header.auth.signup')}
+              </Box>
             </Button>
           </ListItem>
         </List>

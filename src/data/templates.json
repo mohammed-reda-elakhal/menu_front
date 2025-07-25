@@ -1,41 +1,28 @@
 [
     {
-      "id": "minimalist-coffee",
-      "name": "Minimalist Coffee Menu",
-      "componentName": "MinimalistCoffee",
-      "category": "coffee",
-      "description": "Clean and simple coffee menu design with elegant typography",
+      "id": "default-template",
+      "name": "Default Template",
+      "componentName": "DefaultTemplate",
+      "category": "general",
+      "description": "Clean and responsive default template for all menu types",
       "style": {
-        "theme": "minimalist"
+        "theme": "default"
       },
-      "previewImage": "/images/minimalist.png",
-      "features": ["Responsive", "Animations", "Clean Layout", "Dark Mode"],
-      "demoPath": "/templates/minimalist-coffee"
+      "previewImage": "/images/default.png",
+      "features": ["Responsive", "Clean Layout", "Mobile Friendly", "Social Media Integration"],
+      "demoPath": "/templates/default"
     },
     {
-      "id": "modern-coffee",
-      "name": "Modern Coffee Experience",
-      "componentName": "ModernCoffee",
-      "category": "coffee",
-      "description": "Contemporary design with bold typography and image cards",
+      "id": "dynamic-template",
+      "name": "Dynamic Template",
+      "componentName": "DynamicTemplate",
+      "category": "general",
+      "description": "Modern and dynamic template with Swiper carousels and GSAP animations",
       "style": {
         "theme": "modern"
       },
-      "previewImage": "/images/modern.png",
-      "features": ["Grid Layout", "Image Cards", "Order Button", "Custom Fonts"],
-      "demoPath": "/templates/modern-coffee"
-    },
-    {
-      "id": "vintage-coffee",
-      "name": "Vintage Coffee House",
-      "componentName": "VintageCoffee",
-      "category": "coffee",
-      "description": "Classic vintage style with decorative elements",
-      "style": {
-        "theme": "vintage"
-      },
-      "previewImage": "/images/vintage.png",
-      "features": ["Retro Style", "Circular Images", "Decorative Elements", "Custom Colors"],
-      "demoPath": "/templates/vintage-coffee"
+      "previewImage": "/images/default.png",
+      "features": ["Responsive", "Modern Layout", "Swiper Carousels", "GSAP Animations", "Category Filtering"],
+      "demoPath": "/templates/dynamic"
     }
   ]

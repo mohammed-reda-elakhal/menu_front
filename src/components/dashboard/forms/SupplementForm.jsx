@@ -1,193 +1,415 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TextField, Button, Box, Alert, FormControl, InputLabel, Select, MenuItem, FormControlLabel, Switch } from '@mui/material';
+import { motion } from 'framer-motion';
+import { FiSave, FiAlertCircle, FiCheckCircle, FiUpload, FiType, FiFileText, FiDollarSign, FiTag, FiEye, FiEyeOff } from 'react-icons/fi';
 import { MdImage } from 'react-icons/md';
-import { IoCloudDone } from 'react-icons/io5';
+import { useTheme } from '../../../context/ThemeContext';
 
-const SupplementForm = ({ supplement, onSubmit, isUpdate = false }) => {
+const SupplementForm = ({ supplement, categories = [], onSubmit, isUpdate = false }) => {
   const { t } = useTranslation();
+  const fileInputRef = useRef(null);
+  const { darkMode } = useTheme();
+
   const [formData, setFormData] = useState({
-    nom: supplement?.nom || '',
+    name: supplement?.nom || '',
     description: supplement?.description || '',
-    prix: supplement?.prix || '',
-    categorie: supplement?.categorie || '',
-    image: supplement?.image?.url || null,
+    price: supplement?.prix || '',
+    categoryId: supplement?.categorie?._id || '',
+    image: null,
     visible: supplement?.visible ?? true
   });
+
   const [imagePreview, setImagePreview] = useState(supplement?.image?.url || '');
-  const [imageError, setImageError] = useState('');
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [formStatus, setFormStatus] = useState({ message: '', type: '' });
 
-  const categories = [
-    { id: 1, name: 'Sauces' },
-    { id: 2, name: 'Toppings' },
-    { id: 3, name: 'Extra Ingredients' },
-    { id: 4, name: 'Condiments' }
-  ];
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(formData);
+
+    // Validate form
+    const newErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = t('dashboard.forms.supplement.nameRequired') || 'Supplement name is required';
+    }
+    if (!formData.price || isNaN(parseFloat(formData.price)) || parseFloat(formData.price) <= 0) {
+      newErrors.price = t('dashboard.forms.supplement.priceRequired') || 'Valid price is required';
+    }
+    if (!formData.categoryId) {
+      newErrors.categoryId = t('dashboard.forms.supplement.categoryRequired') || 'Category is required';
+    }
+
+    // If there are errors, don't submit
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setLoading(true);
+    setFormStatus({ message: '', type: '' });
+
+    try {
+      // Create FormData object for API submission
+      const submitData = new FormData();
+      submitData.append('nom', formData.name);
+      submitData.append('description', formData.description);
+      submitData.append('prix', formData.price);
+      submitData.append('categorie', formData.categoryId);
+      submitData.append('visible', formData.visible);
+
+      if (formData.image) {
+        submitData.append('image', formData.image);
+      }
+
+      await onSubmit(submitData);
+      setFormStatus({
+        message: isUpdate
+          ? t('dashboard.products.supplements.updateSuccess')
+          : t('dashboard.products.supplements.createSuccess'),
+        type: 'success'
+      });
+    } catch (error) {
+      setFormStatus({
+        message: error.message || t('dashboard.common.error'),
+        type: 'error'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value
+    });
+
+    // Clear error for this field if it exists
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImageError('');
+    setErrors({ ...errors, image: '' });
 
     if (file) {
+      // Check file type
       const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
       if (!validTypes.includes(file.type)) {
-        setImageError(t('dashboard.forms.supplement.imageTypeError'));
+        setErrors({ ...errors, image: t('dashboard.forms.supplement.imageTypeError') });
         return;
       }
 
-      if (file.size > 5 * 1024 * 1024) {
-        setImageError(t('dashboard.forms.supplement.imageSizeError'));
+      // Check file size (5MB max)
+      const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+      if (file.size > maxSize) {
+        setErrors({ ...errors, image: t('dashboard.forms.supplement.imageSizeError') });
         return;
       }
 
+      // Create a preview for the UI
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result);
-        setFormData({ ...formData, image: reader.result });
       };
       reader.readAsDataURL(file);
+
+      // Store the actual file for upload
+      setFormData({ ...formData, image: file });
     }
   };
 
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <Box className="mb-4">
-        {imagePreview && (
-          <img
-            src={imagePreview}
-            alt="Supplement preview"
-            className="w-[350px] h-[350px] object-cover rounded-lg mx-auto mb-2"
-          />
-        )}
-        <input
-          accept="image/*"
-          type="file"
-          id="image-upload"
-          onChange={handleImageChange}
-          className="hidden"
-        />
-        <label
-          htmlFor="image-upload"
-          className="flex flex-col items-center justify-center w-full p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 transition-colors"
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Status message */}
+      {formStatus.message && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`p-3 rounded-lg flex items-center gap-2 ${
+            formStatus.type === 'success'
+              ? darkMode ? 'bg-green-900/30 text-green-400' : 'bg-green-500/10 text-green-600'
+              : darkMode ? 'bg-red-900/30 text-red-400' : 'bg-red-500/10 text-red-600'
+          }`}
         >
-          <div className="flex items-center">
-            <MdImage className="mr-2 text-white" size={24} />
-            <span className="text-white">
-              {imagePreview ? t('dashboard.forms.supplement.changeImage') : t('dashboard.forms.supplement.addImage')}
-            </span>
-          </div>
-          <div className="mt-2 text-sm text-gray-300">
-            <p>{t('dashboard.forms.supplement.imageRequirements.format')}</p>
-            <p>{t('dashboard.forms.supplement.imageRequirements.size')}</p>
-            <p>{t('dashboard.forms.supplement.imageRequirements.recommended')}</p>
-          </div>
+          {formStatus.type === 'success' ? <FiCheckCircle /> : <FiAlertCircle />}
+          <span>{formStatus.message}</span>
+        </motion.div>
+      )}
+
+      {/* Image Upload Section */}
+      <div className="mb-6">
+        <div className="flex justify-between items-center mb-2">
+          <label className={`block text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            {t('dashboard.forms.supplement.image')}
+          </label>
+          <span className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+            {t('dashboard.forms.supplement.imageRequirements.recommended')}
+          </span>
+        </div>
+
+        <div className="flex flex-col items-center">
+          {imagePreview ? (
+            <div className="relative group mb-3">
+              <img
+                src={imagePreview}
+                alt="Supplement preview"
+                className={`w-full h-[200px] object-cover rounded-lg border-2 transition-colors ${
+                  darkMode
+                    ? 'border-primary/20 group-hover:border-primary/50'
+                    : 'border-blue-200 group-hover:border-blue-400'
+                }`}
+              />
+              <div
+                className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg"
+                onClick={triggerFileInput}
+              >
+                <button
+                  type="button"
+                  className={`text-white px-3 py-1.5 rounded-md flex items-center gap-1 transition-colors ${
+                    darkMode
+                      ? 'bg-primary/80 hover:bg-primary'
+                      : 'bg-blue-600/80 hover:bg-blue-600'
+                  }`}
+                >
+                  <FiUpload className="w-4 h-4" />
+                  <span>{t('dashboard.forms.supplement.changeImage')}</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div
+              onClick={triggerFileInput}
+              className={`w-full h-[150px] border-2 border-dashed rounded-lg flex flex-col items-center justify-center cursor-pointer transition-colors mb-3 ${
+                darkMode
+                  ? 'border-gray-500 hover:border-primary bg-gray-800/30'
+                  : 'border-gray-300 hover:border-blue-500 bg-gray-50'
+              }`}
+            >
+              <MdImage className={`w-10 h-10 mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+              <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>
+                {t('dashboard.forms.supplement.addImage')}
+              </span>
+              <span className={`text-xs mt-1 ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+                {t('dashboard.forms.supplement.imageRequirements.format')} • {t('dashboard.forms.supplement.imageRequirements.size')}
+              </span>
+            </div>
+          )}
+
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            onChange={handleImageChange}
+            className="hidden"
+          />
+
+          {errors.image && (
+            <p className="text-red-500 text-xs mt-1 self-start">{errors.image}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Supplement Name */}
+      <div>
+        <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          {t('dashboard.forms.supplement.name')} *
         </label>
-
-        {imageError && (
-          <Alert severity="error" className="mt-2">
-            {imageError}
-          </Alert>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FiType className={`h-5 w-5 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+          </div>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className={`w-full pl-10 pr-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary
+              ${darkMode
+                ? `bg-secondary1/50 text-white ${errors.name ? 'border-red-500' : 'border-primary/20'}`
+                : `bg-white text-gray-900 ${errors.name ? 'border-red-500' : 'border-gray-300'}`
+              }`}
+            placeholder={t('dashboard.forms.supplement.namePlaceholder') || 'Enter supplement name'}
+          />
+        </div>
+        {errors.name && (
+          <p className="text-red-500 text-xs mt-1">{errors.name}</p>
         )}
-      </Box>
+      </div>
 
-      <TextField
-        fullWidth
-        label={t('dashboard.forms.supplement.name')}
-        name="nom"
-        value={formData.nom}
-        onChange={handleChange}
-        required
-        variant="filled"
-        sx={{ 
-          '& .MuiInputBase-input': { color: 'white' },
-          '& .MuiInputLabel-root': { color: 'white' },
-          '& .MuiInputLabel-root.Mui-focused': { color: 'white' }
-        }}
-      />
+      {/* Category Selection */}
+      <div>
+        <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          {t('dashboard.forms.supplement.category')} *
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FiTag className={`h-5 w-5 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+          </div>
+          <select
+            name="categoryId"
+            value={formData.categoryId}
+            onChange={handleChange}
+            className={`w-full pl-10 pr-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary
+              appearance-none ${
+                darkMode
+                  ? `bg-secondary1/50 text-white ${errors.categoryId ? 'border-red-500' : 'border-primary/20'}`
+                  : `bg-white text-gray-900 ${errors.categoryId ? 'border-red-500' : 'border-gray-300'}`
+              }`}
+          >
+            <option value="" className={darkMode ? 'bg-gray-800' : 'bg-white'}>
+              {t('dashboard.forms.supplement.selectCategory')}
+            </option>
+            {categories.map((category) => (
+              <option key={category._id} value={category._id} className={darkMode ? 'bg-gray-800' : 'bg-white'}>
+                {category.nom}
+              </option>
+            ))}
+          </select>
+          <div className={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 ${darkMode ? 'text-white' : 'text-gray-700'}`}>
+            <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+            </svg>
+          </div>
+        </div>
+        {errors.categoryId && (
+          <p className="text-red-500 text-xs mt-1">{errors.categoryId}</p>
+        )}
+      </div>
 
-      <FormControl fullWidth variant="filled">
-        <InputLabel sx={{ color: 'white' }}>{t('dashboard.forms.supplement.category')}</InputLabel>
-        <Select
-          name="categorie"
-          value={formData.categorie}
-          onChange={handleChange}
-          required
-          sx={{ 
-            '& .MuiInputBase-input': { color: 'white' },
-            '& .MuiSelect-icon': { color: 'white' }
+      {/* Price */}
+      <div>
+        <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          {t('dashboard.forms.supplement.price')} *
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <FiDollarSign className={`h-5 w-5 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+          </div>
+          <input
+            type="number"
+            step="0.01"
+            min="0"
+            name="price"
+            value={formData.price}
+            onChange={handleChange}
+            className={`w-full pl-10 pr-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary
+              ${darkMode
+                ? `bg-secondary1/50 text-white ${errors.price ? 'border-red-500' : 'border-primary/20'}`
+                : `bg-white text-gray-900 ${errors.price ? 'border-red-500' : 'border-gray-300'}`
+              }`}
+            placeholder="0.00"
+          />
+        </div>
+        {errors.price && (
+          <p className="text-red-500 text-xs mt-1">{errors.price}</p>
+        )}
+      </div>
+
+      {/* Supplement Description */}
+      <div>
+        <label className={`block text-sm font-medium mb-1 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          {t('dashboard.forms.supplement.description')}
+        </label>
+        <div className="relative">
+          <div className="absolute top-3 left-0 pl-3 flex items-start pointer-events-none">
+            <FiFileText className={`h-5 w-5 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+          </div>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            rows="3"
+            className={`w-full pl-10 pr-3 py-2.5 border-2 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary ${
+              darkMode
+                ? 'bg-secondary1/50 border-primary/20 text-white'
+                : 'bg-white border-gray-300 text-gray-900'
+            }`}
+            placeholder={t('dashboard.forms.supplement.descriptionPlaceholder') || 'Enter supplement description'}
+          />
+        </div>
+      </div>
+
+      {/* Visibility Toggle */}
+      <div className="flex items-center space-x-3 pt-2">
+        <div className="relative inline-block w-10 mr-2 align-middle select-none">
+          <input
+            type="checkbox"
+            name="visible"
+            id="visible"
+            checked={formData.visible}
+            onChange={handleChange}
+            className={`toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer transition-transform duration-200 ease-in-out ${
+              darkMode ? 'border-gray-700' : 'border-gray-300'
+            }`}
+          />
+          <label
+            htmlFor="visible"
+            className={`toggle-label block overflow-hidden h-6 rounded-full cursor-pointer ${
+              formData.visible
+                ? 'bg-primary'
+                : darkMode ? 'bg-gray-600' : 'bg-gray-400'
+            }`}
+          ></label>
+        </div>
+        <label htmlFor="visible" className={`text-sm font-medium cursor-pointer flex items-center ${
+          darkMode ? 'text-gray-300' : 'text-gray-700'
+        }`}>
+          {formData.visible ? <FiEye className="mr-1" /> : <FiEyeOff className="mr-1" />}
+          {formData.visible ? t('dashboard.forms.supplement.visible') : t('dashboard.forms.supplement.hidden')}
+        </label>
+      </div>
+
+      {/* Submit Button */}
+      <div className="pt-4">
+        <button
+          type="submit"
+          disabled={loading}
+          className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-white shadow-md
+            ${loading
+              ? 'bg-primary/50 cursor-not-allowed'
+              : 'bg-primary hover:bg-primary/90 transform hover:scale-[1.01]'
+            } transition-all duration-200`}
+          style={{
+            boxShadow: darkMode
+              ? '0 4px 12px rgba(55, 104, 229, 0.3)'
+              : '0 4px 12px rgba(55, 104, 229, 0.2)'
           }}
         >
-          {categories.map((category) => (
-            <MenuItem key={category.id} value={category.id}>
-              {category.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+          {loading ? (
+            <>
+              <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+              <span>{isUpdate ? t('dashboard.common.updating') : t('dashboard.common.creating')}</span>
+            </>
+          ) : (
+            <>
+              <FiSave className="w-5 h-5" />
+              <span>{isUpdate ? t('dashboard.forms.update') : t('dashboard.forms.create')}</span>
+            </>
+          )}
+        </button>
+      </div>
 
-      <TextField
-        fullWidth
-        label={t('dashboard.forms.supplement.price')}
-        name="prix"
-        type="number"
-        value={formData.prix}
-        onChange={handleChange}
-        required
-        variant="filled"
-        sx={{ 
-          '& .MuiInputBase-input': { color: 'white' },
-          '& .MuiInputLabel-root': { color: 'white' },
-          '& .MuiInputLabel-root.Mui-focused': { color: 'white' }
-        }}
-      />
-
-      <TextField
-        fullWidth
-        label={t('dashboard.forms.supplement.description')}
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        multiline
-        rows={3}
-        variant="filled"
-        sx={{ 
-          '& .MuiInputBase-input': { color: 'white' },
-          '& .MuiInputLabel-root': { color: 'white' },
-          '& .MuiInputLabel-root.Mui-focused': { color: 'white' }
-        }}
-      />
-
-      <FormControlLabel
-        control={
-          <Switch
-            checked={formData.visible}
-            onChange={(e) => setFormData({ ...formData, visible: e.target.checked })}
-            name="visible"
-          />
+      {/* Custom CSS for toggle switch */}
+      <style jsx>{`
+        .toggle-checkbox:checked {
+          transform: translateX(100%);
+          border-color: ${darkMode ? '#3768e5' : '#3768e5'};
         }
-        label={t('dashboard.forms.supplement.visible')}
-      />
-
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        startIcon={<IoCloudDone />}
-        className="w-full"
-      >
-        {isUpdate
-          ? t('common.update')
-          : t('common.create')}
-      </Button>
+        .toggle-label {
+          transition: background-color 0.2s ease-in-out;
+        }
+      `}</style>
     </form>
   );
 };

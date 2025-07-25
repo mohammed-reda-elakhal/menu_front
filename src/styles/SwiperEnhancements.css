@@ -1,0 +1,215 @@
+/* Enhanced Swiper Animations for BusinessProfile */
+
+/* Smooth Swiper Container */
+.swiper-smooth {
+  overflow: visible !important;
+}
+
+/* Enhanced Coverflow Effect */
+.swiper-smooth .swiper-slide {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Smooth slide transitions */
+.swiper-smooth .swiper-slide-active {
+  z-index: 2;
+}
+
+.swiper-smooth .swiper-slide-next,
+.swiper-smooth .swiper-slide-prev {
+  z-index: 1;
+}
+
+/* Enhanced pagination bullets */
+.swiper-smooth .swiper-pagination-bullet {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transform: scale(1);
+  opacity: 0.4;
+}
+
+.swiper-smooth .swiper-pagination-bullet-active {
+  transform: scale(1.2) !important;
+  opacity: 1 !important;
+}
+
+.swiper-smooth .swiper-pagination-bullet:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+/* Custom navigation button enhancements */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.swiper-button-prev-custom:active,
+.swiper-button-next-custom:active {
+  transform: scale(0.95) !important;
+}
+
+/* Smooth touch feedback */
+.swiper-smooth.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 10px;
+}
+
+/* Enhanced slide shadows for coverflow */
+.swiper-smooth .swiper-slide-shadow-left,
+.swiper-smooth .swiper-slide-shadow-right {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)) !important;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Smooth card hover effects */
+.swiper-smooth .swiper-slide .group {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.swiper-smooth .swiper-slide .group:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+}
+
+/* Performance optimizations */
+.swiper-smooth .swiper-slide img {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth autoplay transitions */
+.swiper-smooth.swiper-container-autoplay .swiper-slide {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Enhanced touch responsiveness */
+.swiper-smooth.swiper-container-horizontal.swiper-container-rtl > .swiper-pagination-bullets {
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Smooth resistance effect */
+.swiper-smooth .swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Enhanced slide visibility transitions */
+.swiper-smooth .swiper-slide-visible {
+  opacity: 1;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.swiper-smooth .swiper-slide:not(.swiper-slide-visible) {
+  opacity: 0.7;
+}
+
+/* Smooth lazy loading transitions */
+.swiper-smooth .swiper-lazy-preloader {
+  animation: swiper-preloader-spin 1s infinite linear;
+}
+
+@keyframes swiper-preloader-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Enhanced mobile touch */
+@media (max-width: 768px) {
+  .swiper-smooth .swiper-slide {
+    transition-duration: 0.4s !important;
+  }
+  
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .swiper-button-prev-custom svg,
+  .swiper-button-next-custom svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Smooth pagination positioning */
+.swiper-smooth .swiper-pagination {
+  position: relative !important;
+  margin-top: 20px;
+}
+
+/* Enhanced bullet spacing */
+.swiper-smooth .swiper-pagination-bullet {
+  margin: 0 6px !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* Smooth focus states for accessibility */
+.swiper-button-prev-custom:focus,
+.swiper-button-next-custom:focus {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
+}
+
+.swiper-smooth .swiper-pagination-bullet:focus {
+  outline: 2px solid #818cf8;
+  outline-offset: 2px;
+}
+
+/* Hardware acceleration for better performance */
+.swiper-smooth,
+.swiper-smooth .swiper-wrapper,
+.swiper-smooth .swiper-slide {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Smooth container overflow handling */
+.swiper-smooth .swiper-container {
+  overflow: visible !important;
+}
+
+/* Enhanced slide scaling for coverflow */
+.swiper-smooth .swiper-slide-active {
+  transform: scale(1) !important;
+}
+
+.swiper-smooth .swiper-slide-next,
+.swiper-smooth .swiper-slide-prev {
+  transform: scale(0.95) !important;
+}
+
+/* Smooth transition delays for staggered effects */
+.swiper-smooth .swiper-slide:nth-child(1) { transition-delay: 0ms !important; }
+.swiper-smooth .swiper-slide:nth-child(2) { transition-delay: 50ms !important; }
+.swiper-smooth .swiper-slide:nth-child(3) { transition-delay: 100ms !important; }
+.swiper-smooth .swiper-slide:nth-child(4) { transition-delay: 150ms !important; }
+.swiper-smooth .swiper-slide:nth-child(5) { transition-delay: 200ms !important; }
+
+/* Smooth dark mode transitions */
+.dark .swiper-smooth .swiper-pagination-bullet {
+  background: #4b5563 !important;
+}
+
+.dark .swiper-smooth .swiper-pagination-bullet-active {
+  background: #818cf8 !important;
+}
+
+/* Enhanced touch feedback */
+.swiper-smooth .swiper-slide:active {
+  transform: scale(0.98) !important;
+  transition-duration: 0.1s !important;
+}

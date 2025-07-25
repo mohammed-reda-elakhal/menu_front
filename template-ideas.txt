@@ -1,0 +1,55 @@
+Template Ideas for Menu Templates
+================================
+
+1. Elegant Black & Gold
+   - Description: A luxurious, high-contrast template with a black background, gold accents, and serif fonts. Perfect for fine dining or premium restaurants.
+   - Assets Needed: Gold vector icons (cutlery, crown, etc.), elegant background patterns, high-res food images, logo in gold/white.
+
+2. Street Food Vibes
+   - Description: Urban, colorful, and energetic. Graffiti backgrounds, bold fonts, and sticker-style icons. Great for food trucks or casual eateries.
+   - Assets Needed: Graffiti textures, sticker icons (burger, taco, soda), cityscape silhouettes, playful fonts.
+
+3. Mediterranean Blue
+   - Description: Inspired by Greek islands—white and blue palette, wave patterns, and olive branch icons. For seafood or Mediterranean cuisine.
+   - Assets Needed: Blue/white wave backgrounds, olive branch/seafood icons, tile patterns, sea/sky stock images.
+
+4. Botanical Garden
+   - Description: Fresh, green, and organic. Leafy backgrounds, plant illustrations, and soft earth tones. Ideal for vegan or healthy menus.
+   - Assets Needed: Botanical illustrations, leaf/plant icons, watercolor backgrounds, nature stock images.
+
+5. Retro Diner
+   - Description: 1950s American diner style—checkerboard patterns, neon signs, and pastel colors. For burger joints or classic diners.
+   - Assets Needed: Checkerboard backgrounds, neon sign SVGs, retro car/food icons, pastel color palette.
+
+6. Minimalist Monochrome
+   - Description: Ultra-clean, black-and-white with sharp lines and lots of whitespace. For modern, upscale cafes.
+   - Assets Needed: Monochrome icons, geometric patterns, high-contrast food photography.
+
+7. Rustic Farmhouse
+   - Description: Wood textures, hand-drawn icons, and warm, earthy colors. For farm-to-table or countryside restaurants.
+   - Assets Needed: Wood grain backgrounds, hand-drawn food/animal icons, burlap textures, rustic fonts.
+
+8. Asian Zen
+   - Description: Calm, balanced, and inspired by Japanese minimalism. Bamboo, koi, and cherry blossom motifs.
+   - Assets Needed: Bamboo/cherry blossom illustrations, zen stone backgrounds, minimalist icons, calligraphy fonts.
+
+9. Kids' Cartoon
+   - Description: Bright, playful, and fun. Cartoon food characters, bold colors, and interactive elements. For family or kids' menus.
+   - Assets Needed: Cartoon food mascots, playful icons, comic-style backgrounds, fun fonts.
+
+10. Elegant Watercolor
+    - Description: Soft watercolor splashes, elegant script fonts, and pastel gradients. For bakeries, patisseries, or brunch spots.
+    - Assets Needed: Watercolor backgrounds, brushstroke icons, pastel color palette, script fonts.
+
+---
+
+For each template, you will need:
+- Color palette (primary, secondary, accent colors)
+- Font choices (Google Fonts or custom)
+- Background images or patterns
+- Icon set (SVG or PNG)
+- Example food images (optimized for web)
+- Logo (transparent PNG or SVG)
+- Optional: Decorative dividers, borders, or animated elements
+
+You can expand this list with more ideas or variations as needed! 

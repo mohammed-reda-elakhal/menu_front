@@ -1,421 +1,1374 @@
 {
-    "header": {
-      "navigation": {
-        "home": "Home",
-        "eatNow": "Eat Now",
-        "marketplace": "Marketplace",
-        "company": "Company"
+  "header": {
+    "navigation": {
+      "home": "Home",
+      "eatNow": "Eat Now",
+      "marketplace": "Marketplace",
+      "businesses": "Businesses",
+      "company": "Company",
+      "Privacy":"Privacy",
+      "exportMenu": "Export Menu"
+    },
+    "auth": {
+      "login": "Log in",
+      "signup": "Sign up"
+    },
+    "language":"Language",
+    "theme":"Theme"
+
+  },
+  "hero": {
+    "title": {
+      "part1": "Elevate Your",
+      "part2": "Menu Experience"
+    },
+    "description": "Transform your restaurant's menu into an interactive digital experience. Create, manage, and share your menu instantly with QR codes.",
+    "buttons": {
+      "getStarted": "Get Started Free",
+      "viewDemo": "View Demo"
+    },
+    "liveUpdates": "Live Updates"
+  },
+   "howToUse": {
+    "title": "How",
+    "highlight": " it works",
+    "subtitle": "Create your digital menu in simple steps",
+    "step": "Step",
+    "steps": {
+      "create_account": {
+        "title": "Create your account",
+        "description": "Sign up for free and start customizing your digital menu."
       },
-      "auth": {
-        "login": "Log in",
-        "signup": "Sign up"
+      "create_menu": {
+        "title": "Create your menu",
+        "description": "Add your dishes, categories, and prices easily with our intuitive interface."
+      },
+      "select_template": {
+        "title": "Choose your template",
+        "description": "Select from our professional designs and customize the colors."
+      },
+      "done": {
+        "title": "It's ready!",
+        "description": "Your digital menu is online, share it with your customers via QR code."
       }
     },
-    "hero": {
-      "title": {
-        "part1": "Elevate Your",
-        "part2": "Menu Experience"
-      },
-      "description": "Transform your restaurant's menu into an interactive digital experience. Create, manage, and share your menu instantly with QR codes.",
-      "buttons": {
-        "getStarted": "Get Started Free",
-        "viewDemo": "View Demo"
-      },
-      "liveUpdates": "Live Updates"
+    "cta": "Start Free Trial",
+    "ctaSubtext": "No credit card required"
+  },
+  "about": {
+    "title": {
+      "transform": "Transform Your",
+      "experience": "Menu Experience"
     },
-    "about": {
-      "title": {
-        "transform": "Transform Your",
-        "experience": "Menu Experience"
-      },
-      "subtitle": "Elevate your restaurant's presence with our innovative digital menu solution",
-      "description": {
-        "company": "Menuso",
-        "text": "is your all-in-one digital menu management platform, designed specifically for modern restaurants and cafes. We combine elegant design with powerful functionality, allowing you to create, update, and share your digital menus effortlessly. With QR code integration and real-time updates, your menu stays dynamic and accessible to your customers at all times."
-      },
-      "features": {
-        "realtime": {
-          "title": "Real-time Updates",
-          "description": "Update your menu instantly through an intuitive management interface"
-        },
-        "interactive": {
-          "title": "Interactive Design",
-          "description": "Beautiful, responsive layouts that work seamlessly across all devices"
-        },
-        "sharing": {
-          "title": "Easy Sharing",
-          "description": "Share your menu instantly via QR codes and social media integration"
-        }
-      }
+    "subtitle": "Elevate your restaurant's presence with our innovative digital menu solution",
+    "description": {
+      "company": "Meniwi",
+      "text": "is your all-in-one digital menu management platform, designed specifically for modern restaurants and cafes. We combine elegant design with powerful functionality, allowing you to create, update, and share your digital menus effortlessly. With QR code integration and real-time updates, your menu stays dynamic and accessible to your customers at all times."
     },
     "features": {
-      "title": {
-        "powerful": "Powerful",
-        "features": "Features"
+      "realtime": {
+        "title": "Real-time Updates",
+        "description": "Update your menu instantly through an intuitive management interface"
       },
-      "subtitle": "Everything you need to create and manage your digital menu experience",
-      "items": {
-        "design": {
-          "title": "Customizable Design",
-          "description": "Personalize your menu's look and feel with custom themes and layouts"
-        },
-        "qr": {
-          "title": "QR Code Integration",
-          "description": "Generate unique QR codes for seamless menu access"
-        },
-        "mobile": {
-          "title": "Mobile Responsive",
-          "description": "Perfect viewing experience across all devices"
-        },
-        "analytics": {
-          "title": "Analytics Dashboard",
-          "description": "Track menu views and customer engagement"
-        },
-        "language": {
-          "title": "Multi-language Support",
-          "description": "Reach more customers with multiple language options"
-        },
-        "updates": {
-          "title": "Real-time Updates",
-          "description": "Instantly update prices, items, and specials"
-        }
+      "interactive": {
+        "title": "Interactive Design",
+        "description": "Beautiful, responsive layouts that work seamlessly across all devices"
+      },
+      "sharing": {
+        "title": "Easy Sharing",
+        "description": "Share your menu instantly via QR codes and social media integration"
+      }
+    }
+  },
+  "features": {
+    "title": {
+      "powerful": "Powerful",
+      "features": "Features"
+    },
+    "subtitle": "Everything you need to create and manage your digital menu experience",
+    "items": {
+      "design": {
+        "title": "Customizable Design",
+        "description": "Personalize your menu's look and feel with custom themes and layouts"
+      },
+      "qr": {
+        "title": "QR Code Integration",
+        "description": "Generate unique QR codes for seamless menu access"
+      },
+      "mobile": {
+        "title": "Mobile Responsive",
+        "description": "Perfect viewing experience across all devices"
+      },
+      "analytics": {
+        "title": "Analytics Dashboard",
+        "description": "Track menu views and customer engagement"
+      },
+      "language": {
+        "title": "Multi-language Support",
+        "description": "Reach more customers with multiple language options"
+      },
+      "updates": {
+        "title": "Real-time Updates",
+        "description": "Instantly update prices, items, and specials"
+      }
+    }
+  },
+  "pricing": {
+    "title": {
+      "simple": "Simple,",
+      "transparent": "Transparent"
+    },
+    "subtitle": "Choose the perfect plan for your restaurant's needs",
+    "plans": {
+      "free": {
+        "name": "Free Trial",
+        "price": "0",
+        "description": "Perfect for getting started",
+        "buttonText": "Get Started",
+        "features": [
+          "Single Business accounts",
+          "Single menu management",
+          "Basic QR code generation",
+          "Mobile responsive design",
+          "Social media sharing"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "100",
+        "description": "Best for growing restaurants",
+        "buttonText": "Start Premium",
+        "popular": "Most Popular",
+        "features": [
+          "1 - 5 Business accounts",
+          "Multiple menu management",
+          "Custom QR code design",
+          "Advanced analytics dashboard",
+          "Priority support",
+          "Multi-language support",
+          "Real-time menu updates",
+          "Custom branding"
+        ]
       }
     },
-    "pricing": {
-      "title": {
-        "simple": "Simple,",
-        "transparent": "Transparent"
-      },
-      "subtitle": "Choose the perfect plan for your restaurant's needs",
-      "plans": {
-        "free": {
-          "name": "Free Trial",
-          "price": "0",
-          "description": "Perfect for getting started",
-          "buttonText": "Get Started",
-          "features": [
-            "Single Business accounts",
-            "Single menu management",
-            "Basic QR code generation",
-            "Mobile responsive design",
-            "Social media sharing"
-          ]
-        },
-        "premium": {
-          "name": "Premium",
-          "price": "100",
-          "description": "Best for growing restaurants",
-          "buttonText": "Start Premium",
-          "popular": "Most Popular",
-          "features": [
-            "1 - 5 Business accounts",
-            "Multiple menu management",
-            "Custom QR code design",
-            "Advanced analytics dashboard",
-            "Priority support",
-            "Multi-language support",
-            "Real-time menu updates",
-            "Custom branding"
-          ]
-        }
-      },
-      "currency": "DH/month"
+    "currency": "DH/month"
+  },
+  "faq": {
+    "title": {
+      "part1": "Frequently Asked",
+      "part2": "Questions"
     },
-    "faq": {
-      "title": {
-        "part1": "Frequently Asked",
-        "part2": "Questions"
+    "subtitle": "Everything you need to know about Meniwi and how it works",
+    "questions": [
+      {
+        "question": "How do I create my digital menu?",
+        "answer": "Creating your digital menu is simple. After signing up, you can easily add categories, items, prices, and descriptions through our intuitive dashboard. Upload images, customize layouts, and your menu will be ready to share in minutes."
       },
-      "subtitle": "Everything you need to know about Menuso and how it works",
-      "questions": [
-        {
-          "question": "How do I create my digital menu?",
-          "answer": "Creating your digital menu is simple. After signing up, you can easily add categories, items, prices, and descriptions through our intuitive dashboard. Upload images, customize layouts, and your menu will be ready to share in minutes."
-        },
-        {
-          "question": "Can I update my menu in real-time?",
-          "answer": "Yes! You can update your menu anytime through our dashboard. Changes are reflected instantly across all platforms where your menu is shared, including QR codes and social media links."
-        },
-        {
-          "question": "How does the QR code system work?",
-          "answer": "Each menu gets a unique QR code that you can print and display in your restaurant. When customers scan the code with their smartphone, they'll see your latest menu instantly in their browser - no app download required."
-        },
-        {
-          "question": "Is the platform mobile-friendly?",
-          "answer": "Absolutely! Our menus are fully responsive and optimized for all devices - smartphones, tablets, and desktop computers. Your customers will enjoy a seamless experience regardless of their device."
-        },
-        {
-          "question": "What payment methods do you accept?",
-          "answer": "We accept major credit cards, debit cards, and digital payment methods. All payments are processed securely through our trusted payment gateway partners."
-        }
-      ]
+      {
+        "question": "Can I update my menu in real-time?",
+        "answer": "Yes! You can update your menu anytime through our dashboard. Changes are reflected instantly across all platforms where your menu is shared, including QR codes and social media links."
+      },
+      {
+        "question": "How does the QR code system work?",
+        "answer": "Each menu gets a unique QR code that you can print and display in your restaurant. When customers scan the code with their smartphone, they'll see your latest menu instantly in their browser - no app download required."
+      },
+      {
+        "question": "Is the platform mobile-friendly?",
+        "answer": "Absolutely! Our menus are fully responsive and optimized for all devices - smartphones, tablets, and desktop computers. Your customers will enjoy a seamless experience regardless of their device."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept major credit cards, debit cards, and digital payment methods. All payments are processed securely through our trusted payment gateway partners."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": {
+      "part1": "What Our",
+      "part2": "Clients",
+      "part3": "Say"
     },
-    "testimonials": {
-      "title": {
-        "part1": "What Our",
-        "part2": "Clients",
-        "part3": "Say"
-      },
-      "subtitle": "Discover why restaurant owners across Morocco trust Menuso"
+    "subtitle": "Discover why restaurant owners across Morocco trust Meniwi"
+  },
+  "contact": {
+    "title": {
+      "part1": "Get in",
+      "part2": "Touch"
     },
-    "contact": {
-      "title": {
-        "part1": "Get in",
-        "part2": "Touch"
+    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
       },
-      "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
-      "form": {
-        "name": {
-          "label": "Name",
-          "placeholder": "Your name"
-        },
-        "email": {
-          "label": "Email",
-          "placeholder": "your@email.com"
-        },
-        "message": {
-          "label": "Message",
-          "placeholder": "Your message..."
-        },
-        "button": "Send Message"
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
       },
-      "info": {
-        "email": {
-          "title": "Email Us"
-        },
-        "phone": {
-          "title": "Call Us"
-        }
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message..."
+      },
+      "button": "Send Message"
+    },
+    "info": {
+      "email": {
+        "title": "Email Us"
+      },
+      "phone": {
+        "title": "Call Us"
+      }
+    }
+  },
+  "footer": {
+    "description": "Transform your restaurant's menu into an interactive digital experience with Meniwi.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "items": ["Home", "About", "Features", "Pricing", "Contact"]
+    },
+    "legal": {
+      "title": "Legal",
+      "items": ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"]
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for updates and tips.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe"
+    },
+    "bottom": {
+      "copyright": "© {{year}} Meniwi. All rights reserved.",
+      "links": ["Privacy", "Terms", "Contact"]
+    }
+  },
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to manage your digital menu",
+    "form": {
+      "email": {
+        "label": "Email Address",
+        "placeholder": "your@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••"
+      },
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot Password?",
+      "submit": "Sign In",
+      "loading": "Signing in..."
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required"
+    },
+    "noAccount": "Don't have an account?",
+    "signupLink": "Sign up"
+  },
+  "signup": {
+    "title": "Create Account",
+    "subtitle": "Get started with your restaurant's digital menu",
+    "features": {
+      "menu": "Create and manage your digital menu",
+      "updates": "Instant updates and notifications",
+      "security": "Secure and reliable platform"
+    },
+    "quote": "Join thousands of restaurants already transforming their menu experience with Meniwi",
+    "form": {
+      "restaurant": {
+        "label": "Restaurant Name",
+        "placeholder": "Your Restaurant Name"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Mohammed..."
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeholder": "06 ..."
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "Rabat"
+      },
+      "cin": {
+        "label": "CIN",
+        "placeholder": "Exemple : AB22512 "
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "your@email.com"
+      },
+
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••"
+      },
+      "terms": {
+        "text": "I agree to the",
+        "termsLink": "Terms of Service",
+        "and": "and",
+        "privacyLink": "Privacy Policy"
+      },
+      "submit": "Create Account",
+      "loading": "Creating account...",
+      "login": {
+        "text": "Already have an account?",
+        "link": "Sign in"
+      }
+    }
+  },
+  "dashboard": {
+    "common": {
+      "error": "An error occurred. Please try again.",
+      "creating": "Creating...",
+      "updating": "Updating...",
+      "cancel": "Cancel"
+    },
+    "navbar": {
+      "profile": "Profile",
+      "businesses": "My Businesses",
+      "settings": "Settings",
+      "logout": "Sign out",
+      "quitBusiness": "Quit Business",
+      "notifications": "Notifications",
+      "language": "Language",
+      "darkMode": "Dark Mode",
+      "noNotifications": "No new notifications",
+      "adminMode": "Admin Mode",
+      "active": "Active"
+    },
+    "sidebar": {
+      "overview": "Overview",
+      "analytics": "Analytics",
+      "menus": "Menus",
+      "menuList": "My Menus",
+      "menuSettings": "Menu Settings",
+      "createMenu": "Create Menu",
+      "exportMenu": "AI Menu Generator",
+      "customers": "Customers",
+      "settings": "Settings",
+      "help": "Help & Support",
+      "products": "Our Products",
+      "categories": "Categories",
+      "productsList": "Products",
+      "supplements": "Supplements",
+      "template": "Templates",
+      "templateList": "Templates List",
+      "theme":"Theme",
+      "marketplace":"Marketplace",
+      "ownerTheme":"Owner Theme"
+    },
+    "templates": {
+      "title": "Templates",
+      "subtitle": "Manage your menu templates",
+      "addNew": "Add New Template",
+      "createFirst": "Create First Template",
+      "noTemplatesTitle": "No Templates Found",
+      "noTemplatesDescription": "You haven't created any templates yet. Create your first template to get started.",
+      "published": "Published",
+      "draft": "Draft",
+      "free": "Free",
+      "currency": "DH",
+      "demo": "Demo",
+      "created": "Created",
+      "updated": "Last Updated",
+      "viewDemo": "View Demo",
+      "create": {
+        "title": "Create New Template",
+        "name": "Template Name",
+        "namePlaceholder": "Enter template name",
+        "componentName": "Component Name",
+        "componentNamePlaceholder": "Enter component name (e.g., ModernCoffee)",
+        "category": "Category",
+        "categoryPlaceholder": "Enter category (e.g., coffee, restaurant)",
+        "isFree": "Free Template",
+        "price": "Price (DH)",
+        "demoPath": "Demo Path",
+        "demoPathPlaceholder": "Enter demo path (e.g., /templates/coffee-modern)",
+        "isPublished": "Publish Template",
+        "isPublishedDescription": "Make this template visible to users",
+        "image": "Template Image",
+        "uploadImage": "Upload an image",
+        "dragDrop": "or drag and drop",
+        "imageRequirements": "PNG, JPG, WebP up to 5MB",
+        "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+        "imageSizeError": "File is too large. Maximum size is 5MB",
+        "description": "Description",
+        "descriptionPlaceholder": "Enter template description",
+        "features": "Features",
+        "featurePlaceholder": "Add a feature",
+        "styles": "Styles",
+        "stylePlaceholder": "Add a style (e.g., modern, minimalist)",
+        "nameRequired": "Template name is required",
+        "componentNameRequired": "Component name is required",
+        "categoryRequired": "Category is required",
+        "priceRequired": "Valid price is required for non-free templates",
+        "createButton": "Create Template",
+        "creating": "Creating...",
+        "success": "Template created successfully"
+      },
+      "update": {
+        "title": "Update Template",
+        "name": "Template Name",
+        "namePlaceholder": "Enter template name",
+        "componentName": "Component Name",
+        "componentNamePlaceholder": "Enter component name (e.g., ModernCoffee)",
+        "category": "Category",
+        "categoryPlaceholder": "Enter category (e.g., coffee, restaurant)",
+        "isFree": "Free Template",
+        "price": "Price (DH)",
+        "demoPath": "Demo Path",
+        "demoPathPlaceholder": "Enter demo path (e.g., /templates/coffee-modern)",
+        "isPublished": "Publish Template",
+        "isPublishedDescription": "Make this template visible to users",
+        "image": "Template Image",
+        "uploadImage": "Upload an image",
+        "dragDrop": "or drag and drop",
+        "imageRequirements": "PNG, JPG, WebP up to 5MB",
+        "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+        "imageSizeError": "File is too large. Maximum size is 5MB",
+        "description": "Description",
+        "descriptionPlaceholder": "Enter template description",
+        "features": "Features",
+        "featurePlaceholder": "Add a feature",
+        "styles": "Styles",
+        "stylePlaceholder": "Add a style (e.g., modern, minimalist)",
+        "nameRequired": "Template name is required",
+        "componentNameRequired": "Component name is required",
+        "categoryRequired": "Category is required",
+        "priceRequired": "Valid price is required for non-free templates",
+        "updateButton": "Update Template",
+        "updating": "Updating...",
+        "success": "Template updated successfully"
+      },
+      "delete": {
+        "title": "Delete Template",
+        "confirmation": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+        "warning": "Warning",
+        "warningText": "Deleting this template will remove it permanently. Any menus using this template will be affected.",
+        "deleteButton": "Delete Template",
+        "deleting": "Deleting...",
+        "success": "Template deleted successfully"
       }
     },
-    "footer": {
-      "description": "Transform your restaurant's menu into an interactive digital experience with Menuso.",
-      "quickLinks": {
-        "title": "Quick Links",
-        "items": ["Home", "About", "Features", "Pricing", "Contact"]
+    "overview": {
+      "stats": {
+        "totalCategories": "Total Categories",
+        "totalProducts": "Total Products",
+        "todayViews": "Today's Views",
+        "growthRate": "Growth Rate",
+        "thisWeek": "this week"
       },
-      "legal": {
-        "title": "Legal",
-        "items": ["Privacy Policy", "Terms of Service", "Cookie Policy", "GDPR"]
-      },
-      "newsletter": {
-        "title": "Stay Updated",
-        "description": "Subscribe to our newsletter for updates and tips.",
-        "placeholder": "Enter your email",
-        "button": "Subscribe"
-      },
-      "bottom": {
-        "copyright": "© {{year}} Menuso. All rights reserved.",
-        "links": ["Privacy", "Terms", "Contact"]
+      "charts": {
+        "menuViews": "Daily Menu Views",
+        "bestProducts": "Best Products",
+        "viewAll": "View All Products",
+        "noProducts": "No products to display"
       }
     },
-    "login": {
-      "title": "Welcome Back",
-      "subtitle": "Sign in to manage your digital menu",
-      "form": {
-        "email": {
-          "label": "Email Address",
-          "placeholder": "your@email.com"
-        },
-        "password": {
-          "label": "Password",
-          "placeholder": "••••••••"
-        },
-        "rememberMe": "Remember me",
-        "forgotPassword": "Forgot Password?",
-        "submit": "Sign In"
-      },
-      "noAccount": "Don't have an account?",
-      "signupLink": "Sign up"
+    "menuSettings": {
+      "title": "Menu Settings",
+      "menuTitle": "Menu Title",
+      "menuDescription": "Menu Description",
+      "publishMenu": "Publish Menu",
+      "chooseTemplate": "Choose Template",
+      "saveChanges": "Save Changes"
     },
-    "signup": {
-      "title": "Create Account",
-      "subtitle": "Get started with your restaurant's digital menu",
-      "features": {
-        "menu": "Create and manage your digital menu",
-        "updates": "Instant updates and notifications",
-        "security": "Secure and reliable platform"
-      },
-      "quote": "Join thousands of restaurants already transforming their menu experience with Menuso",
-      "form": {
-        "restaurant": {
-          "label": "Restaurant Name",
-          "placeholder": "Your Restaurant Name"
-        },
-        "email": {
-          "label": "Email Address",
-          "placeholder": "your@email.com"
-        },
-        "password": {
-          "label": "Password",
-          "placeholder": "••••••••"
-        },
-        "terms": {
-          "text": "I agree to the",
-          "termsLink": "Terms of Service",
-          "and": "and",
-          "privacyLink": "Privacy Policy"
-        },
-        "submit": "Create Account",
-        "login": {
-          "text": "Already have an account?",
-          "link": "Sign in"
-        }
-      }
+    "ownerTemplate": {
+      "title": "Owner Template"
     },
-    "dashboard": {
-      "navbar": {
-        "profile": "Profile",
-        "settings": "Settings",
-        "logout": "Sign out",
-        "notifications": "Notifications",
-        "language": "Language",
-        "darkMode": "Dark Mode",
-        "noNotifications": "No new notifications"
-      },
-      "sidebar": {
-        "overview": "Overview",
-        "analytics": "Analytics",
-        "menus": "Menus",
-        "menuList": "My Menus",
-        "menuSettings": "Menu Settings",
-        "createMenu": "Create Menu",
-        "customers": "Customers",
-        "settings": "Settings",
-        "help": "Help & Support",
-        "products": "Our Products",
-        "categories": "Categories",
-        "productsList": "Products",
-        "supplements": "Supplements"
-      },
-      "overview": {
-        "stats": {
-          "totalCategories": "Total Categories",
-          "totalProducts": "Total Products",
-          "todayViews": "Today's Views",
-          "growthRate": "Growth Rate",
-          "thisWeek": "this week"
-        },
-        "charts": {
-          "menuViews": "Daily Menu Views",
-          "bestProducts": "Best Products",
-          "viewAll": "View All Products",
-          "noProducts": "No products to display"
-        }
-      },
-      "menuSettings": {
+    "menu": {
+      "settings": {
         "title": "Menu Settings",
+        "edit": "Edit",
+        "save": "Save",
+        "cancel": "Cancel",
         "menuTitle": "Menu Title",
+        "menuTitlePlaceholder": "Enter menu title",
         "menuDescription": "Menu Description",
+        "menuDescriptionPlaceholder": "Enter menu description",
+        "menuCode": "Menu Code",
+        "createdAt": "Created At",
+        "published": "Published",
+        "unpublished": "Unpublished",
+        "socialMediaVisible": "Social Media Visible",
+        "socialMediaHidden": "Social Media Hidden",
+        "publish": "Publish Menu",
+        "unpublish": "Unpublish Menu",
+        "showSocialMedia": "Show Social Media",
+        "hideSocialMedia": "Hide Social Media",
+        "updateSuccess": "Menu updated successfully",
+        "publishToggleSuccess": "Menu publish status toggled successfully",
+        "socialMediaToggleSuccess": "Social media visibility toggled successfully",
+        "noMenuTitle": "No Menu Found",
+        "noMenu": "No menu found for this business. Create your first menu to get started.",
+        "createMenu": "Create Menu",
+        "qrCode": "Menu QR Code",
+        "qrCodePlaceholder": "QR Code will be displayed here",
+        "qrCodeDescription": "Scan this QR code to view your menu. You can print this QR code and place it on your tables or at the entrance of your establishment.",
+        "downloadQR": "Download QR Code",
+        "printQR": "Print QR Code"
+      },
+      "create": {
+        "title": "Create New Menu",
+        "menuTitle": "Menu Title",
+        "menuTitlePlaceholder": "Enter menu title",
+        "menuDescription": "Menu Description",
+        "menuDescriptionPlaceholder": "Enter menu description",
         "publishMenu": "Publish Menu",
-        "chooseTemplate": "Choose Template",
-        "saveChanges": "Save Changes"
+        "publishMenuDescription": "Make this menu visible to customers",
+        "socialMediaVisible": "Show Social Media",
+        "socialMediaVisibleDescription": "Display social media links on the menu",
+        "createButton": "Create Menu",
+        "creating": "Creating...",
+        "titleRequired": "Menu title is required",
+        "success": "Menu created successfully",
+        "noMenuTitle": "No Menu Found",
+        "noMenu": "You need to create a menu before adding categories",
+        "createMenu": "Create Menu"
+      }
+    },
+    "products": {
+      "categories": {
+        "title": "Categories Management",
+        "add": "New Category",
+        "edit": "Edit Category",
+        "list": "Categories List",
+        "items": "items",
+        "category": "category",
+        "categories": "categories",
+        "noCategories": "No categories found",
+        "addFirst": "Create your first category to get started",
+        "createSuccess": "Category created successfully",
+        "createError": "Failed to create category",
+        "updateSuccess": "Category updated successfully",
+        "updateError": "Failed to update category",
+        "deleteSuccess": "Category deleted successfully",
+        "deleteError": "Failed to delete category",
+        "searchPlaceholder": "Search category..."
       },
       "products": {
-        "categories": {
-          "title": "Categories Management",
-          "add": "New Category",
-          "edit": "Edit Category",
-          "list": "Categories List",
-          "items": "items"
-        },
-        "products": {
-          "title": "Products Management",
-          "add": "New Product",
-          "edit": "Edit Product",
-          "deleteConfirmTitle": "Confirm Delete",
-          "deleteConfirmMessage": "Are you sure you want to delete {{name}}?"
-        },
-        "supplements": {
-          "title": "Supplements Management",
-          "add": "New Supplement",
-          "edit": "Edit Supplement"
-        }
-      },
-      "forms": {
-        "category": {
-          "name": "Category Name",
-          "description": "Description",
-          "addImage": "Add Category Image",
-          "changeImage": "Change Image",
-          "image": "Category Image",
-          "imageRequirements": "Image Upload Requirements",
-          "acceptedFormats": "Accepted formats",
-          "maxSize": "Maximum file size",
-          "recommendedSize": "Recommended dimensions",
-          "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
-          "imageSizeError": "File is too large. Maximum size is 5MB"
-        },
-        "product": {
-          "name": "Product Name",
-          "description": "Description",
-          "price": "Price",
-          "promo_price": "Promotional Price",
-          "category": "Category",
-          "components": "Components",
-          "visible": "Visible",
-          "review": "Review Score",
-          "allergens": "Allergens",
-          "nutritionalInfo": "Nutritional Information",
-          "addImage": "Add Product Image",
-          "changeImage": "Change Image",
-          "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
-          "imageSizeError": "File is too large. Maximum size is 5MB",
-          "imageRequirements": {
-            "format": "Accepted formats: JPG, PNG, WEBP",
-            "size": "Maximum size: 5MB",
-            "recommended": "Recommended: 350x350px"
-          }
-        }
-      },
-      "tables": {
-        "category": {
-          "name": "Name",
-          "description": "Description",
-          "image": "Image"
-        },
-        "product": {
-          "name": "Name",
-          "description": "Description",
-          "category": "Category",
-          "price": "Price",
-          "promo_price": "Promo Price",
-          "visible": "Status",
-          "image": "Image",
-          "currency":{
-            "format": "DH"
-          }
-        },
-        "actions": "Actions",
-        "edit": "Edit",
+        "title": "Products Management",
+        "add": "New Product",
+        "edit": "Edit Product",
+        "deleteConfirmTitle": "Confirm Delete",
+        "deleteConfirmMessage": "Are you sure you want to delete {{name}}?",
+        "active": "Active",
+        "hidden": "Hidden",
+        "show": "Show",
+        "hide": "Hide",
+        "noComponents": "No components found",
+        "noProducts": "No products found",
+        "categories": "Categories",
+        "addFirst": "Create your first product to get started",
+        "selectCategory": "Select a category",
+        "noCategoriesTitle": "No Categories Found",
+        "noCategories": "You need to create categories before adding products",
+        "createCategory": "Create Category",
+        "createSuccess": "Product created successfully",
+        "createError": "Failed to create product",
+        "updateSuccess": "Product updated successfully",
+        "updateError": "Failed to update product",
+        "deleteSuccess": "Product deleted successfully",
+        "deleteError": "Failed to delete product",
+        "visibilityToggleSuccess": "Product visibility updated",
+        "visibilityToggleError": "Failed to update product visibility",
+        "markBest": "Mark as best",
+        "unmarkBest": "Remove from best",
+        "bestToggleSuccess": "Best status updated successfully",
+        "bestToggleError": "Failed to update best status",
+        "allProducts": "All Products",
+        "products": "Products",
+        "uncategorized": "Uncategorized",
+        "selectMenuFirst": "Please select a menu to view products",
+        "implementationInProgress": "Product management is being implemented",
+        "searchPlaceholder": "Search product...",
+        "bulkDeleteButton": "Delete Selected",
+        "bulkDeleteConfirmTitle": "Confirm Bulk Delete",
+        "bulkDeleteConfirmMessage": "Are you sure you want to delete the selected products? This action cannot be undone.",
+        "bulkDeleteSuccess": "Selected products deleted successfully.",
+        "bulkDeleteError": "Failed to delete selected products.",
         "delete": "Delete"
+      },
+      "supplements": {
+        "title": "Supplements Management",
+        "add": "New Supplement",
+        "edit": "Edit Supplement",
+        "active": "Active",
+        "hidden": "Hidden",
+        "show": "Show",
+        "hide": "Hide",
+        "deleteConfirmTitle": "Confirm Delete",
+        "deleteConfirmMessage": "Are you sure you want to delete {{name}}?",
+        "createSuccess": "Supplement created successfully",
+        "createError": "Failed to create supplement",
+        "updateSuccess": "Supplement updated successfully",
+        "updateError": "Failed to update supplement",
+        "deleteSuccess": "Supplement deleted successfully",
+        "deleteError": "Failed to delete supplement",
+        "visibilityToggleSuccess": "Supplement visibility updated",
+        "visibilityToggleError": "Failed to update supplement visibility",
+        "noCategoriesTitle": "No Categories Found",
+        "noCategories": "You need to create categories before adding supplements",
+        "createCategory": "Create Category",
+        "supplements": "Supplements",
+        "categories": "Categories",
+        "allSupplements": "All Supplements",
+        "items": "items",
+        "noSupplements": "No supplements found",
+        "addFirst": "Create your first supplement to get started"
       }
     },
-    "business": {
-      "title": "Select Your Business Empire",
-      "description": "Choose a business to manage or create a new one. Each business comes with powerful tools to enhance your digital presence and streamline operations.",
-      "addNew": "Add New Business",
-      "features": {
-        "growth": {
-          "title": "Grow Your Business",
-          "description": "Transform your menu into a digital masterpiece and watch your business thrive"
-        },
-        "experience": {
-          "title": "Premium Experience",
-          "description": "Deliver an exceptional dining experience with our cutting-edge platform"
-        },
-        "analytics": {
-          "title": "Track Success",
-          "description": "Get valuable insights and analytics to make data-driven decisions"
+    "forms": {
+      "create": "Create",
+      "update": "Update",
+      "supplement": {
+        "name": "Supplement Name",
+        "description": "Description",
+        "price": "Price",
+        "category": "Category",
+        "visible": "Visible",
+        "hidden": "Hidden",
+        "addImage": "Add Supplement Image",
+        "changeImage": "Change Image",
+        "image": "Supplement Image",
+        "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+        "imageSizeError": "File is too large. Maximum size is 5MB",
+        "namePlaceholder": "Enter supplement name",
+        "descriptionPlaceholder": "Enter supplement description",
+        "nameRequired": "Supplement name is required",
+        "priceRequired": "Valid price is required",
+        "categoryRequired": "Category is required",
+        "selectCategory": "Select a category",
+        "noCategories": "No categories available",
+        "imageRequirements": {
+          "format": "Accepted formats: JPG, PNG, WEBP",
+          "size": "Maximum size: 5MB",
+          "recommended": "Recommended: 350x350px"
         }
       },
-      "logout": "Logout"
+      "category": {
+        "name": "Category Name",
+        "description": "Description",
+        "addImage": "Add Category Image",
+        "changeImage": "Change Image",
+        "image": "Category Image",
+        "imageRequirements": "Image Upload Requirements",
+        "acceptedFormats": "Accepted formats",
+        "maxSize": "Maximum file size",
+        "recommendedSize": "Recommended dimensions",
+        "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+        "imageSizeError": "File is too large. Maximum size is 5MB",
+        "namePlaceholder": "Enter category name",
+        "descriptionPlaceholder": "Enter category description",
+        "nameRequired": "Category name is required"
+      },
+      "product": {
+        "name": "Product Name",
+        "description": "Description",
+        "price": "Price",
+        "promo_price": "Promotional Price",
+        "category": "Category",
+        "components": "Components",
+        "componentsHelp": "Separate components with commas",
+        "componentsPlaceholder": "Enter components separated by commas",
+        "visible": "Visible",
+        "hidden": "Hidden",
+        "review": "Review Score",
+        "allergens": "Allergens",
+        "nutritionalInfo": "Nutritional Information",
+        "addImage": "Add Product Image",
+        "changeImage": "Change Image",
+        "image": "Product Image",
+        "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+        "imageSizeError": "File is too large. Maximum size is 5MB",
+        "namePlaceholder": "Enter product name",
+        "descriptionPlaceholder": "Enter product description",
+        "nameRequired": "Product name is required",
+        "priceRequired": "Valid price is required",
+        "promoPriceInvalid": "Promo price must be a valid number",
+        "categoryRequired": "Category is required",
+        "selectCategory": "Select a category",
+        "tags": "Tags",
+        "tagsHelp": "Separate tags with commas (e.g., spicy, popular, new)",
+        "tagsPlaceholder": "Enter tags separated by commas",
+        "calories": "Calories",
+        "caloriesPlaceholder": "Enter calories (e.g., 250)",
+        "vegetarian": "Vegetarian",
+        "spicy": "Spicy",
+        "halal": "Halal",
+        "best": "Best Product",
+        "imageRequirements": {
+          "format": "Accepted formats: JPG, PNG, WEBP",
+          "size": "Maximum size: 5MB",
+          "recommended": "Recommended: 350x350px"
+        }
+      }
     },
-    "common": {
-      "cancel": "Cancel",
-      "delete": "Delete",
+    "tables": {
+      "category": {
+        "name": "Name",
+        "description": "Description",
+        "image": "Image"
+      },
+      "product": {
+        "name": "Name",
+        "description": "Description",
+        "category": "Category",
+        "price": "Price",
+        "promo_price": "Promo Price",
+        "components": "Components",
+        "attributes": "Attributes",
+        "vegetarian": "Vegetarian",
+        "spicy": "Spicy",
+        "halal": "Halal",
+        "best": "Best",
+        "calories": "cal",
+        "tags": "Tags",
+        "visible": "Status",
+        "status": "Status",
+        "image": "Image",
+        "currency": {
+          "format": "DH"
+        }
+      },
+      "supplement": {
+        "image": "Image",
+        "name": "Name",
+        "category": "Category",
+        "price": "Price",
+        "visible": "Status"
+      },
+      "actions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "business": {
+    "title": "Select Your Business Empire",
+    "description": "Choose a business to manage or create a new one. Each business comes with powerful tools to enhance your digital presence and streamline operations.",
+    "addNew": "Add New Business",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "loggingOut": "Logging out...",
+    "noBusiness": {
+      "title": "No businesses found",
+      "description": "Create your first business to get started"
+    },
+    "features": {
+      "growth": {
+        "title": "Grow Your Business",
+        "description": "Transform your menu into a digital masterpiece and watch your business thrive"
+      },
+      "experience": {
+        "title": "Premium Experience",
+        "description": "Deliver an exceptional dining experience with our cutting-edge platform"
+      },
+      "analytics": {
+        "title": "Track Success",
+        "description": "Get valuable insights and analytics to make data-driven decisions"
+      }
+    },
+    "types": {
+      "coffee": "Coffee Shop",
+      "restaurant": "Restaurant",
+      "snack": "Snack Bar",
+      "coffeeToGo": "Coffee To Go",
+      "bakery": "Bakery",
+      "pizzeria": "Pizzeria",
+      "other": "Other"
+    },
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "settings": {
+      "title": "Business Settings",
+      "pageTitle": "My Business",
+      "pageDescription": "View and manage your business information",
+      "edit": "Edit",
       "save": "Save",
-      "create": "Create",
-      "update": "Update"
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "viewProfile": "View Profile",
+      "name": "Business Name",
+      "namePlaceholder": "Enter business name",
+      "type": "Business Type",
+      "customType": "Custom Business Type",
+      "customTypePlaceholder": "Enter custom business type",
+      "city": "City",
+      "cityPlaceholder": "Enter city",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter phone number",
+      "address": "Address",
+      "addressPlaceholder": "Enter business address",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter business description",
+      "bio": "Business Bio",
+      "bioPlaceholder": "Enter a brief bio about your business (max 500 characters)",
+      "bioMaxLength": "Bio has reached the maximum length of 500 characters",
+      "characters": "characters",
+      "website": "Website URL",
+      "websitePlaceholder": "https://example.com",
+      "tags": "Business Tags",
+      "addTagPlaceholder": "Add a tag",
+      "noTags": "No tags added",
+      "operatingHours": "Operating Hours",
+      "day": "Day",
+      "openTime": "Opening Time",
+      "closeTime": "Closing Time",
+      "closed": "Closed",
+      "open": "Open",
+      "createdAt": "Created At",
+      "updatedAt": "Last Updated",
+      "updateSuccess": "Business updated successfully",
+      "invalidFileType": "Invalid file type. Please upload an image file.",
+      "compressingImage": "Image is large, compressing...",
+      "stillTooLarge": "Image is still too large after compression. Please select a smaller image (max 1MB).",
+      "processingError": "Error processing image. Please try another image.",
+      "backToBusinesses": "Back to Businesses",
+      "socialMedia": "Social Media",
+      "invalidMoroccanPhone": "Please enter a valid Moroccan phone number (e.g., 06XXXXXXXX or +212XXXXXXXX)",
+      "coverImageHint": "Cover Image (Recommended: 16:9 ratio, max 1MB)",
+      "cropCoverImage": "Crop Cover Image (16:9 ratio)",
+      "zoom": "Zoom",
+      "applyCrop": "Apply Crop",
+      "basicInfo": "Basic Information",
+      "contactInfo": "Contact Information",
+      "additionalInfo": "Additional Information"
+    },
+    "create": {
+      "button": "Create Business",
+      "firstBusiness": "Create Your First Business",
+      "title": "Create New Business",
+      "logo": "Business Logo",
+      "uploadLogo": "Upload Logo",
+      "logoHint": "Recommended: Square image, max 1MB",
+      "coverImage": "Cover Image",
+      "uploadCoverImage": "Upload & Crop Cover Image",
+      "coverImageHint": "Upload an image and crop it to 16:9 aspect ratio (1600x900px), max 2MB",
+      "cropCoverImage": "Crop Cover Image",
+      "cropInstructions": "Adjust the crop area to select the part of your image you want to use as cover image. The image will be resized to 1600x900 pixels (16:9 aspect ratio).",
+      "applyCrop": "Apply Crop",
+      "name": "Business Name",
+      "nameHint": "The official name of your business as customers will see it",
+      "namePlaceholder": "e.g., Café Central, Restaurant Le Jardin, Boulangerie Moderne",
+      "type": "Business Type",
+      "typePlaceholder": "e.g. Cafe, Restaurant",
+      "customType": "Custom Business Type",
+      "customTypePlaceholder": "Enter your business type",
+      "city": "City",
+      "cityHint": "The city where your business is located",
+      "cityPlaceholder": "e.g., Casablanca, Rabat, Marrakech",
+      "phone": "Phone Number",
+      "phoneHint": "Main phone number for customer inquiries and reservations",
+      "phonePlaceholder": "e.g., 0612345678 or 0522123456",
+      "address": "Address",
+      "addressHint": "Full address where customers can find your business (street, neighborhood, landmarks)",
+      "addressPlaceholder": "e.g., 123 Rue Mohammed V, Quartier Gueliz, near Hassan II Mosque",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter business description",
+      "presentation": "Business Presentation",
+      "presentationHint": "Write a compelling presentation of your business that customers will see. Describe what makes your business special, your main offerings, and what customers can expect.",
+      "presentationPlaceholder": "e.g., \"Welcome to our cozy coffee shop! We serve freshly roasted coffee, homemade pastries, and provide a warm atmosphere perfect for work or relaxation. Our specialty is our signature blend coffee and artisanal croissants.\"",
+      "generateWithAI": "Generate with AI",
+      "characters": "characters",
+      "notProvided": "Not provided",
+      "bio": "Bio",
+      "bioPlaceholder": "Enter a short bio about your business",
+      "website": "Website",
+      "websitePlaceholder": "https://www.example.com",
+      "tags": "Tags",
+      "tagsPlaceholder": "Type a tag and press Enter",
+      "tagsHint": "Add tags to help customers find your business (e.g., coffee, breakfast, wifi)",
+      "operatingHours": "Operating Hours",
+      "operatingHoursHint": "Set your business operating hours for each day of the week",
+      "requiredFields": "Required fields",
+      "cancel": "Cancel",
+      "create": "Create Business",
+      "creating": "Creating...",
+      "success": "Business created successfully",
+      "socialMedia":"Social Media Links",
+      "steps": {
+        "basicInfo": "Basic Information",
+        "basicInfoDesc": "Enter the essential information about your business",
+        "businessDetails": "Business Details",
+        "businessDetailsDesc": "Tell us more about your business type and specialties",
+        "visualIdentity": "Visual Identity",
+        "visualIdentityDesc": "Upload your business logo and cover image (optional but recommended)",
+        "contactSocial": "Contact & Social",
+        "contactSocialDesc": "Add your social media links and operating hours (optional)",
+        "reviewSubmit": "Review & Submit",
+        "reviewSubmitDesc": "Review all your information before creating your business"
+      },
+      "navigation": {
+        "previous": "Previous",
+        "next": "Next",
+        "skip": "Skip",
+        "finish": "Finish"
+      },
+      "errors": {
+        "nameRequired": "Business name is required",
+        "descriptionRequired": "Description is required",
+        "presentationRequired": "Business presentation is required",
+        "typeRequired": "Business type is required",
+        "customTypeRequired": "Custom business type is required",
+        "cityRequired": "City is required",
+        "addressRequired": "Address is required",
+        "phoneRequired": "Phone number is required",
+        "invalidPhone": "Please enter a valid phone number",
+        "invalidFileType": "Invalid file type. Please upload an image file.",
+        "fileTooLarge": "File is too large. Maximum size is 1MB.",
+        "coverImageTooLarge": "Cover image is too large. Maximum size is 2MB."
+      },
+      "warnings": {
+        "noLogo": "A logo is recommended for your business"
+      }
+    },
+    "presentationGenerator": {
+      "title": "AI Presentation Generator",
+      "subtitle": "Create compelling business presentations with AI",
+      "configuration": "Configuration",
+      "language": "Language",
+      "style": "Presentation Style",
+      "generate": "Generate Presentation",
+      "generateVariations": "Generate Variations",
+      "generating": "Generating presentation...",
+      "improving": "Improving presentation...",
+      "results": "Generated Presentations",
+      "mainPresentation": "Main Presentation",
+      "bio": "Short Bio",
+      "suggestedTags": "Suggested Tags",
+      "improve": "Improve Presentation",
+      "improvementPlaceholder": "Describe what you want to improve (e.g., \"Make it more friendly\", \"Add more details about our coffee\", \"Emphasize our location\")",
+      "applyImprovement": "Apply Improvement",
+      "usePresentation": "Use This Presentation",
+      "useCustomPrompt": "Use custom business description/prompt",
+      "customPromptTitle": "Custom Business Description (Optional)",
+      "customPromptHint": "Provide your own description or specific instructions for the AI to follow. Leave empty to use automatic generation based on your business type.",
+      "customPromptLabel": "Custom Business Description/Prompt",
+      "customPromptPlaceholder": "e.g., \"We are a family-owned coffee shop that has been serving the community for 20 years. We specialize in organic, fair-trade coffee and homemade pastries. Our cozy atmosphere makes us a favorite spot for students and remote workers. Please emphasize our community involvement and sustainability practices.\"",
+      "customPromptTip": "Tip: Be specific about what makes your business unique, your target audience, and key points to highlight"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save",
+    "create": "Create",
+    "update": "Update",
+    "error": "Error",
+    "retry": "Retry",
+    "creating": "Creating...",
+    "loading": "Loading...",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "item": "item",
+    "items": "items"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account settings and preferences",
+    "manageAll": "Manage All Settings",
+    "needHelp": "Need help with your settings?",
+    "contactSupport": "Contact Support",
+    "profile": {
+      "title": "Profile Settings",
+      "description": "Manage your personal information and account preferences",
+      "personalInfo": "Personal Information",
+      "security": "Security"
+    },
+    "business": {
+      "title": "Business Settings",
+      "description": "Manage your business details, branding, and preferences",
+      "businessInfo": "Business Information",
+      "payment": "Payment Methods"
+    },
+    "preferences": {
+      "title": "App Preferences",
+      "description": "Customize your app experience and notification settings",
+      "notifications": "Notifications",
+      "language": "Language & Region"
+    }
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "pageTitle": "My Profile",
+    "pageDescription": "View and manage your personal information",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "city": "City",
+    "cin": "CIN / ID Number",
+    "role": "Role",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "verified": "Verified",
+    "yes": "Yes",
+    "no": "No",
+    "memberSince": "Member Since",
+    "changePassword": "Change Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "updatePassword": "Update Password",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "updateSuccess": "Profile updated successfully",
+    "updateError": "Error updating profile",
+    "passwordSuccess": "Password updated successfully",
+    "passwordError": "Error updating password",
+    "photoSuccess": "Profile photo updated successfully",
+    "photoError": "Error updating profile photo",
+    "noData": "No profile data available",
+    "plan": {
+      "title": "Your Plan",
+      "premium": "Premium",
+      "free": "Free",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "period": "Period",
+      "features": "Plan Features",
+      "oneMonth": "1 Month",
+      "threeMonths": "3 Months",
+      "sixMonths": "6 Months",
+      "oneYear": "1 Year",
+      "twoYears": "2 Years",
+      "timeRemaining": "Time Remaining",
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Mins",
+      "seconds": "Secs",
+      "active": "Active",
+      "expired": "Expired",
+      "currency": "DH"
+    },
+    "validation": {
+      "passwordRequired": "New password is required",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordsDoNotMatch": "Passwords do not match"
+    },
+    "updating": "Updating...",
+    "uploading": "Uploading profile photo...",
+    "compressingImage": "Image is large, compressing...",
+    "stillTooLarge": "Image is still too large after compression. Please select a smaller image (max 1MB).",
+    "processingError": "Error processing image. Please try another image.",
+    "invalidFileType": "Invalid file type. Please upload an image file."
+  },
+  "businessProfile": {
+    "backToHome": "Back to Home",
+    "aboutUs": "About Us",
+    "location": "Location",
+    "connectWithUs": "Connect With Us",
+    "viewOurMenu": "View Our Menu",
+    "checkOutOurDeliciousOfferings": "Check out our delicious offerings",
+    "openMenu": "Open Menu",
+    "allRightsReserved": "All rights reserved.",
+    "showLess": "Show Less",
+    "readMore": "Read More",
+    "openNow": "Open Now",
+    "closed": "Closed",
+    "tags": "Tags",
+    "operatingHours": "Operating Hours",
+    "hoursNotSpecified": "Hours not specified",
+    "website": "Website",
+    "navigation": {
+      "about": "About",
+      "bestProducts": "Best Products",
+      "hours": "Hours",
+      "contact": "Contact"
+    },
+    "tabs": {
+      "home": "Home",
+      "menu": "Menu",
+      "contact": "Contact"
+    }
+  },
+  "exportMenu": {
+    "title": "Export Menu from Image",
+    "description": "Upload a menu image and extract product details using Google Gemini AI",
+    "uploadImage": "Upload Menu Image",
+    "dragDrop": "Drag & drop your menu image here",
+    "imageRequirements": "PNG, JPG, WebP up to 10MB",
+    "processImage": "Extract Menu",
+    "extractedProducts": "Extracted Menu",
+    "copy": "Copy",
+    "download": "Download",
+    "rawText": "Raw Recognized Text",
+    "extractFromImage": "Extract from Image",
+    "viewExistingMenu": "View Existing Menu",
+    "selectedBusiness": "Selected Business",
+    "selectMenu": "Select Menu",
+    "existingMenuItems": "Your Existing Menu Items",
+    "existingCategories": "Categories",
+    "existingProducts": "Products",
+    "viewCategories": "View Categories",
+    "refreshData": "Refresh",
+    "categoriesCount": "{{count}} categories available",
+    "noExistingCategories": "No categories found. Add some from the menu section.",
+    "noExistingProducts": "No products found. Add some from the menu section.",
+    "existingMenu": "Existing Menu",
+    "noCategories": "No categories or products found for this menu.",
+    "quickCreateCategory": "Quick Create Category",
+    "uploadImageInfo": "Upload an image for this category",
+    "createProduct": "Add",
+    "processing": "Processing...",
+    "dropHere": "Drop image here",
+    "browseFiles": "Browse files",
+    "uploadDescription": "Upload a clear image of your menu to extract items automatically using AI",
+    "extractionSuccess": "The following items were successfully extracted from your menu image. You can now create categories and products.",
+    "steps": {
+      "upload": "Upload Image",
+      "process": "Process Image",
+      "review": "Review Results"
+    },
+    "userGuide": {
+      "title": "AI Menu Extraction Guide",
+      "clickToExpand": "Click to expand",
+      "intro": "This tool helps you quickly build your menu by extracting products from menu images using AI. Follow these steps to get the best results:",
+      "step1": {
+        "title": "1. Prepare a clear image of your menu",
+        "description": "Take a clear, well-lit photo of your menu or use a digital menu file. Make sure text is readable and prices are visible."
+      },
+      "step2": {
+        "title": "2. Upload your menu image",
+        "description": "Drag and drop your image into the upload area or click to browse files. Supported formats: JPG, PNG, WebP (max 10MB)."
+      },
+      "step3": {
+        "title": "3. Process with AI",
+        "description": "Click \"Extract with AI\" to process your image. Our AI will identify products, prices, and categorize items automatically."
+      },
+      "step4": {
+        "title": "4. Review and organize",
+        "description": "Review extracted products grouped by category. Create categories by clicking the \"+\" button next to each group."
+      },
+      "step5": {
+        "title": "5. Add products to your menu",
+        "description": "Click the \"+\" button next to each product to add it to your menu. You can edit details before saving."
+      },
+      "tips": {
+        "title": "Tips for best results",
+        "tip1": "Use high-resolution, well-lit images with clear text for better extraction accuracy.",
+        "tip2": "Create categories first before adding products to organize your menu efficiently.",
+        "tip3": "Review extracted prices carefully as they may need adjustment.",
+        "tip4": "For menus with multiple pages, process each page separately for best results."
+      }
+    },
+    "errors": {
+      "invalidFileType": "Invalid file type. Please upload a JPG, PNG, or WebP image.",
+      "fileTooLarge": "File is too large. Maximum size is 10MB.",
+      "noImage": "Please select an image to process.",
+      "processingFailed": "Processing failed: {{error}}",
+      "noProductsFound": "No products could be extracted from this image.",
+      "noProductsToCopy": "No products to copy",
+      "noProductsToDownload": "No products to download",
+      "failedToCopy": "Failed to copy: {{error}}"
+    },
+    "success": {
+      "extracted": "Successfully extracted {{count}} products from the image.",
+      "copied": "Products copied to clipboard!"
+    },
+    "reset": "Reset",
+    "reviewResults": "Review Results",
+    "fileName": "menu-products.json"
+  },
+  "categoryForm": {
+    "title": "Category Form",
+    "name": "Category Name",
+    "namePlaceholder": "Enter category name",
+    "description": "Description",
+    "descriptionPlaceholder": "Enter category description",
+    "nameRequired": "Category name is required",
+    "submit": "Create Category",
+    "update": "Update Category",
+    "success": "Category created successfully",
+    "updateSuccess": "Category updated successfully",
+    "error": "Error creating category",
+    "updateError": "Error updating category",
+    "image": "Category Image",
+    "addImage": "Add Image",
+    "changeImage": "Change Image",
+    "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+    "imageSizeError": "File is too large. Maximum size is 1MB",
+    "recommendedSize": "Recommended size: 1200x800px",
+    "maxSize": "1MB",
+    "createCategory": "Create category",
+    "hideForm": "Hide form"
+  },
+  "productForm": {
+    "title": "Product Form",
+    "name": "Product Name",
+    "namePlaceholder": "Enter product name",
+    "description": "Description",
+    "descriptionPlaceholder": "Enter product description",
+    "price": "Price",
+    "pricePlaceholder": "0.00",
+    "category": "Category",
+    "selectCategory": "Select a category",
+    "nameRequired": "Product name is required",
+    "priceRequired": "Valid price is required",
+    "categoryRequired": "Category is required",
+    "imageRequired": "Product image is required",
+    "validationError": "Please fill in all required fields",
+    "submit": "Create Product",
+    "update": "Update Product",
+    "success": "Product created successfully! ({{price}} {{currency}})",
+    "updateSuccess": "Product updated successfully",
+    "error": "Error creating product",
+    "updateError": "Error updating product",
+    "image": "Product Image",
+    "addImage": "Add Image",
+    "changeImage": "Change Image",
+    "imageTypeError": "Invalid file type. Please upload a JPG, PNG, or WebP image",
+    "imageSizeError": "File is too large. Maximum size is 1MB",
+    "maxSize": "1MB",
+    "noCategoriesAvailable": "Please create a category first before adding products"
+  },
+  "productModal": {
+    "title": "Create Product",
+    "subtitle": "Add a new product to your menu"
+  },
+
+  "businesses": {
+    "title": "Discover Businesses",
+    "description": "Explore our collection of businesses and their menus",
+    "searchPlaceholder": "Search businesses...",
+    "filters": {
+      "title": "Filters",
+      "allTypes": "All Types",
+      "allCities": "All Cities",
+      "allStatus": "All Status",
+      "openNow": "Open Now",
+      "closed": "Closed",
+      "clear": "Clear",
+      "activeFilters": "Active filters:",
+      "search": "Search",
+      "type": "Type",
+      "city": "City",
+      "typeLabel": "Business Type",
+      "cityLabel": "City",
+      "statusLabel": "Status"
+    },
+    "openNow": "Open Now",
+    "closed": "Closed",
+    "viewProfile": "View Profile",
+    "openMenu": "Open Menu",
+    "ratings": "ratings",
+    "positiveRatings": "positive ratings",
+    "rateThisBusiness": "Rate this business",
+    "howWasYourExperience": "How was your experience with this business?",
+    "good": "Good",
+    "bad": "Bad",
+    "thankYou": "Thank you for your feedback!",
+    "yourRatingHelps": "Your rating helps others discover great businesses",
+    "alreadyRated": "You have already rated this business",
+    "totalRatings": "Total ratings",
+    "currentRating": "Current rating",
+    "positive": "positive",
+    "votes": "votes",
+    "review": "review",
+    "reviews": "reviews",
+    "noResults": {
+      "title": "No businesses found",
+      "description": "Try adjusting your filters or search terms"
+    },
+    "allRightsReserved": "All rights reserved."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "We value your privacy and are committed to protecting your personal data",
+    "dataProtection": {
+      "title": "Data Protection",
+      "description": "We implement strong security measures to protect your data and ensure confidentiality"
+    },
+    "security": {
+      "title": "Security Measures",
+      "description": "Advanced encryption and security protocols to safeguard your information"
+    },
+    "userRights": {
+      "title": "User Rights",
+      "description": "You have full control over your data with rights to access, modify, or delete"
+    },
+    "dataStorage": {
+      "title": "Data Storage",
+      "description": "Secure storage solutions with regular backups and data protection measures"
+    },
+    "contact": {
+      "title": "Questions About Privacy?",
+      "description": "If you have any questions about our privacy practices or need to exercise your privacy rights, please contact our privacy team."
+    },
+    "businessTypes": {
+      "title": "Protected Business Types",
+      "restaurant": {
+        "title": "Restaurants",
+        "description": "Full protection for your menu items, pricing, and customer data"
+      },
+      "cafe": {
+        "title": "Cafes & Coffee Shops",
+        "description": "Secure handling of beverage menus and loyalty programs"
+      },
+      "snack": {
+        "title": "Snack Bars & Quick Service",
+        "description": "Fast and secure menu management for quick-service establishments"
+      }
+    },
+    "dataCompliance": {
+      "title": "Business Data Compliance",
+      "point1": "Strict protection of business-specific menu items and pricing",
+      "point2": "Secure handling of customer preferences and order history",
+      "point3": "Regular security audits and compliance checks"
+    },
+    "dataUsage": {
+      "management": {
+        "title": "How We Use Your Data",
+        "points": [
+          "Account management and service provision (menu creation, QR display)",
+          "Technical notifications and emails (password recovery, updates)",
+          "Internal analytics (Google Analytics or alternative), without direct identity linking",
+          "Security enhancement (monitoring suspicious login attempts)"
+        ]
+      }
+    },
+    "dataSharing": {
+      "title": "Data Sharing",
+      "points": [
+        "Service providers: Cloudinary (image storage), Google Maps (map frame), CDN services",
+        "Legal authorities when required by law (e.g., court order)",
+        "We never sell data to third parties for commercial purposes"
+      ]
+    },
+    "dataRetention": {
+      "title": "Data Retention",
+      "points": [
+        "We retain menus and images as long as the account is active",
+        "After account deletion: data is removed within 30 days (except as required by law/billing)"
+      ]
+    },
+    "restrictions": {
+      "title": "Business Restrictions",
+      "description": "In alignment with Islamic values and ethical business practices, certain business types are not permitted on our platform.",
+      "examples": [
+        "Adult content or sexually oriented businesses",
+        "Alcohol and tobacco-related businesses",
+        "Gambling and betting services",
+        "Any business promoting harmful or unethical practices"
+      ]
+    },
+    "updates": {
+      "title": "Policy Updates",
+      "description": "Any substantial changes will be communicated via email 7 days before implementation.",
+      "lastUpdated": "Last updated: {{date}}"
     }
   }
+}
